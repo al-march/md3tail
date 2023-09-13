@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-console.log('@md3-ui/tailwind', require('@md3-ui/tailwind'));
+const plugin = require('../tailwind/dist')
 
 module.exports = {
   content: [
@@ -8,5 +8,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('@md3-ui/tailwind')],
+  plugins: [plugin],
 };
