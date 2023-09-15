@@ -1,6 +1,7 @@
 import plugin from 'tailwindcss/plugin';
 import { AddComponents } from './components';
 import tokens from './tokens.json';
+import { toCamelCase } from './utils/utils';
 
 /** @See https://material-components.github.io/material-components-web-catalog/#/component/elevation */
 const elevation = {
@@ -22,11 +23,17 @@ const colors = tokens.entities
   .reduce((acc, token) => {
     const name = token.name.split('.');
     const isLight = name.at(-1) === 'light';
+    /** TODO: don't forget about dark theme with dark colors */
     if (isLight) {
-      acc[name.slice(0, -1).join('-')] = token.value;
+      /**
+       * colorName - name of color without prefixes
+       * @Example md.sys.color.secondary-container.light => secondaryContainer
+       */
+      let colorName = name.slice(3, -1).join('');
+      acc[toCamelCase(colorName)] = token.value;
     }
     return acc;
-  }, { 'onPrimary': 'pink' } as Record<string, string>)
+  }, {} as Record<string, string>)
 
 export default plugin(function ({ addComponents, matchUtilities, theme }) {
   addComponents({
