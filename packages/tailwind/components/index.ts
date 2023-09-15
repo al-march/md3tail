@@ -1,4 +1,4 @@
-import { CSSRuleObject } from "tailwindcss/types/config";
+import { PluginAPI } from "tailwindcss/types/config";
 import { ButtonStyles } from "./button";
 
-export const Components: CSSRuleObject = { ...ButtonStyles };
+export const AddComponents = (theme: PluginAPI['theme']) => ({ ...ButtonStyles({ theme } as PluginAPI) });
