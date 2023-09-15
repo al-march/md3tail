@@ -1,7 +1,7 @@
 import plugin from 'tailwindcss/plugin';
 import { AddComponents } from './components';
-import tokens from './tokens.json';
-import { toCamelCase } from './utils/utils';
+import { tokenColorsLight, tokenColorsDark } from './parser/tokens';
+import { createThemes } from 'tw-colors';
 
 /** @See https://material-components.github.io/material-components-web-catalog/#/component/elevation */
 const elevation = {
@@ -18,26 +18,12 @@ const elevation = {
   10: '0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);'
 }
 
-const colors = tokens.entities
-  .filter(entitiy => entitiy.type === 'color')
-  .reduce((acc, token) => {
-    const name = token.name.split('.');
-    const isLight = name.at(-1) === 'light';
-    /** TODO: don't forget about dark theme with dark colors */
-    if (isLight) {
-      /**
-       * colorName - name of color without prefixes
-       * @Example md.sys.color.secondary-container.light => secondaryContainer
-       */
-      let colorName = name.slice(3, -1).join('');
-      acc[toCamelCase(colorName)] = token.value;
-    }
-    return acc;
-  }, {} as Record<string, string>)
-
-export default plugin(function ({ addComponents, matchUtilities, theme }) {
+const md3Theme = plugin(function ({ addComponents, addBase, matchUtilities, theme }) {
   addComponents({
-    ...AddComponents(theme)
+    ...AddComponents(theme),
+    '[data-theme="dark"]': {
+      backgroudColor: '#000'
+    }
   });
 
   matchUtilities(
@@ -49,17 +35,27 @@ export default plugin(function ({ addComponents, matchUtilities, theme }) {
     { values: theme('elevation') }
   )
 }, {
-  theme: {
-    elevation,
-    extend: {
-      colors,
-      borderRadius: {
-        xs: '0.2rem',
-        sm: '0.4rem',
-      },
-      spacing: {
-        'sm': '0.2rem',
+  plugins: [
+    createThemes({
+      light: {
+        ...tokenColorsLight,
+        'primary': 'steelblue',
+        'secondary': 'darkblue',
+        'brand': '#F3F3F3',
       }
+    })
+  ],
+  theme: {
+    extend: {
+      elevation,
     }
   }
 });
+
+export const md3Tailwind = [
+  createThemes({
+    light: tokenColorsLight,
+    dark: tokenColorsDark,
+  }),
+  md3Theme
+]

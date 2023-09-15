@@ -4,11 +4,10 @@ import { PluginAPI } from "tailwindcss/types/config";
 export const ButtonStyles = ({ theme }: PluginAPI) => {
   return {
     ".btn": {
-      [`@apply transition-all text-primary`]: {},
+      [`@apply transition-all text-primary bg-surface`]: {},
       padding: '0 24px',
       fontWeight: theme('fontWeight.medium'),
       borderRadius: '20px',
-      backgroundColor: theme('surface'),
       lineHeight: '40px',
 
       '&-elevated': {
