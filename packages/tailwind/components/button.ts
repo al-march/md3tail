@@ -68,18 +68,18 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
       },
 
       '&-elevated': {
-        ['@apply bg-surface-container-low elevation-1']: '',
+        ['@apply text-primary elevation-1']: '',
 
         '&:hover': {
-          [`@apply bg-primary-container/[0.92] text-primary`]: '',
+          [`@apply bg-primary/[0.08] text-primary`]: '',
           boxShadow: theme('elevation.2'),
         },
         '&:focus': {
-          [`@apply bg-primary-container/[0.88] text-primary`]: '',
+          [`@apply bg-primary/[0.12] text-primary`]: '',
           boxShadow: theme('elevation.1'),
         },
         '&:active': {
-          [`@apply bg-primary-container/[0.88] text-primary`]: '',
+          [`@apply bg-primary/[0.12] text-primary`]: '',
           boxShadow: theme('elevation.1'),
         },
         '&:disabled': {
@@ -92,13 +92,13 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
         [`@apply bg-secondary-container text-on-secondary-container`]: '',
 
         '&:hover': {
-          ['@apply bg-on-secondary-container/[0.08] elevation-1']: ''
+          ['@apply bg-secondary-container/[0.92] elevation-1']: ''
         },
         '&:focus': {
-          ['@apply bg-on-secondary-container/[0.12]']: ''
+          ['@apply bg-secondary-container/[0.88]']: ''
         },
         '&:active': {
-          ['@apply bg-on-secondary-container/[0.12]']: ''
+          ['@apply bg-secondary-container/[0.88]']: ''
         },
         '&:disabled': {
           ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',
