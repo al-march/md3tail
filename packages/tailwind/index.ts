@@ -134,6 +134,7 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
         'surface-tint': 'rgb(var(--md-sys-color-surface-tint) / <alpha-value>)',
         'outline-variant': 'rgb(var(--md-sys-color-outline-variant) / <alpha-value>)',
         'scrim': 'rgb(var(--md-sys-color-scrim) / <alpha-value>)',
+        'outline': 'rgb(var(--md-ref-palette-neutral60) / <alpha-value>)'
       }
     }
   }
