@@ -1,17 +1,22 @@
-type Themes = "light" | "dark";
+enum Themes {
+  LIGHT = "light",
+  DARK = "dark",
+}
 
 function App() {
   const toggleTheme = () => {
     const theme = document.documentElement.dataset.theme;
     if (theme) {
-      document.documentElement.dataset.theme =
-        theme === "light" ? "dark" : "light";
+      const toggled = theme === Themes.DARK ? Themes.LIGHT : Themes.DARK;
+      document.documentElement.dataset.theme = toggled;
     }
   };
 
   return (
     <div className="App">
-      <button className="btn btn-elevated" onClick={toggleTheme}>Toggle theme</button>
+      <button className="btn btn-elevated" onClick={toggleTheme}>
+        Toggle theme
+      </button>
       <br />
 
       <div className="flex flex-col gap-4">
@@ -22,19 +27,31 @@ function App() {
         </section>
         <section className="flex gap-2">
           <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-primary">
-            <p className="text-onPrimary">O</p>
+            <p className="text-on-primary">O</p>
           </div>
           <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-secondary">
-            <p className="text-onSecondary">O</p>
+            <p className="text-on-secondary">O</p>
           </div>
           <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-tertiary">
-            <p className="text-onTertiary">O</p>
+            <p className="text-on-tertiary">O</p>
           </div>
           <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surface">
-            <p className="text-onSurface">O</p>
+            <p className="text-on-surface">O</p>
           </div>
-          <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surfaceLow">
-            <p className="text-onSurface">O</p>
+          <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surface-container">
+            <p className="text-on-surface">O</p>
+          </div>
+          <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surface-container-lowest">
+            <p className="text-on-surface">O</p>
+          </div>
+          <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surface-container-low">
+            <p className="text-on-surface">O</p>
+          </div>
+          <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surface-container-high">
+            <p className="text-on-surface">O</p>
+          </div>
+          <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surface-container-highest">
+            <p className="text-on-surface">O</p>
           </div>
         </section>
 

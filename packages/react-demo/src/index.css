@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('css/theme.css');
 
 body {
   padding: 20px;
