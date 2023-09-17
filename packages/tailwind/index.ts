@@ -3,19 +3,14 @@ import { AddComponents } from './components';
 
 const PALETTES = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100];
 
-/** @See https://material-components.github.io/material-components-web-catalog/#/component/elevation */
+/** @See https://www.figma.com/file/zPA2BySKG8bW0LTD5LFYNo/Material-3-Design-Kit-(Community) */
 const elevation = {
-  0: '0 0 0 0 rgba(0,0,0,.2), 0 0 0 0 rgba(0,0,0,.14), 0 0 0 0 rgba(0,0,0,.12);',
-  1: '0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);',
-  2: '0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);',
-  3: '0 3px 3px -2px rgba(0,0,0,.2), 0 3px 4px 0 rgba(0,0,0,.14), 0 1px 8px 0 rgba(0,0,0,.12);',
-  4: '0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);',
-  5: '0 3px 5px -1px rgba(0,0,0,.2), 0 5px 8px 0 rgba(0,0,0,.14), 0 1px 14px 0 rgba(0,0,0,.12);',
-  6: '0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);',
-  7: '0 4px 5px -2px rgba(0,0,0,.2), 0 7px 10px 1px rgba(0,0,0,.14), 0 2px 16px 1px rgba(0,0,0,.12);',
-  8: '0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);',
-  9: '0 5px 6px -3px rgba(0,0,0,.2), 0 9px 12px 1px rgba(0,0,0,.14), 0 3px 16px 2px rgba(0,0,0,.12);',
-  10: '0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);'
+  0: 'none',
+  1: 'var(--md-sys-elevation-1)',
+  2: 'var(--md-sys-elevation-2)',
+  3: 'var(--md-sys-elevation-3)',
+  4: 'var(--md-sys-elevation-4)',
+  5: 'var(--md-sys-elevation-5)',
 }
 
 const generatePalette = (mask: string) => {
@@ -38,18 +33,32 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
 
   addBase({
     ':root': {
+      // Surfaces
       '--md-sys-color-surface-container-lowest': '#FFFFFF',
       '--md-sys-color-surface-container-low': '#F7F2FA',
       '--md-sys-color-surface-container': '#F3EDF7',
       '--md-sys-color-surface-container-high': '#ECE6F0',
       '--md-sys-color-surface-container-highest': '#E6E0E9',
+      // Elevation
+      '--md-sys-elevation-1': '0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
+      '--md-sys-elevation-2': '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
+      '--md-sys-elevation-3': '0px 1px 3px 0px rgba(0, 0, 0, 0.30), 0px 4px 8px 3px rgba(0, 0, 0, 0.15)',
+      '--md-sys-elevation-4': '0px 2px 3px 0px rgba(0, 0, 0, 0.30), 0px 6px 10px 4px rgba(0, 0, 0, 0.15)',
+      '--md-sys-elevation-5': '0px 4px 4px 0px rgba(0, 0, 0, 0.30), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)',
     },
     '[data-theme="dark"]': {
+      // Surfaces
       '--md-sys-color-surface-container-lowest': '#0F0D13',
       '--md-sys-color-surface-container-low': '#1D1B20',
       '--md-sys-color-surface-container': '#211F26',
       '--md-sys-color-surface-container-high': '#2B2930',
       '--md-sys-color-surface-container-highest': '#36343B',
+      // Elevation
+      '--md-sys-elevation-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
+      '--md-sys-elevation-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
+      '--md-sys-elevation-3': '0px 1px 3px 0px rgba(0, 0, 0, 0.30), 0px 4px 8px 3px rgba(0, 0, 0, 0.15)',
+      '--md-sys-elevation-4': '0px 2px 3px 0px rgba(0, 0, 0, 0.30), 0px 6px 10px 4px rgba(0, 0, 0, 0.15)',
+      '--md-sys-elevation-5': '0px 4px 4px 0px rgba(0, 0, 0, 0.30), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)',
     }
   })
 
@@ -69,62 +78,62 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
         // Primary
         'primary': {
           ...generatePalette('--md-ref-palette-primary'),
-          DEFAULT: 'var(--md-sys-color-primary)',
+          DEFAULT: 'rgb(var(--md-sys-color-primary) / <alpha-value>)',
         },
-        'on-primary': 'var(--md-sys-color-on-primary)',
-        'primary-container': 'var(--md-sys-color-primary-container)',
-        'on-primary-container': 'var(--md-sys-color-on-primary-container)',
+        'on-primary': 'rgb(var(--md-sys-color-on-primary) / <alpha-value>)',
+        'primary-container': 'rgb(var(--md-sys-color-primary-container) / <alpha-value>)',
+        'on-primary-container': 'rgb(var(--md-sys-color-on-primary-container) / <alpha-value>)',
         // Secondary
         'secondary': {
           ...generatePalette('--md-ref-palette-secondary'),
-          DEFAULT: 'var(--md-sys-color-secondary)',
+          DEFAULT: 'rgb(var(--md-sys-color-secondary) / <alpha-value>)',
         },
-        'on-secondary': 'var(--md-sys-color-on-secondary)',
-        'secondary-container': 'var(--md-sys-color-secondary-container)',
-        'on-secondary-container': 'var(--md-sys-color-on-secondary-container)',
+        'on-secondary': 'rgb(var(--md-sys-color-on-secondary) / <alpha-value>)',
+        'secondary-container': 'rgb(var(--md-sys-color-secondary-container) / <alpha-value>)',
+        'on-secondary-container': 'rgb(var(--md-sys-color-on-secondary-container) / <alpha-value>)',
         // Tertiary
         'tertiary': {
           ...generatePalette('--md-ref-palette-tertiary'),
-          DEFAULT: 'var(--md-sys-color-tertiary)',
+          DEFAULT: 'rgb(var(--md-sys-color-tertiary) / <alpha-value>)',
         },
-        'on-tertiary': 'var(--md-sys-color-on-tertiary)',
-        'tertiary-container': 'var(--md-sys-color-tertiary-container)',
-        'on-tertiary-container': 'var(--md-sys-color-on-tertiary-container)',
+        'on-tertiary': 'rgb(var(--md-sys-color-on-tertiary) / <alpha-value>)',
+        'tertiary-container': 'rgb(var(--md-sys-color-tertiary-container) / <alpha-value>)',
+        'on-tertiary-container': 'rgb(var(--md-sys-color-on-tertiary-container) / <alpha-value>)',
         // Error
         'error': {
           ...generatePalette('--md-ref-palette-error'),
-          DEFAULT: 'var(--md-sys-color-error)',
+          DEFAULT: 'rgb(var(--md-sys-color-error) / <alpha-value>)',
         },
-        'on-error': 'var(--md-sys-color-on-error)',
-        'error-container': 'var(--md-sys-color-error-container)',
-        'on-error-container': 'var(--md-sys-color-on-error-container)',
+        'on-error': 'rgb(var(--md-sys-color-on-error) / <alpha-value>)',
+        'error-container': 'rgb(var(--md-sys-color-error-container) / <alpha-value>)',
+        'on-error-container': 'rgb(var(--md-sys-color-on-error-container) / <alpha-value>)',
         // Background
-        'background': 'var(--md-sys-color-background)',
-        'on-background': 'var(--md-sys-color-on-background)',
+        'background': 'rgb(var(--md-sys-color-background) / <alpha-value>)',
+        'on-background': 'rgb(var(--md-sys-color-on-background) / <alpha-value>)',
         // Surface
         // https://m3.material.io/styles/color/the-color-system/tokens
         'surface': {
-          DEFAULT: 'var(--md-sys-color-surface)',
+          DEFAULT: 'rgb(var(--md-sys-color-surface) / <alpha-value>)',
         },
         'surface-container': {
-          DEFAULT: 'var(--md-sys-color-surface-container)',
-          lowest: 'var(--md-sys-color-surface-container-lowest)',
-          low: 'var(--md-sys-color-surface-container-low)',
-          high: 'var(--md-sys-color-surface-container-high)',
-          highest: 'var(--md-sys-color-surface-container-highest)',
+          DEFAULT: 'rgb(var(--md-sys-color-surface-container) / <alpha-value>)',
+          lowest: 'rgb(var(--md-sys-color-surface-container-lowest) / <alpha-value>)',
+          low: 'rgb(var(--md-sys-color-surface-container-low) / <alpha-value>)',
+          high: 'rgb(var(--md-sys-color-surface-container-high) / <alpha-value>)',
+          highest: 'rgb(var(--md-sys-color-surface-container-highest) / <alpha-value>)',
         },
-        'on-surface': 'var(--md-sys-color-on-surface)',
-        'surface-variant': 'var(--md-sys-color-surface-variant)',
-        'on-surface-variant': 'var(--md-sys-color-on-surface-variant)',
+        'on-surface': 'rgb(var(--md-sys-color-on-surface) / <alpha-value>)',
+        'surface-variant': 'rgb(var(--md-sys-color-surface-variant) / <alpha-value>)',
+        'on-surface-variant': 'rgb(var(--md-sys-color-on-surface-variant) / <alpha-value>)',
         // Inverse
-        'inverse-surface': 'var(--md-sys-color-inverse-surface)',
-        'inverse-on-surface': 'var(--md-sys-color-inverse-on-surface)',
-        'inverse-primary': 'var(--md-sys-color-inverse-primary)',
+        'inverse-surface': 'rgb(var(--md-sys-color-inverse-surface) / <alpha-value>)',
+        'inverse-on-surface': 'rgb(var(--md-sys-color-inverse-on-surface) / <alpha-value>)',
+        'inverse-primary': 'rgb(var(--md-sys-color-inverse-primary) / <alpha-value>)',
         // Others
-        'shadow': 'var(--md-sys-color-shadow)',
-        'surface-tint': 'var(--md-sys-color-surface-tint)',
-        'outline-variant': 'var(--md-sys-color-outline-variant)',
-        'scrim': 'var(--md-sys-color-scrim)',
+        'shadow': 'rgb(var(--md-sys-color-shadow) / <alpha-value>)',
+        'surface-tint': 'rgb(var(--md-sys-color-surface-tint) / <alpha-value>)',
+        'outline-variant': 'rgb(var(--md-sys-color-outline-variant) / <alpha-value>)',
+        'scrim': 'rgb(var(--md-sys-color-scrim) / <alpha-value>)',
       }
     }
   }
