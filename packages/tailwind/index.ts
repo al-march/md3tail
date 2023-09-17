@@ -22,7 +22,10 @@ const md3Theme = plugin(function ({ addComponents, addBase, matchUtilities, them
   addComponents({
     ...AddComponents(theme),
     '[data-theme="dark"]': {
-      backgroudColor: '#000'
+      [`@apply bg-background`]: '',
+    },
+    '[data-theme="light"]': {
+      [`@apply bg-background`]: '',
     }
   });
 
@@ -35,16 +38,6 @@ const md3Theme = plugin(function ({ addComponents, addBase, matchUtilities, them
     { values: theme('elevation') }
   )
 }, {
-  plugins: [
-    createThemes({
-      light: {
-        ...tokenColorsLight,
-        'primary': 'steelblue',
-        'secondary': 'darkblue',
-        'brand': '#F3F3F3',
-      }
-    })
-  ],
   theme: {
     extend: {
       elevation,

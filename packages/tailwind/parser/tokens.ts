@@ -1,13 +1,10 @@
 import tokens from '../tokens.json';
 import { toCamelCase } from '../utils'
-
-
-export const tokenColorsLight = tokens.entities
+const lightColors = tokens.entities
   .filter(entitiy => entitiy.type === 'color')
   .reduce((acc, token) => {
     const name = token.name.split('.');
     const isLight = name.at(-1) === 'light';
-    /** TODO: don't forget about dark theme with dark colors */
     if (isLight) {
       /**
        * colorName - name of color without prefixes
@@ -19,12 +16,12 @@ export const tokenColorsLight = tokens.entities
     return acc;
   }, {} as Record<string, string>)
 
-export const tokenColorsDark = tokens.entities
+
+const darkColors = tokens.entities
   .filter(entitiy => entitiy.type === 'color')
   .reduce((acc, token) => {
     const name = token.name.split('.');
     const isDark = name.at(-1) === 'dark';
-    /** TODO: don't forget about dark theme with dark colors */
     if (isDark) {
       /**
        * colorName - name of color without prefixes
@@ -34,4 +31,8 @@ export const tokenColorsDark = tokens.entities
       acc[toCamelCase(colorName)] = token.value;
     }
     return acc;
-  }, {} as Record<string, string>)
+  }, {} as Record<string, string>);
+
+
+export const tokenColorsLight = lightColors;
+export const tokenColorsDark = darkColors;

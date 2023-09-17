@@ -2,9 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-[data-theme="dark"] {
-  background-color: black;
-}
+
 body {
   padding: 20px;
 }

@@ -1,7 +1,17 @@
+type Themes = "light" | "dark";
+
 function App() {
+  const toggleTheme = () => {
+    const theme = document.documentElement.dataset.theme;
+    if (theme) {
+      document.documentElement.dataset.theme =
+        theme === "light" ? "dark" : "light";
+    }
+  };
+
   return (
     <div className="App">
-      <button className="btn btn-elevated">Elevated button</button>
+      <button className="btn btn-elevated" onClick={toggleTheme}>Toggle theme</button>
       <br />
 
       <div className="flex flex-col gap-4">
@@ -21,6 +31,9 @@ function App() {
             <p className="text-onTertiary">O</p>
           </div>
           <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surface">
+            <p className="text-onSurface">O</p>
+          </div>
+          <div className="h-10 w-10 flex items-center justify-center elevation-1 bg-surfaceLow">
             <p className="text-onSurface">O</p>
           </div>
         </section>
