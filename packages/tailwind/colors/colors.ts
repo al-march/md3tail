@@ -15,7 +15,7 @@ const generatePalette = (mask: string) => {
 
 export const colors = {
   // Primary
-  'primary': {
+  primary: {
     ...generatePalette('--md-ref-palette-primary'),
     DEFAULT: generateColor('primary'),
   },
@@ -78,7 +78,7 @@ export const colors = {
 
 export type MD3Color = keyof typeof colors;
 
-export const mixColor = (mdColor1: MD3Color, percent: string, mdColor2: MD3Color) => {
+export function mixColor(mdColor1: MD3Color, percent: string, mdColor2: MD3Color) {
   const color1 = getColor(mdColor1);
   const color2 = getColor(mdColor2);
   return `color-mix(in srgb, ${color1} ${percent}, ${color2})`
