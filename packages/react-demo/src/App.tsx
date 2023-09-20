@@ -21,7 +21,7 @@ function App() {
       </header>
 
       <main className="p-4">
-        <section className="flex flex-col gap-2">
+        <section className="flex flex-col gap-2 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
           <h2 className="headline-large">Buttons</h2>
 
           <section className="flex gap-2">
