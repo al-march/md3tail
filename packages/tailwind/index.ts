@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 import { AddComponents } from './components';
-import { Fonts, Md3Colors } from './theming';
+import { FontClasses, Md3Colors } from './theming';
 import { Variables } from './theming/variables';
 
 
@@ -17,7 +17,7 @@ const elevation = {
 export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilities, theme }) {
   addComponents({
     ...AddComponents(theme),
-    ...Fonts,
+    ...FontClasses,
     '[data-theme="dark"]': {
       [`@apply bg-background text-on-background`]: '',
     },

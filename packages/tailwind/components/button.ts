@@ -16,7 +16,10 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
       
 
       '&-with-icon': {
-        paddingLeft: '16px'
+        paddingLeft: '16px',
+        '&:has(> *:only-child)': {
+          paddingRight: '16px'
+        },
       },
 
       '&-filled': {

@@ -149,5 +149,22 @@ export const Fonts = {
     textTransform: 'var(--md-sys-typescale-title-small-text-transform)',
     textDecoration: 'var(--md-sys-typescale-title-small-text-decoration)',
   }
-  
 }
+
+export type FontClassName = keyof typeof Fonts;
+
+export interface FontValue {
+  fontFamily: string;
+  fontStyle: string;
+  fontWeight: string;
+  fontSize: string;
+  letterSpacing: string;
+  lineHeight: string;
+  textTransform: string;
+  textDecoration: string;
+}
+
+export const FontClasses = Object.keys(Fonts).reduce((acc, className) => {
+  acc[`.${className}`] = Fonts[className as FontClassName];
+  return acc;
+}, {} as Record<string, FontValue>);
