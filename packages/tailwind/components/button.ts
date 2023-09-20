@@ -15,6 +15,10 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
       lineHeight: '40px',
       transition: '0.3s ease all',
 
+      '&-with-icon': {
+        paddingLeft: '16px'
+      },
+
       '&-filled': {
         background: getColor('primary'),
         color: getColor('on-primary'),

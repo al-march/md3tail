@@ -24,6 +24,10 @@ function App() {
 
       <section className="flex gap-2">
         <button className="btn btn-text">Default</button>
+        <button className="btn btn-text btn-with-icon">
+          <span className="material-symbols-outlined">settings</span>
+          Icon
+        </button>
 
         <button className="btn btn-text" disabled>
           Disabled
@@ -34,6 +38,10 @@ function App() {
 
       <section className="flex gap-2">
         <button className="btn btn-filled">Filled</button>
+        <button className="btn btn-filled btn-with-icon">
+          <span className="material-symbols-outlined">settings</span>
+          Icon
+        </button>
 
         <button className="btn btn-filled" disabled>
           Disabled
@@ -44,6 +52,10 @@ function App() {
 
       <section className="flex gap-2">
         <button className="btn btn-outlined">Outlined</button>
+        <button className="btn btn-outlined btn-with-icon">
+          <span className="material-symbols-outlined">settings</span>
+          Icon
+        </button>
 
         <button className="btn btn-outlined" disabled>
           Disabled
@@ -54,6 +66,10 @@ function App() {
 
       <section className="flex gap-2">
         <button className="btn btn-tonal">Tonal</button>
+        <button className="btn btn-tonal btn-with-icon">
+          <span className="material-symbols-outlined">settings</span>
+          Icon
+        </button>
 
         <button className="btn btn-tonal" disabled>
           Disabled
@@ -64,6 +80,10 @@ function App() {
 
       <section className="flex gap-2">
         <button className="btn btn-elevated">Elevated</button>
+        <button className="btn btn-elevated btn-with-icon">
+          <span className="material-symbols-outlined">settings</span>
+          Icon
+        </button>
 
         <button className="btn btn-elevated" disabled>
           Disabled
