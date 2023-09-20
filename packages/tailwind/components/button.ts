@@ -1,27 +1,27 @@
-import { mixColor, md3Colors, getColor } from "../colors";
+import { mixColor, MD3Color, Fonts } from "../theming";
 import { PluginAPI } from "tailwindcss/types/config";
 
 export const ButtonStyles = ({ theme }: PluginAPI) => {
   return {
     ".btn": {
-      [`@apply outline-none`]: '',
+      ...Fonts['label-large'],
+      outline: 'none',
       display: 'inline-flex',
       alignItems: 'center',
       gap: '8px',
       padding: '0 24px',
-      fontSize: '14px',
-      fontWeight: theme('fontWeight.medium'),
       borderRadius: '20px',
       lineHeight: '40px',
       transition: '0.3s ease all',
+      
 
       '&-with-icon': {
         paddingLeft: '16px'
       },
 
       '&-filled': {
-        background: getColor('primary'),
-        color: getColor('on-primary'),
+        background: MD3Color('primary'),
+        color: MD3Color('on-primary'),
 
         '&:hover': {
           background: mixColor('primary', 'on-primary', '8%'),
@@ -34,13 +34,15 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
           background: mixColor('primary', 'on-primary', '12%'),
         },
         '&:disabled': {
-          ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',
-          ['@apply elevation-0 cursor-not-allowed']: ''
+          background: MD3Color('on-surface', '0.12'),
+          color: MD3Color('on-surface', '0.38'),
+          boxShadow: 'none',
+          cursor: 'not-allowed'
         }
       },
 
       '&-text': {
-        ['@apply text-primary']: '',
+        color: MD3Color('primary'),
 
         '&:hover': {
           background: mixColor('surface-container-low', 'primary', '8%'),
@@ -58,22 +60,28 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
       },
 
       '&-outlined': {
-        [`@apply bg-transparent text-primary border-outline`]: '',
         borderRadius: '100px',
         borderWidth: '1px',
+        borderColor: MD3Color('outline'),
+        color: MD3Color('primary'),
+        background: 'transpatent',
 
         '&:hover': {
           background: mixColor('surface-container-low', 'primary', '8%'),
         },
         '&:focus': {
           background: mixColor('surface-container-low', 'primary', '12%'),
+          borderColor: MD3Color('primary'),
         },
         '&:active': {
           background: mixColor('surface-container-low', 'primary', '12%'),
         },
         '&:disabled': {
-          ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
-          ['@apply elevation-0 cursor-not-allowed border-outline border-opacity-[0.12]']: ''
+          background: 'transparent',
+          color: MD3Color('on-surface', '0.38'),
+          boxShadow: 'none',
+          cursor: 'not-allowed',
+          border: `1px solid ${MD3Color('on-surface', '0.12')}`
         }
       },
 

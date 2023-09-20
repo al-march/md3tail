@@ -6,7 +6,11 @@ const generateColor = (color: string) => (
   `rgb(var(--md-sys-color-${color}) / ${alphaValue})`
 )
 
-const generatePalette = (mask: string) => {
+const generatePalette = (color: string) => (
+  `rgb(var(--md-ref-palette-${color}) / ${alphaValue})`
+)
+
+const generatePaletteList = (mask: string) => {
   return PALETTES.reduce((acc, p) => {
     acc[p] = `rgb(var(${mask}${p}) / ${alphaValue})`;
     return acc;
@@ -16,7 +20,7 @@ const generatePalette = (mask: string) => {
 const colors = {
   // Primary
   primary: {
-    ...generatePalette('--md-ref-palette-primary'),
+    ...generatePaletteList('--md-ref-palette-primary'),
     DEFAULT: generateColor('primary'),
   },
   'on-primary': generateColor('on-primary'),
@@ -24,7 +28,7 @@ const colors = {
   'on-primary-container': generateColor('on-primary-container'),
   // Secondary
   'secondary': {
-    ...generatePalette('--md-ref-palette-secondary'),
+    ...generatePaletteList('--md-ref-palette-secondary'),
     DEFAULT: generateColor('secondary'),
   },
   'on-secondary': generateColor('on-secondary'),
@@ -32,7 +36,7 @@ const colors = {
   'on-secondary-container': generateColor('on-secondary-container'),
   // Tertiary
   'tertiary': {
-    ...generatePalette('--md-ref-palette-tertiary'),
+    ...generatePaletteList('--md-ref-palette-tertiary'),
     DEFAULT: generateColor('tertiary'),
   },
   'on-tertiary': generateColor('on-tertiary'),
@@ -40,7 +44,7 @@ const colors = {
   'on-tertiary-container': generateColor('on-tertiary-container'),
   // Error
   'error': {
-    ...generatePalette('--md-ref-palette-error'),
+    ...generatePaletteList('--md-ref-palette-error'),
     DEFAULT: generateColor('error'),
   },
   'on-error': generateColor('on-error'),
@@ -69,18 +73,18 @@ const colors = {
   'surface-tint': generateColor('surface-tint'),
   'outline-variant': generateColor('outline-variant'),
   'scrim': generateColor('scrim'),
-  'outline': 'var(--md-ref-palette-neutral60)',
+  'outline': generatePalette('neutral60'),
 }
 
 export type MD3Color = keyof typeof colors;
 
 export function mixColor(mdColor1: MD3Color, mdColor2: MD3Color, percent: string) {
-  const color1 = getColor(mdColor1);
-  const color2 = getColor(mdColor2);
+  const color1 = MD3Color(mdColor1);
+  const color2 = MD3Color(mdColor2);
   return `color-mix(in srgb, ${color1}, ${color2} ${percent})`
 }
 
-export function getColor(mdColor: MD3Color, opacity = '1'): string {
+export function MD3Color(mdColor: MD3Color, opacity = '1'): string {
   const color = colors[mdColor];
   if (typeof color === 'string') {
     return color.replace(alphaValue, opacity);
@@ -89,4 +93,4 @@ export function getColor(mdColor: MD3Color, opacity = '1'): string {
   }
 }
 
-export const md3Colors = { ...colors };
+export const Md3Colors = { ...colors };
