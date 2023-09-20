@@ -1,11 +1,13 @@
+import { mixColor, md3Colors, getColor } from "../colors";
 import { PluginAPI } from "tailwindcss/types/config";
-import { mixColor } from "../colors";
-
 
 export const ButtonStyles = ({ theme }: PluginAPI) => {
   return {
     ".btn": {
-      [`@apply bg-surface-container-low outline-none`]: '',
+      [`@apply outline-none`]: '',
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
       padding: '0 24px',
       fontSize: '14px',
       fontWeight: theme('fontWeight.medium'),
@@ -13,42 +15,41 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
       lineHeight: '40px',
       transition: '0.3s ease all',
 
-      '&-text': {
-        ['@apply text-primary']: '',
-
-        '&:hover': {
-          ['@apply bg-primary bg-opacity-[0.08]']: ''
-        },
-        '&:focus': {
-          ['@apply bg-primary bg-opacity-[0.12]']: ''
-        },
-        '&:active': {
-          ['@apply bg-primary bg-opacity-[0.12]']: ''
-        },
-        '&:disabled': {
-          ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
-          ['@apply cursor-not-allowed']: ''
-        }
-      },
-
       '&-filled': {
-        [`@apply bg-primary text-on-primary`]: '',
+        background: getColor('primary'),
+        color: getColor('on-primary'),
 
         '&:hover': {
-          ['@apply elevation-1']: '',
-          background: mixColor('primary', '92%', 'on-primary'),
+          background: mixColor('primary', 'on-primary', '8%'),
+          boxShadow: theme('elevation.1')
         },
         '&:focus': {
-          ['@apply elevation-0']: '',
-          background: mixColor('primary', '88%', 'on-primary'),
+          background: mixColor('primary', 'on-primary', '12%'),
         },
         '&:active': {
-          ['@apply elevation-0']: '',
-          background: mixColor('primary', '88%', 'on-primary'),
+          background: mixColor('primary', 'on-primary', '12%'),
         },
         '&:disabled': {
           ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',
           ['@apply elevation-0 cursor-not-allowed']: ''
+        }
+      },
+
+      '&-text': {
+        ['@apply text-primary']: '',
+
+        '&:hover': {
+          background: mixColor('surface-container-low', 'primary', '8%'),
+        },
+        '&:focus': {
+          background: mixColor('surface-container-low', 'primary', '12%'),
+        },
+        '&:active': {
+          background: mixColor('surface-container-low', 'primary', '12%'),
+        },
+        '&:disabled': {
+          ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
+          ['@apply cursor-not-allowed']: ''
         }
       },
 
@@ -58,13 +59,13 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
         borderWidth: '1px',
 
         '&:hover': {
-          ['@apply bg-primary bg-opacity-[0.08]']: ''
+          background: mixColor('surface-container-low', 'primary', '8%'),
         },
         '&:focus': {
-          ['@apply bg-primary bg-opacity-[0.12]']: ''
+          background: mixColor('surface-container-low', 'primary', '12%'),
         },
         '&:active': {
-          ['@apply bg-primary bg-opacity-[0.12]']: ''
+          background: mixColor('surface-container-low', 'primary', '12%'),
         },
         '&:disabled': {
           ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
@@ -76,15 +77,15 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
         ['@apply bg-surface-container-low text-primary elevation-1']: '',
 
         '&:hover': {
-          [`@apply bg-primary bg-opacity-[0.08] text-primary`]: '',
+          background: mixColor('surface-container-low', 'primary', '8%'),
           boxShadow: theme('elevation.2'),
         },
         '&:focus': {
-          [`@apply bg-primary bg-opacity-[0.12] text-primary`]: '',
+          background: mixColor('surface-container-low', 'primary', '12%'),
           boxShadow: theme('elevation.1'),
         },
         '&:active': {
-          [`@apply bg-primary bg-opacity-[0.12] text-primary`]: '',
+          background: mixColor('surface-container-low', 'primary', '12%'),
           boxShadow: theme('elevation.1'),
         },
         '&:disabled': {
@@ -97,13 +98,13 @@ export const ButtonStyles = ({ theme }: PluginAPI) => {
         ['@apply bg-secondary-container text-on-secondary-container']: '',
         '&:hover': {
           ['@apply elevation-1']: '',
-          background: mixColor('secondary-container', '92%', 'on-secondary-container'),
+          background: mixColor('secondary-container', 'on-secondary-container', '8%'),
         },
         '&:focus': {
-          background: mixColor('secondary-container', '88%', 'on-secondary-container'),
+          background: mixColor('secondary-container', 'on-secondary-container', '12%'),
         },
         '&:active': {
-          background: mixColor('secondary-container', '88%', 'on-secondary-container'),
+          background: mixColor('secondary-container', 'on-secondary-container', '12%'),
         },
         '&:disabled': {
           ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',

@@ -1,6 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 import { AddComponents } from './components';
-import { colors } from './colors';
+import { md3Colors } from './colors';
 
 
 /** @See https://www.figma.com/file/zPA2BySKG8bW0LTD5LFYNo/Material-3-Design-Kit-(Community) */
@@ -27,11 +27,11 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
   addBase({
     ':root': {
       // Surfaces
-      '--md-sys-color-surface-container-lowest': '#FFFFFF',
-      '--md-sys-color-surface-container-low': '#F7F2FA',
-      '--md-sys-color-surface-container': '#F3EDF7',
-      '--md-sys-color-surface-container-high': '#ECE6F0',
-      '--md-sys-color-surface-container-highest': '#E6E0E9',
+      '--md-sys-color-surface-container-lowest': '255 255 255',
+      '--md-sys-color-surface-container-low': '247 242 250',
+      '--md-sys-color-surface-container': '243 237 247',
+      '--md-sys-color-surface-container-high': '236 230 240',
+      '--md-sys-color-surface-container-highest': '230 224 233',
       // Elevation
       '--md-sys-elevation-1': '0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
       '--md-sys-elevation-2': '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
@@ -41,11 +41,11 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
     },
     '[data-theme="dark"]': {
       // Surfaces
-      '--md-sys-color-surface-container-lowest': '#0F0D13',
-      '--md-sys-color-surface-container-low': '#1D1B20',
-      '--md-sys-color-surface-container': '#211F26',
-      '--md-sys-color-surface-container-high': '#2B2930',
-      '--md-sys-color-surface-container-highest': '#36343B',
+      '--md-sys-color-surface-container-lowest': '15 13 19',
+      '--md-sys-color-surface-container-low': '29 27 32',
+      '--md-sys-color-surface-container': '33 31 38',
+      '--md-sys-color-surface-container-high': '43 41 48',
+      '--md-sys-color-surface-container-highest': '54 52 59',
       // Elevation
       '--md-sys-elevation-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
       '--md-sys-elevation-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
@@ -63,11 +63,11 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
     },
     { values: theme('elevation') }
   )
-}, {
+}, { 
   theme: {
     extend: {
       elevation,
-      colors
+      colors: md3Colors
     }
   }
 });

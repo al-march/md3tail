@@ -13,7 +13,7 @@ const generatePalette = (mask: string) => {
   }, {} as Record<string, string>);
 }
 
-export const colors = {
+const colors = {
   // Primary
   primary: {
     ...generatePalette('--md-ref-palette-primary'),
@@ -51,16 +51,12 @@ export const colors = {
   'on-background': generateColor('on-background'),
   // Surface
   // https://m3.material.io/styles/color/the-color-system/tokens
-  'surface': {
-    DEFAULT: generateColor('surface'),
-  },
-  'surface-container': {
-    DEFAULT: generateColor('surface-container'),
-    lowest: generateColor('surface-container-lowest'),
-    low: generateColor('surface-container-low'),
-    high: generateColor('surface-container-high'),
-    highest: generateColor('surface-container-highest'),
-  },
+  'surface': generateColor('surface'),
+  'surface-container': generateColor('surface-container'),
+  'surface-container-lowest': generateColor('surface-container-lowest'),
+  'surface-container-low': generateColor('surface-container-low'),
+  'surface-container-high': generateColor('surface-container-high'),
+  'surface-container-highest': generateColor('surface-container-highest'),
   'on-surface': generateColor('on-surface'),
   'surface-variant': generateColor('surface-variant'),
   'on-surface-variant': generateColor('on-surface-variant'),
@@ -78,17 +74,19 @@ export const colors = {
 
 export type MD3Color = keyof typeof colors;
 
-export function mixColor(mdColor1: MD3Color, percent: string, mdColor2: MD3Color) {
+export function mixColor(mdColor1: MD3Color, mdColor2: MD3Color, percent: string) {
   const color1 = getColor(mdColor1);
   const color2 = getColor(mdColor2);
-  return `color-mix(in srgb, ${color1} ${percent}, ${color2})`
+  return `color-mix(in srgb, ${color1}, ${color2} ${percent})`
 }
 
-function getColor(mdColor: MD3Color): string {
+export function getColor(mdColor: MD3Color, opacity = '1'): string {
   const color = colors[mdColor];
   if (typeof color === 'string') {
-    return color.replace(alphaValue, '1');
+    return color.replace(alphaValue, opacity);
   } else {
-    return color['DEFAULT'].replace(alphaValue, '1');
+    return color['DEFAULT'].replace(alphaValue, opacity);
   }
 }
+
+export const md3Colors = { ...colors };
