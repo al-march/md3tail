@@ -1,4 +1,5 @@
 import { Button } from "./lib/buttons";
+import { TextField } from "./lib/form/text-input";
 
 enum Themes {
   LIGHT = "light",
@@ -33,7 +34,7 @@ function App() {
 
   return (
     <div>
-      <header className="flex gap-4 items-center bg-surface elevation-3 p-2 sticky top-0">
+      <header className="flex gap-4 items-center bg-surface elevation-3 p-2 sticky top-0 z-10">
         <Button className="h-[40px]" icon="light_mode" onClick={toggleTheme} />
       </header>
 
@@ -241,6 +242,15 @@ function App() {
                 </button>
               </section>
             </div>
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-2 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div className="flex gap-2">
+            <TextField label="Label" placeholder="placeholder" />
+            <TextField label="Label" error placeholder="placeholder" />
+            <TextField label="Label" defaultValue="123" placeholder="placeholder" />
+            <TextField label="Label" disabled placeholder="placeholder" />
           </div>
         </section>
 
