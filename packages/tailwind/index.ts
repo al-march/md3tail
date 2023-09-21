@@ -5,7 +5,7 @@ import { Variables } from './theming/variables';
 
 export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilities, theme }) {
   addComponents({
-    ...Components(),
+    ...Components(), 
     ...FontClasses,
     '[data-theme="dark"]': {
       [`@apply bg-background text-on-background`]: '',
