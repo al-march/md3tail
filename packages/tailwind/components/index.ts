@@ -1,4 +1,7 @@
-import { PluginAPI } from "tailwindcss/types/config";
-import { ButtonStyles } from "./button";
+import { Buttons } from './buttons';
 
-export const AddComponents = (theme: PluginAPI['theme']) => ({ ...ButtonStyles({ theme } as PluginAPI) });
+export const Components = () => {
+  return {
+    ...Buttons()
+  }
+}
