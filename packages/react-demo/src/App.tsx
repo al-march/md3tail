@@ -24,66 +24,111 @@ function App() {
         <section className="flex flex-col gap-2 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
           <h2 className="headline-large">Buttons</h2>
 
-          <section className="flex gap-2">
-            <Button>Button</Button>
-            <Button icon="settings">Icon</Button>
-            <Button disabled>Icon</Button>
-            <Button icon="settings" disabled>
-              Icon
-            </Button>
-          </section>
+          <div className="flex gap-2 items-start">
+            <div className="flex flex-col gap-2">
+              <section className="flex gap-2">
+                <Button>Button</Button>
+                <Button icon="settings">Icon</Button>
+                <Button disabled>Icon</Button>
+                <Button icon="settings" disabled>
+                  Icon
+                </Button>
+              </section>
 
-          <section className="flex gap-2">
-            <Button mdType="filled">Button</Button>
-            <Button mdType="filled" icon="settings">
-              Icon
-            </Button>
-            <Button mdType="filled" disabled>
-              Icon
-            </Button>
-            <Button mdType="filled" icon="settings" disabled>
-              Icon
-            </Button>
-          </section>
+              <section className="flex gap-2">
+                <Button mdType="filled">Button</Button>
+                <Button mdType="filled" icon="settings">
+                  Icon
+                </Button>
+                <Button mdType="filled" disabled>
+                  Icon
+                </Button>
+                <Button mdType="filled" icon="settings" disabled>
+                  Icon
+                </Button>
+              </section>
 
-          <section className="flex gap-2">
-            <Button mdType="outlined">Button</Button>
-            <Button mdType="outlined" icon="settings">
-              Icon
-            </Button>
-            <Button mdType="outlined" disabled>
-              Icon
-            </Button>
-            <Button mdType="outlined" icon="settings" disabled>
-              Icon
-            </Button>
-          </section>
+              <section className="flex gap-2">
+                <Button mdType="outlined">Button</Button>
+                <Button mdType="outlined" icon="settings">
+                  Icon
+                </Button>
+                <Button mdType="outlined" disabled>
+                  Icon
+                </Button>
+                <Button mdType="outlined" icon="settings" disabled>
+                  Icon
+                </Button>
+              </section>
 
-          <section className="flex gap-2">
-            <Button mdType="tonal">Button</Button>
-            <Button mdType="tonal" icon="settings">
-              Icon
-            </Button>
-            <Button mdType="tonal" disabled>
-              Icon
-            </Button>
-            <Button mdType="tonal" icon="settings" disabled>
-              Icon
-            </Button>
-          </section>
+              <section className="flex gap-2">
+                <Button mdType="tonal">Button</Button>
+                <Button mdType="tonal" icon="settings">
+                  Icon
+                </Button>
+                <Button mdType="tonal" disabled>
+                  Icon
+                </Button>
+                <Button mdType="tonal" icon="settings" disabled>
+                  Icon
+                </Button>
+              </section>
 
-          <section className="flex gap-2">
-            <Button mdType="elevated">Button</Button>
-            <Button mdType="elevated" icon="settings">
-              Icon
-            </Button>
-            <Button mdType="elevated" disabled>
-              Icon
-            </Button>
-            <Button mdType="elevated" icon="settings" disabled>
-              Icon
-            </Button>
-          </section>
+              <section className="flex gap-2">
+                <Button mdType="elevated">Button</Button>
+                <Button mdType="elevated" icon="settings">
+                  Icon
+                </Button>
+                <Button mdType="elevated" disabled>
+                  Icon
+                </Button>
+                <Button mdType="elevated" icon="settings" disabled>
+                  Icon
+                </Button>
+              </section>
+            </div>
+            <div className="flex flex-col gap-2">
+              <section className="flex gap-2">
+                <button className="icon-btn">
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+
+                <button className="icon-btn" disabled>
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+              </section>
+
+              <section className="flex gap-2">
+                <button className="icon-btn icon-btn-filled">
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+
+                <button className="icon-btn icon-btn-filled" disabled>
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+              </section>
+
+              <section className="flex gap-2">
+                <button className="icon-btn icon-btn-outlined">
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+
+                <button className="icon-btn icon-btn-outlined" disabled>
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+              </section>
+
+              <section className="flex gap-2">
+                <button className="icon-btn icon-btn-tonal">
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+
+                <button className="icon-btn icon-btn-tonal" disabled>
+                  <span className="material-symbols-outlined">settings</span>
+                </button>
+              </section>
+            </div>
+          </div>
         </section>
 
         <div className="flex flex-col gap-4">
