@@ -252,6 +252,13 @@ function App() {
             <TextField label="Label" defaultValue="123" placeholder="placeholder" />
             <TextField label="Label" disabled placeholder="placeholder" />
           </div>
+
+          <div className="flex gap-2">
+            <TextField label="Label" appearance="outline" placeholder="placeholder" />
+            <TextField label="Label" appearance="outline" error placeholder="placeholder" />
+            <TextField label="Label" appearance="outline" defaultValue="123" placeholder="placeholder" />
+            <TextField label="Label" appearance="outline" disabled placeholder="placeholder" />
+          </div>
         </section>
 
         <div className="flex flex-col gap-4">

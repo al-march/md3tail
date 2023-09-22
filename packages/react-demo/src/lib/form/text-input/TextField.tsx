@@ -4,11 +4,13 @@ import { FormEvent, InputHTMLAttributes, useEffect, useRef } from "react";
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: boolean;
+  appearance?: "fill" | "outline";
 }
 
 export const TextField = ({
   label,
   error,
+  appearance = 'fill',
   className,
   ...others
 }: TextInputProps) => {
@@ -17,6 +19,8 @@ export const TextField = ({
     "text-field",
     {
       "text-field-error": error,
+      "text-field-outline": appearance === "outline",
+      "text-field-fill": appearance === "fill",
     },
     className
   );
@@ -27,10 +31,12 @@ export const TextField = ({
 
   return (
     <div className={classes} tabIndex={1} onFocus={onTextFieldFocused}>
-      <input ref={textInput} className="text-field-input" {...others} />
-      {label && <label className="text-field-label">{label}</label>}
+      <div className="text-field-area">
+        <input ref={textInput} className="text-field-input" {...others} />
+        {label && <label className="text-field-label">{label}</label>}
+      </div>
 
-      <div className="text-field-border" />
+      {appearance === "fill" && <div className="text-field-border" />}
     </div>
   );
 };
