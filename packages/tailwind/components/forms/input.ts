@@ -8,14 +8,17 @@ export const InputStyles = () => {
       '--text-field-color': MD3Color('on-surface-variant'),
       '--text-field-bg-color': MD3Color('surface-container-highest'),
       '--text-field-border-color': MD3Color('on-surface-variant'),
+      '--text-field-area-support-color': MD3Color('on-surface-variant'),
       '--text-field-area-p-top': '8px',
       '--text-field-area-p-bottom': '8px',
 
       position: 'relative',
       display: 'inline-flex',
-      width: 'fit-content',
       alignItems: 'center',
       alignSelf: 'stretch',
+      justifyContent: 'space-between',
+      minWidth: '210px',
+
       transition: '0.15s ease all',
       marginBottom: '18px',
       background: 'var(--text-field-bg-color)',
@@ -40,9 +43,13 @@ export const InputStyles = () => {
 
       '&-area': {
         position: 'relative',
-        padding: '8px 16px',
+        padding: '8px 0',
+        height: '24px',
         paddingTop: 'var(--text-field-area-p-top)',
         paddingBottom: 'var(--text-field-area-p-bottom)',
+        boxSizing: 'content-box',
+        flex: '1',
+        display: 'flex',
       },
 
       '&-fill': {
@@ -88,8 +95,14 @@ export const InputStyles = () => {
 
       '&-input': {
         ...Fonts['body-large'],
+        position: 'absolute',
+        left: '0',
+        right: '0',
+        bottom: 'var(--text-field-area-p-bottom)',
+
         background: 'transparent',
         outline: 'none',
+        width: '100%',
         color: MD3Color('on-surface-variant'),
 
         '&::placeholder': {
@@ -107,7 +120,7 @@ export const InputStyles = () => {
         ...Fonts['body-large'],
         color: 'var(--text-field-color)',
         position: 'absolute',
-        left: '12px',
+        left: '0',
         top: '16px',
         transition: '0.15s ease all',
         padding: '0 4px',
@@ -126,10 +139,39 @@ export const InputStyles = () => {
       '&-error, &-error:hover, &-error:focus-within': {
         '--text-field-border-color': MD3Color('error'),
         '--text-field-color': MD3Color('error'),
+        '--text-field-area-support-color': MD3Color('error'),
+
+        '.text-field-trailing': {
+          color: MD3Color('error'),
+        }
       },
       '&-error:focus-within': {
         '--text-field-border-width': '2px',
       },
-    }
+
+      '&-support': {
+        ...Fonts['body-small'],
+        position: 'absolute',
+        bottom: '0',
+        left: '0',
+        right: '0',
+
+        color: 'var(--text-field-area-support-color)',
+        padding: '0 16px',
+        transform: 'translateY(100%)',
+      },
+
+      '&-leading': {
+        color: MD3Color('on-surface-variant'),
+        display: 'inline-flex',
+        padding: '8px',
+      },
+
+      '&-trailing': {
+        color: MD3Color('on-surface-variant'),
+        display: 'inline-flex',
+        padding: '8px',
+      }
+    },
   }
 }

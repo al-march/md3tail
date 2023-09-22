@@ -247,17 +247,103 @@ function App() {
 
         <section className="flex flex-col gap-2 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
           <div className="flex gap-2">
-            <TextField label="Label" placeholder="placeholder" />
-            <TextField label="Label" error placeholder="placeholder" />
-            <TextField label="Label" defaultValue="123" placeholder="placeholder" />
+            <TextField
+              label="Label"
+              supportText="Supporting text"
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              supportText="Supporting text"
+              error
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              defaultValue="123"
+              placeholder="placeholder"
+            />
             <TextField label="Label" disabled placeholder="placeholder" />
           </div>
 
           <div className="flex gap-2">
-            <TextField label="Label" appearance="outline" placeholder="placeholder" />
-            <TextField label="Label" appearance="outline" error placeholder="placeholder" />
-            <TextField label="Label" appearance="outline" defaultValue="123" placeholder="placeholder" />
-            <TextField label="Label" appearance="outline" disabled placeholder="placeholder" />
+            <TextField
+              label="Label"
+              appearance="outline"
+              supportText="Supporting text"
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              appearance="outline"
+              supportText="Supporting text"
+              error
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              appearance="outline"
+              defaultValue="123"
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              appearance="outline"
+              disabled
+              placeholder="placeholder"
+            />
+          </div>
+
+          <div className="flex gap-2">
+            <TextField
+              label="Label"
+              leading={
+                <span className="material-symbols-outlined">search</span>
+              }
+              trailing={
+                <span className="material-symbols-outlined">cancel</span>
+              }
+              appearance="outline"
+              supportText="Supporting text"
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              leading={
+                <span className="material-symbols-outlined">search</span>
+              }
+              trailing={
+                <span className="material-symbols-outlined">cancel</span>
+              }
+              appearance="outline"
+              supportText="Supporting text"
+              error
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              leading={
+                <span className="material-symbols-outlined">search</span>
+              }
+              trailing={
+                <span className="material-symbols-outlined">cancel</span>
+              }
+              appearance="outline"
+              defaultValue="123"
+              placeholder="placeholder"
+            />
+            <TextField
+              label="Label"
+              leading={
+                <span className="material-symbols-outlined">search</span>
+              }
+              trailing={
+                <span className="material-symbols-outlined">cancel</span>
+              }
+              appearance="outline"
+              disabled
+              placeholder="placeholder"
+            />
           </div>
         </section>
 

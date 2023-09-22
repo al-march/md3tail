@@ -1,16 +1,28 @@
 import clsx from "clsx";
-import { FormEvent, InputHTMLAttributes, useEffect, useRef } from "react";
+import {
+  FormEvent,
+  InputHTMLAttributes,
+  ReactNode,
+  useEffect,
+  useRef,
+} from "react";
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: boolean;
+  supportText?: string;
   appearance?: "fill" | "outline";
+  leading?: ReactNode;
+  trailing?: ReactNode;
 }
 
 export const TextField = ({
   label,
   error,
-  appearance = 'fill',
+  appearance = "fill",
+  leading,
+  trailing,
+  supportText,
   className,
   ...others
 }: TextInputProps) => {
@@ -31,12 +43,18 @@ export const TextField = ({
 
   return (
     <div className={classes} tabIndex={1} onFocus={onTextFieldFocused}>
+      <div className="text-field-leading">{leading}</div>
+
       <div className="text-field-area">
         <input ref={textInput} className="text-field-input" {...others} />
+        {/* <div className="text-field-input"></div> */}
         {label && <label className="text-field-label">{label}</label>}
       </div>
 
+      <div className="text-field-trailing">{trailing}</div>
+
       {appearance === "fill" && <div className="text-field-border" />}
+      {supportText && <span className="text-field-support">{supportText}</span>}
     </div>
   );
 };
