@@ -5,6 +5,12 @@ export const InputStyles = () => {
   return {
     '.text-field': {
       '--text-field-border-width': '1px',
+      '--text-field-color': MD3Color('on-surface-variant'),
+      '--text-field-bg-color': MD3Color('surface-container-highest'),
+      '--text-field-border-color': MD3Color('on-surface-variant'),
+      '--text-field-area-p-top': '8px',
+      '--text-field-area-p-bottom': '8px',
+
       position: 'relative',
       display: 'inline-flex',
       width: 'fit-content',
@@ -12,6 +18,10 @@ export const InputStyles = () => {
       alignSelf: 'stretch',
       transition: '0.15s ease all',
       marginBottom: '18px',
+      background: 'var(--text-field-bg-color)',
+      color: 'var(--text-field-color)',
+      borderColor: 'var(--text-field-border-color)',
+      outlineColor: 'var(--text-field-border-color)',
 
       '&:has(input[disabled])': {
         opacity: '0.38',
@@ -22,34 +32,22 @@ export const InputStyles = () => {
         },
       },
 
-      '&:focus-within:not(:has(input[disabled]))': {
-        '&:focus-within:not(.text-field-error)': {
-          color: MD3Color('primary'),
-          borderColor: MD3Color('primary'),
-          outlineColor: MD3Color('primary'),
+      '&:focus-within:not(:has(&-input[disabled])):not(&-error)': {
+        '--text-field-color': MD3Color('primary'),
+        '--text-field-border-color': MD3Color('primary'),
+        '--text-field-border-width': '2px',
+      },
 
-          '.text-field-border': {
-            background: MD3Color('primary'),
-          }
-        },
-
-        '&:focus-within': {
-          '--text-field-border-width': '2px',
-
-          '&.text-field-outline:not(.text-field-error)': {
-            boxShadow: `0 0 0 var(--text-field-border-width) ${MD3Color('primary')}`
-          }
-        },
+      '&-area': {
+        position: 'relative',
+        padding: '8px 16px',
+        paddingTop: 'var(--text-field-area-p-top)',
+        paddingBottom: 'var(--text-field-area-p-bottom)',
       },
 
       '&-fill': {
-        background: MD3Color('surface-container-highest'),
-        color: MD3Color('on-surface-variant'),
+        '--text-field-area-p-top': '24px',
         borderRadius: '4px 4px 0px 0px',
-
-        '.text-field-area': {
-          paddingTop: '24px'
-        },
 
         // Float label if input is focused || input has value
         '&:not(:has(input:placeholder-shown)), &:has(input:focus)': {
@@ -60,21 +58,18 @@ export const InputStyles = () => {
         },
 
         '&:hover': {
-          background: mixColor('surface-variant', 'on-surface-variant', '8%'),
+          '--text-field-bg-color': mixColor('surface-variant', 'on-surface-variant', '8%'),
         },
       },
 
       '&-outline': {
+        '--text-field-color': MD3Color('on-surface-variant'),
+        '--text-field-bg-color': MD3Color('surface'),
+        '--text-field-border-color': MD3Color('outline'),
+        '--text-field-area-p-top': '16px',
+        '--text-field-area-p-bottom': '16px',
         borderRadius: '4px',
-        boxShadow: `0 0 0 var(--text-field-border-width) ${MD3Color('outline')}`,
-        background: MD3Color('surface'),
-        color: MD3Color('on-surface-variant'),
-        transform: 'translateZ(0)',
-
-        '.text-field-area': {
-          paddingTop: '16px',
-          paddingBottom: '16px'
-        },
+        boxShadow: `0 0 0 var(--text-field-border-width) var(--text-field-border-color)`,
 
         '&:not(:has(input:placeholder-shown)), &:has(input:focus)': {
           '.text-field-label': {
@@ -86,14 +81,9 @@ export const InputStyles = () => {
         },
 
         '&:hover': {
-          boxShadow: `0 0 0 var(--text-field-border-width) ${MD3Color('on-surface')}`,
-          color: MD3Color('on-surface'),
+          '--text-field-border-color': MD3Color('on-surface'),
+          '--text-field-color': MD3Color('on-surface'),
         },
-      },
-
-      '&-area': {
-        position: 'relative',
-        padding: '8px 16px',
       },
 
       '&-input': {
@@ -115,6 +105,7 @@ export const InputStyles = () => {
 
       '&-label': {
         ...Fonts['body-large'],
+        color: 'var(--text-field-color)',
         position: 'absolute',
         left: '12px',
         top: '16px',
@@ -128,31 +119,17 @@ export const InputStyles = () => {
         right: '0',
         bottom: '0',
         height: 'var(--text-field-border-width)',
-        background: MD3Color('on-surface-variant'),
+        background: 'var(--text-field-border-color)',
         transition: '0.15s ease all',
       },
 
-      '&-error': {
-        borderColor: MD3Color('error'),
-        outlineColor: MD3Color('error'),
-
-        '&.text-field-outline': {
-          boxShadow: `0 0 0 var(--text-field-border-width) ${MD3Color('error')}`,
-        },
-
-        '.text-field-border': {
-          background: MD3Color('error'),
-        },
-
-        '.text-field-label': {
-          color: MD3Color('error'),
-        },
-
-        '&:hover': {
-          borderColor: MD3Color('error'),
-          outlineColor: MD3Color('error'),
-        }
-      }
+      '&-error, &-error:hover, &-error:focus-within': {
+        '--text-field-border-color': MD3Color('error'),
+        '--text-field-color': MD3Color('error'),
+      },
+      '&-error:focus-within': {
+        '--text-field-border-width': '2px',
+      },
     }
   }
 }
