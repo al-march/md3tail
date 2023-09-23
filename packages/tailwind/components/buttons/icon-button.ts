@@ -25,10 +25,10 @@ export const IconButtonStyles = () => {
         color: MD3Color('on-primary'),
 
         '&:hover': {
-          background: mixColor('secondary-container', 'on-secondary-container', '8%'),
+          background: mixColor('primary', 'on-primary', '8%'),
         },
         '&:focus, &:active': {
-          background: mixColor('secondary-container', 'on-secondary-container', '12%'),
+          background: mixColor('primary', 'on-primary', '12%'),
         },
       },
 
