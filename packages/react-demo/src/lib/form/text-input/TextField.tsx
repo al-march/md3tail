@@ -1,11 +1,5 @@
 import clsx from "clsx";
-import {
-  FormEvent,
-  InputHTMLAttributes,
-  ReactNode,
-  useEffect,
-  useRef,
-} from "react";
+import { InputHTMLAttributes, ReactNode, useRef } from "react";
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -47,7 +41,6 @@ export const TextField = ({
 
       <div className="text-field-area">
         <input ref={textInput} className="text-field-input" {...others} />
-        {/* <div className="text-field-input"></div> */}
         {label && <label className="text-field-label">{label}</label>}
       </div>
 

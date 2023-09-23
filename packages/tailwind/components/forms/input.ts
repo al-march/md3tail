@@ -16,7 +16,6 @@ export const InputStyles = () => {
       display: 'inline-flex',
       alignItems: 'center',
       alignSelf: 'stretch',
-      justifyContent: 'space-between',
       minWidth: '210px',
 
       transition: '0.15s ease all',
@@ -161,17 +160,11 @@ export const InputStyles = () => {
         transform: 'translateY(100%)',
       },
 
-      '&-leading': {
+      '&-leading, &-trailing': {
         color: MD3Color('on-surface-variant'),
         display: 'inline-flex',
         padding: '8px',
       },
-
-      '&-trailing': {
-        color: MD3Color('on-surface-variant'),
-        display: 'inline-flex',
-        padding: '8px',
-      }
     },
   }
 }
