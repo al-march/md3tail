@@ -1,4 +1,4 @@
-import { mixColor, MD3Color, Fonts } from "../../theming";
+import { mixColor, MD3Color } from "../../theming";
 
 enum Switcher {
   Height = '--switcher-height',
@@ -97,30 +97,50 @@ export const SwitcherStyles = () => {
       },
 
       '&:has(input[type="checkbox"]:checked)': {
-        [Switcher.Background]: MD3Color('primary'),
-        [Switcher.BorderColor]: MD3Color('primary'),
-        [Handler.Background]: MD3Color('on-primary'),
-        [Handler.Color]: MD3Color('on-primary-container'),
-        [Handler.Transform]: 'translateX(18px)',
-        [Handler.Offset]: '2px',
+        '&:not(input[type="checkbox"]:disabled)': {
+          [Switcher.Background]: MD3Color('primary'),
+          [Switcher.BorderColor]: MD3Color('primary'),
+          [Handler.Background]: MD3Color('on-primary'),
+          [Handler.Color]: MD3Color('on-primary-container'),
+          [Handler.Transform]: 'translateX(18px)',
+          [Handler.Offset]: '2px',
 
-        '&:hover': {
-          [Handler.Background]: mixColor('primary-container', 'primary', '8%'),
+          '&:hover': {
+            [Handler.Background]: mixColor('primary-container', 'primary', '8%'),
+          },
+          '&:active, &:focus': {
+            [Handler.Background]: mixColor('primary-container', 'primary', '12%'),
+          },
+          '&:active': {
+            [Handler.Offset]: '0px',
+          },
         },
-        '&:active, &:focus': {
-          [Handler.Background]: mixColor('primary-container', 'primary', '12%'),
-        },
-        '&:active': {
-          [Handler.Offset]: '0px',
-        },
+
+        '&:has(input[type="checkbox"]:disabled)': {
+          [Switcher.Background]: MD3Color('on-surface', '0.12'),
+          [Switcher.BorderColor]: MD3Color('on-surface', '0.12'),
+          [Handler.Background]: MD3Color('surface'),
+          '&:hover': {
+            [Handler.Background]: MD3Color('surface'),
+          },
+          '&:active, &:focus': {
+            [Handler.Background]: MD3Color('surface'),
+          },
+        }
       },
 
       '&-with-icon': {
         [Handler.Offset]: '4px',
         [Handler.Icon]: 'attr(data-icon-unselected)',
+
         '&:has(input[type="checkbox"]:checked)': {
           [Handler.Icon]: 'attr(data-icon-selected)',
         }
+      },
+
+      '&:has(input:disabled)': {
+        cursor: 'not-allowed',
+        opacity: '0.38'
       }
     }
   }
