@@ -8,8 +8,6 @@ enum Switcher {
 }
 
 enum Handler {
-  Position = '--switcher-handler-position',
-  Width = '--switcher-handler-width',
   Background = '--switcher-handler-background',
   Transform = '--switcher-handler-transform',
   StateColor = '--switcher-state-color',
@@ -24,12 +22,10 @@ export const SwitcherStyles = () => {
       [Switcher.Background]: MD3Color('surface-container-highest'),
       [Switcher.BorderColor]: MD3Color('outline'),
 
-      [Handler.Position]: 'start',
-      [Handler.Width]: '16px',
       [Handler.Background]: MD3Color('outline'),
       [Handler.Transform]: 'translateX(0)',
       [Handler.StateColor]: 'transparent',
-      [Handler.Offset]: '6px',
+      [Handler.Offset]: '7px',
 
       boxSizing: 'border-box',
       display: 'inline-flex',
@@ -96,8 +92,8 @@ export const SwitcherStyles = () => {
         [Switcher.Background]: MD3Color('primary'),
         [Switcher.BorderColor]: MD3Color('primary'),
         [Handler.Background]: MD3Color('on-primary'),
-        [Handler.Transform]: 'translateX(20px)',
-        [Handler.Offset]: '4px',
+        [Handler.Transform]: 'translateX(18px)',
+        [Handler.Offset]: '2px',
 
         '&:hover': {
           [Handler.Background]: mixColor('primary-container', 'primary', '8%'),
@@ -106,7 +102,7 @@ export const SwitcherStyles = () => {
           [Handler.Background]: mixColor('primary-container', 'primary', '12%'),
         },
         '&:active': {
-          [Handler.Offset]: '2px',
+          [Handler.Offset]: '0px',
         },
       }
     }
