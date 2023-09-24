@@ -1,5 +1,6 @@
 import { Button } from "./lib/buttons";
 import { TextField } from "./lib/form/text-input";
+import { Tab, Tabs } from "./lib/tabs/Tabs";
 
 enum Themes {
   LIGHT = "light",
@@ -345,6 +346,26 @@ function App() {
               placeholder="placeholder"
             />
           </div>
+        </section>
+
+        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <Tabs active={0}>
+            <Tab icon="favorite">Sales</Tab>
+            <Tab icon="payments">Payments</Tab>
+            <Tab icon="person">Profile</Tab>
+          </Tabs>
+
+          <Tabs type="secondary" active={1}>
+            <Tab icon="favorite">Sales</Tab>
+            <Tab icon="payments">Payments</Tab>
+            <Tab icon="person">Profile</Tab>
+          </Tabs>
+
+          <Tabs active={2}>
+            <Tab icon="favorite" />
+            <Tab icon="payments" />
+            <Tab icon="person" />
+          </Tabs>
         </section>
 
         <div className="flex flex-col gap-4">
