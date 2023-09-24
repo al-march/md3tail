@@ -348,24 +348,32 @@ function App() {
           </div>
         </section>
 
-        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
-          <Tabs active={0}>
-            <Tab icon="favorite">Sales</Tab>
-            <Tab icon="payments">Payments</Tab>
-            <Tab icon="person">Profile</Tab>
-          </Tabs>
+        <section className="flex gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div className="flex flex-col gap-4">
+            <Tabs type="primary" active={0}>
+              <Tab icon="favorite">Sales</Tab>
+              <Tab icon="payments">Payments</Tab>
+              <Tab icon="person">Profile</Tab>
+            </Tabs>
 
-          <Tabs type="secondary" active={1}>
-            <Tab icon="favorite">Sales</Tab>
-            <Tab icon="payments">Payments</Tab>
-            <Tab icon="person">Profile</Tab>
-          </Tabs>
+            <Tabs type="secondary" active={1}>
+              <Tab icon="favorite">Sales</Tab>
+              <Tab icon="payments">Payments</Tab>
+              <Tab icon="person">Profile</Tab>
+            </Tabs>
 
-          <Tabs active={2}>
-            <Tab icon="favorite" />
-            <Tab icon="payments" />
-            <Tab icon="person" />
-          </Tabs>
+            <Tabs type="primary" active={2}>
+              <Tab icon="favorite" />
+              <Tab icon="payments" />
+              <Tab icon="person" />
+            </Tabs>
+
+            <Tabs type="secondary" active={2}>
+              <Tab icon="favorite" />
+              <Tab icon="payments" />
+              <Tab icon="person" />
+            </Tabs>
+          </div>
         </section>
 
         <div className="flex flex-col gap-4">
