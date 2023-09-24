@@ -35,7 +35,11 @@ export const Switcher = ({
   }
 
   return (
-    <label onKeyDown={(e) => onkeydown(e)} className={classes} tabIndex={0}>
+    <label
+      onKeyDown={(e) => onkeydown(e)}
+      className={classes}
+      tabIndex={disabled ? undefined : 0}
+    >
       <div
         data-icon-selected="✓"
         data-icon-unselected="✕"
