@@ -1,4 +1,5 @@
 import { Button } from "./lib/buttons";
+import { Switcher } from "./lib/form/switcher";
 import { TextField } from "./lib/form/text-input";
 import { Tab, Tabs } from "./lib/tabs/Tabs";
 
@@ -373,6 +374,22 @@ function App() {
               <Tab icon="payments" />
               <Tab icon="person" />
             </Tabs>
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div className="flex gap-4">
+            <Switcher />
+            <Switcher checked />
+            <Switcher disabled />
+            <Switcher disabled checked />
+          </div>
+
+          <div className="flex gap-4">
+            <Switcher withIcon />
+            <Switcher withIcon checked />
+            <Switcher withIcon disabled />
+            <Switcher withIcon disabled checked />
           </div>
         </section>
 
