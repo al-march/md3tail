@@ -8,7 +8,9 @@ enum Switcher {
 }
 
 enum Handler {
+  Icon = '--switcher-handler-icon',
   Background = '--switcher-handler-background',
+  Color = '--switcher-handler-on-background',
   Transform = '--switcher-handler-transform',
   StateColor = '--switcher-state-color',
   Offset = '--switcher-handler-offset',
@@ -22,7 +24,9 @@ export const SwitcherStyles = () => {
       [Switcher.Background]: MD3Color('surface-container-highest'),
       [Switcher.BorderColor]: MD3Color('outline'),
 
+      [Handler.Icon]: 'attr(data)',
       [Handler.Background]: MD3Color('outline'),
+      [Handler.Color]: MD3Color('surface-container-highest'),
       [Handler.Transform]: 'translateX(0)',
       [Handler.StateColor]: 'transparent',
       [Handler.Offset]: '7px',
@@ -75,7 +79,10 @@ export const SwitcherStyles = () => {
         borderRadius: '100px',
 
         '&:after': {
-          content: '""',
+          content: Var(Handler.Icon),
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           position: 'absolute',
           top: Var(Handler.Offset),
           left: Var(Handler.Offset),
@@ -84,6 +91,7 @@ export const SwitcherStyles = () => {
           margin: 'auto',
           borderRadius: '100px',
           background: Var(Handler.Background),
+          color: Var(Handler.Color),
           transition: '0.25s ease all',
         }
       },
@@ -92,6 +100,7 @@ export const SwitcherStyles = () => {
         [Switcher.Background]: MD3Color('primary'),
         [Switcher.BorderColor]: MD3Color('primary'),
         [Handler.Background]: MD3Color('on-primary'),
+        [Handler.Color]: MD3Color('on-primary-container'),
         [Handler.Transform]: 'translateX(18px)',
         [Handler.Offset]: '2px',
 
@@ -104,6 +113,14 @@ export const SwitcherStyles = () => {
         '&:active': {
           [Handler.Offset]: '0px',
         },
+      },
+
+      '&-with-icon': {
+        [Handler.Offset]: '4px',
+        [Handler.Icon]: 'attr(data-icon-unselected)',
+        '&:has(input[type="checkbox"]:checked)': {
+          [Handler.Icon]: 'attr(data-icon-selected)',
+        }
       }
     }
   }
