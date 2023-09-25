@@ -1,4 +1,5 @@
 import { Button } from "./lib/buttons";
+import { Radio } from "./lib/form/radio";
 import { Switcher } from "./lib/form/switcher";
 import { TextField } from "./lib/form/text-input";
 import { Tab, Tabs } from "./lib/tabs/Tabs";
@@ -390,6 +391,20 @@ function App() {
             <Switcher withIcon checked />
             <Switcher withIcon disabled />
             <Switcher withIcon disabled checked />
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div className="flex gap-4">
+            <Radio name="unchecked" />
+            <Radio name="unchecked" />
+            <Radio name="unchecked" />
+          </div>
+
+          <div className="flex gap-4">
+            <Radio name="checked" />
+            <Radio name="checked" defaultChecked />
+            <Radio name="checked" />
           </div>
         </section>
 
