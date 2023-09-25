@@ -1,4 +1,5 @@
 import { Button } from "./lib/buttons";
+import { Checkbox } from "./lib/form/checkbox";
 import { Radio } from "./lib/form/radio";
 import { Switcher } from "./lib/form/switcher";
 import { TextField } from "./lib/form/text-input";
@@ -407,6 +408,20 @@ function App() {
             <Radio name="checked" />
             <Radio name="checked" />
             <Radio name="checked" defaultChecked disabled />
+          </div>
+        </section>
+
+        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div className="flex gap-4">
+            <Checkbox error />
+            <Checkbox error indeterminate />
+            <Checkbox error disabled />
+          </div>
+
+          <div className="flex gap-4">
+            <Checkbox />
+            <Checkbox indeterminate />
+            <Checkbox disabled />
           </div>
         </section>
 
