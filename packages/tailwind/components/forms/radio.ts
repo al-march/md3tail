@@ -65,6 +65,11 @@ export const RadioStyles = () => {
           [Checkbox.State]: MD3Color('on-surface', '0.12'),
         },
       },
+
+      [`&:has(${Input}:disabled)`]: {
+        [Checkbox.State]: 'transparent',
+        opacity: '0.38',
+      }
     }
   }
 }

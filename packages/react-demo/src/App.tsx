@@ -399,12 +399,14 @@ function App() {
             <Radio name="unchecked" />
             <Radio name="unchecked" />
             <Radio name="unchecked" />
+            <Radio name="unchecked" disabled />
           </div>
 
           <div className="flex gap-4">
             <Radio name="checked" />
-            <Radio name="checked" defaultChecked />
             <Radio name="checked" />
+            <Radio name="checked" />
+            <Radio name="checked" defaultChecked disabled />
           </div>
         </section>
 
