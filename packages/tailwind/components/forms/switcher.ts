@@ -18,6 +18,8 @@ enum Handler {
 
 const Var = (variable: Switcher | Handler) => `var(${variable})`;
 
+const Input = 'input[type="checkbox"]'
+
 export const SwitcherStyles = () => {
   return {
     '.switcher': {
@@ -49,17 +51,23 @@ export const SwitcherStyles = () => {
       outline: 'none',
       transition: '0.15s ease all',
 
+      [Input]: {
+        opacity: 0,
+        width: 0,
+        height: 0,
+      },
+
       '&:hover': {
         [Handler.StateColor]: MD3Color('on-surface-variant', '0.08'),
         [Handler.Background]: MD3Color('on-surface-variant'),
       },
 
-      '&:active, &:focus': {
+      [`&:has(${Input}:focus), &:active, &:focus`]: {
         [Handler.StateColor]: MD3Color('on-surface-variant', '0.12'),
         [Handler.Background]: MD3Color('on-surface-variant'),
       },
 
-      '&:active': {
+      [`&:has(${Input}:active), &:active`]: {
         [Handler.Offset]: '0px',
       },
 
@@ -96,8 +104,8 @@ export const SwitcherStyles = () => {
         }
       },
 
-      '&:has(input[type="checkbox"]:checked)': {
-        '&:not(input[type="checkbox"]:disabled)': {
+      [`&:has(${Input}:checked)`]: {
+        [`&:not(${Input}:disabled)`]: {
           [Switcher.Background]: MD3Color('primary'),
           [Switcher.BorderColor]: MD3Color('primary'),
           [Handler.Background]: MD3Color('on-primary'),
@@ -108,10 +116,10 @@ export const SwitcherStyles = () => {
           '&:hover': {
             [Handler.Background]: mixColor('primary-container', 'primary', '8%'),
           },
-          '&:active, &:focus': {
+          [`&:has(${Input}:active), &:has(${Input}:focus)`]: {
             [Handler.Background]: mixColor('primary-container', 'primary', '12%'),
           },
-          '&:active': {
+          [`&:has(${Input}:active)`]: {
             [Handler.Offset]: '0px',
           },
         },
