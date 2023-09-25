@@ -14,6 +14,7 @@ export const FabStyles = () => {
       boxShadow: MD3Elevation(3),
       background: MD3Color('surface-container-high'),
       color: MD3Color('primary'),
+      outline: 'none',
 
       '& > *': {
         fontSize: '24',
