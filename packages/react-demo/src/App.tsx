@@ -1,4 +1,6 @@
+import { useEffect, useRef, useState } from "react";
 import { Button } from "./lib/buttons";
+import { Dialog } from "./lib/dialog";
 import { Checkbox } from "./lib/form/checkbox";
 import { Radio } from "./lib/form/radio";
 import { Switcher } from "./lib/form/switcher";
@@ -425,6 +427,12 @@ function App() {
           </div>
         </section>
 
+        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div>
+            <DialogButton />
+          </div>
+        </section>
+
         <div className="flex flex-col gap-4">
           <section className="flex gap-2">
             <p className="text-primary text-lg font-semibold">text primary</p>
@@ -528,5 +536,48 @@ const ColorfullBox = (props: ColorfullBoxProps) => {
     >
       <span className={props.textClass}>{props.bgClass}</span>
     </div>
+  );
+};
+
+const DialogButton = () => {
+  const ref = useRef<HTMLDialogElement>(null);
+
+  function open() {
+    ref.current?.showModal();
+  }
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const target = e.target;
+      if (target === ref.current) {
+        ref.current?.close();
+      }
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+
+  return (
+    <>
+      <Button onClick={open}>Open Dialog</Button>
+
+      <Dialog dialogRef={ref}>
+        <div className="dialog-content">
+          <h4 className="dialog-title pb-4">Basic dialog title</h4>
+          <p>
+            A dialog is a type of modal window that appears in front of app
+            content to provide critical information, or prompt for a decision to
+            be made.
+          </p>
+
+          <br />
+
+          <div className="dialog-actions dialog-actions-end">
+            <Button onClick={() => ref.current?.close()}>Action 1</Button>
+            <Button onClick={() => ref.current?.close()}>Action 2</Button>
+          </div>
+        </div>
+      </Dialog>
+    </>
   );
 };
