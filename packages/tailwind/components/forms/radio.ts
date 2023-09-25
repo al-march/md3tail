@@ -1,28 +1,28 @@
 import { mixColor, MD3Color, Fonts } from "../../theming";
 
-enum Checkbox {
-  Color = '--md-checkbox-color',
-  State = '--md-checkbox-state',
+enum Radio {
+  Color = '--md-radio-color',
+  State = '--md-radio-state',
 }
 
-const Var = (variable: Checkbox) => `var(${variable})`;
+const Var = (variable: Radio) => `var(${variable})`;
 const Input = 'input[type="radio"]';
 
 export const RadioStyles = () => {
   return {
     '.radio': {
-      [Checkbox.Color]: MD3Color('on-surface-variant'),
-      [Checkbox.State]: 'transparent',
+      [Radio.Color]: MD3Color('on-surface-variant'),
+      [Radio.State]: 'transparent',
 
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       width: '22px',
       height: '22px',
-      border: `2px solid ${Var(Checkbox.Color)}`,
+      border: `2px solid ${Var(Radio.Color)}`,
       borderRadius: '100px',
-      outline: `8px solid ${Var(Checkbox.State)}`,
-      background: Var(Checkbox.State),
+      outline: `8px solid ${Var(Radio.State)}`,
+      background: Var(Radio.State),
       cursor: 'pointer',
       transition: '0.15s ease all',
 
@@ -33,17 +33,17 @@ export const RadioStyles = () => {
       },
 
       [`&:has(${Input}:hover)`]: {
-        [Checkbox.State]: MD3Color('on-surface', '0.08'),
+        [Radio.State]: MD3Color('on-surface', '0.08'),
       },
       [`&:has(${Input}:focus)`]: {
-        [Checkbox.State]: MD3Color('on-surface', '0.12'),
+        [Radio.State]: MD3Color('on-surface', '0.12'),
       },
       [`&:has(${Input}:active)`]: {
-        [Checkbox.State]: MD3Color('primary', '0.12'),
+        [Radio.State]: MD3Color('primary', '0.12'),
       },
 
       [`&:has(${Input}:checked)`]: {
-        [Checkbox.Color]: MD3Color('primary'),
+        [Radio.Color]: MD3Color('primary'),
 
         '&:after': {
           content: '""',
@@ -51,23 +51,23 @@ export const RadioStyles = () => {
           width: '12px',
           height: '12px',
           borderRadius: '100px',
-          background: Var(Checkbox.Color),
+          background: Var(Radio.Color),
           transition: '0.15s ease all',
         },
 
         '&:hover': {
-          [Checkbox.State]: MD3Color('primary', '0.08'),
+          [Radio.State]: MD3Color('primary', '0.08'),
         },
         '&:focus': {
-          [Checkbox.State]: MD3Color('primary', '0.12'),
+          [Radio.State]: MD3Color('primary', '0.12'),
         },
         '&:active': {
-          [Checkbox.State]: MD3Color('on-surface', '0.12'),
+          [Radio.State]: MD3Color('on-surface', '0.12'),
         },
       },
 
       [`&:has(${Input}:disabled)`]: {
-        [Checkbox.State]: 'transparent',
+        [Radio.State]: 'transparent',
         opacity: '0.38',
       }
     }
