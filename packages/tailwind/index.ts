@@ -8,10 +8,10 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
     ...Components(), 
     ...FontClasses,
     '[data-theme="dark"]': {
-      [`@apply bg-background text-on-background`]: '',
+      [`@apply bg-background text-on-background body-medium`]: '',
     },
     '[data-theme="light"]': {
-      [`@apply bg-background text-on-background`]: '',
+      [`@apply bg-background text-on-background body-medium`]: '',
     },
   });
 

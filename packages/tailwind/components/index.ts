@@ -2,6 +2,7 @@ import { Buttons } from './buttons';
 import { Forms } from './forms';
 import { Tabs } from './tabs';
 import { Dialogs } from './dialogs';
+import { Lists } from './lists';
 
 export const Components = () => {
   return {
@@ -9,5 +10,6 @@ export const Components = () => {
     ...Forms(),
     ...Tabs(),
     ...Dialogs(),
+    ...Lists(),
   }
 }

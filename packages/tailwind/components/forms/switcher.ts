@@ -52,9 +52,9 @@ export const SwitcherStyles = () => {
       transition: '0.15s ease all',
 
       [Input]: {
-        opacity: 0,
-        width: 0,
-        height: 0,
+        opacity: '0',
+        width: '0',
+        height: '0',
       },
 
       '&:hover': {
@@ -88,6 +88,7 @@ export const SwitcherStyles = () => {
 
         '&:after': {
           content: Var(Handler.Icon),
+          fontFamily: 'system-ui',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

@@ -6,28 +6,12 @@ import { Radio } from "./lib/form/radio";
 import { Switcher } from "./lib/form/switcher";
 import { TextField } from "./lib/form/text-input";
 import { Tab, Tabs } from "./lib/tabs/Tabs";
+import { List } from "./lib/list";
 
 enum Themes {
   LIGHT = "light",
   DARK = "dark",
 }
-
-const PencilIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M19.06 3.58988L20.41 4.93988C21.2 5.71988 21.2 6.98988 20.41 7.76988L7.18 20.9999H3V16.8199L13.4 6.40988L16.23 3.58988C17.01 2.80988 18.28 2.80988 19.06 3.58988ZM5 18.9999L6.41 19.0599L16.23 9.22988L14.82 7.81988L5 17.6399V18.9999Z"
-      fill="currentColor"
-    />
-  </svg>
-);
 
 function App() {
   const toggleTheme = () => {
@@ -572,53 +556,66 @@ const DialogButton = () => {
 
           <br />
 
-          <div className="flex flex-col gap-4">
-            <article className="flex gap-2 justify-between">
-              <section className="flex items-center gap-4">
+          <List>
+            <List.Item
+              className="px-0"
+              leading={
                 <div className="flex items-center justify-center h-[40px] w-[40px] bg-primary-container rounded-full title-medium">
                   A
                 </div>
-                <p className="body-large">List item</p>
-              </section>
+              }
+              trailing={
+                <div className="flex gap-3 items-center">
+                  <small>100+</small>
+                  <Checkbox />
+                </div>
+              }
+            >
+              <p className="body-large">List item</p>
+            </List.Item>
 
-              <div className="flex gap-3 items-center">
-                <small>100+</small>
-                <Checkbox />
-              </div>
-            </article>
+            <List.Item className="p-0">
+              <hr className="bg-outline-variant h-[2px]" />
+            </List.Item>
 
-            <hr className="bg-outline-variant h-[2px]" />
-
-            <article className="flex gap-2 justify-between">
-              <section className="flex items-center gap-4">
+            <List.Item
+              className="px-0"
+              leading={
                 <div className="flex items-center justify-center h-[40px] w-[40px] bg-primary-container rounded-full title-medium">
                   A
                 </div>
-                <p className="body-large">List item</p>
-              </section>
+              }
+              trailing={
+                <div className="flex gap-3 items-center">
+                  <small>100+</small>
+                  <Checkbox />
+                </div>
+              }
+            >
+              <p className="body-large">List item</p>
+            </List.Item>
 
-              <div className="flex gap-3 items-center">
-                <small>100+</small>
-                <Checkbox />
-              </div>
-            </article>
+            <List.Item className="p-0">
+              <hr className="bg-outline-variant h-[2px]" />
+            </List.Item>
 
-            <hr className="bg-outline-variant h-[2px]" />
-
-            <article className="flex gap-2 justify-between">
-              <section className="flex items-center gap-4">
+            <List.Item
+              className="px-0"
+              leading={
                 <div className="flex items-center justify-center h-[40px] w-[40px] bg-primary-container rounded-full title-medium">
                   A
                 </div>
-                <p className="body-large">List item</p>
-              </section>
-
-              <div className="flex gap-3 items-center">
-                <small>100+</small>
-                <Checkbox />
-              </div>
-            </article>
-          </div>
+              }
+              trailing={
+                <div className="flex gap-3 items-center">
+                  <small>100+</small>
+                  <Checkbox />
+                </div>
+              }
+            >
+              <p className="body-large">List item</p>
+            </List.Item>
+          </List>
 
           <br />
 

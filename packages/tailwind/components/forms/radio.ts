@@ -27,9 +27,9 @@ export const RadioStyles = () => {
       transition: '0.15s ease all',
 
       [Input]: {
-        opacity: 0,
-        width: 0,
-        height: 0
+        opacity: '0',
+        width: '0',
+        height: '0'
       },
 
       [`&:has(${Input}:hover)`]: {

@@ -1,4 +1,4 @@
-import { MD3Color } from "../../theming";
+import { MD3Color, Fonts } from "../../theming";
 
 enum Checkbox {
   Background = '--md-checkbox-background',
@@ -32,6 +32,7 @@ export const CheckboxStyles = () => {
 
       '&:after': {
         content: `""`,
+        fontFamily: 'system-ui',
 
         display: 'flex',
         alignItems: 'center',
@@ -148,9 +149,9 @@ export const CheckboxStyles = () => {
       },
 
       [Input]: {
-        opacity: 0,
-        width: 0,
-        height: 0,
+        opacity: '0',
+        width: '0',
+        height: '0',
       }
     }
   }
