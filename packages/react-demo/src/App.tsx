@@ -562,13 +562,63 @@ const DialogButton = () => {
       <Button onClick={open}>Open Dialog</Button>
 
       <Dialog dialogRef={ref}>
-        <div className="dialog-content">
+        <div className="dialog-content elevation-2">
           <h4 className="dialog-title pb-4">Basic dialog title</h4>
           <p>
             A dialog is a type of modal window that appears in front of app
             content to provide critical information, or prompt for a decision to
             be made.
           </p>
+
+          <br />
+
+          <div className="flex flex-col gap-4">
+            <article className="flex gap-2 justify-between">
+              <section className="flex items-center gap-4">
+                <div className="flex items-center justify-center h-[40px] w-[40px] bg-primary-container rounded-full title-medium">
+                  A
+                </div>
+                <p className="body-large">List item</p>
+              </section>
+
+              <div className="flex gap-3 items-center">
+                <small>100+</small>
+                <Checkbox />
+              </div>
+            </article>
+
+            <hr className="bg-outline-variant h-[2px]" />
+
+            <article className="flex gap-2 justify-between">
+              <section className="flex items-center gap-4">
+                <div className="flex items-center justify-center h-[40px] w-[40px] bg-primary-container rounded-full title-medium">
+                  A
+                </div>
+                <p className="body-large">List item</p>
+              </section>
+
+              <div className="flex gap-3 items-center">
+                <small>100+</small>
+                <Checkbox />
+              </div>
+            </article>
+
+            <hr className="bg-outline-variant h-[2px]" />
+
+            <article className="flex gap-2 justify-between">
+              <section className="flex items-center gap-4">
+                <div className="flex items-center justify-center h-[40px] w-[40px] bg-primary-container rounded-full title-medium">
+                  A
+                </div>
+                <p className="body-large">List item</p>
+              </section>
+
+              <div className="flex gap-3 items-center">
+                <small>100+</small>
+                <Checkbox />
+              </div>
+            </article>
+          </div>
 
           <br />
 
