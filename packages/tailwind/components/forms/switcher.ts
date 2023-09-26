@@ -106,23 +106,21 @@ export const SwitcherStyles = () => {
       },
 
       [`&:has(${Input}:checked)`]: {
-        [`&:not(${Input}:disabled)`]: {
-          [Switcher.Background]: MD3Color('primary'),
-          [Switcher.BorderColor]: MD3Color('primary'),
-          [Handler.Background]: MD3Color('on-primary'),
-          [Handler.Color]: MD3Color('on-primary-container'),
-          [Handler.Transform]: 'translateX(18px)',
-          [Handler.Offset]: '2px',
+        [Switcher.Background]: MD3Color('primary'),
+        [Switcher.BorderColor]: MD3Color('primary'),
+        [Handler.Background]: MD3Color('on-primary'),
+        [Handler.Color]: MD3Color('on-primary-container'),
+        [Handler.Transform]: 'translateX(18px)',
+        [Handler.Offset]: '2px',
 
-          '&:hover': {
-            [Handler.Background]: mixColor('primary-container', 'primary', '8%'),
-          },
-          [`&:has(${Input}:active), &:has(${Input}:focus)`]: {
-            [Handler.Background]: mixColor('primary-container', 'primary', '12%'),
-          },
-          [`&:has(${Input}:active)`]: {
-            [Handler.Offset]: '0px',
-          },
+        '&:hover': {
+          [Handler.Background]: mixColor('primary-container', 'primary', '8%'),
+        },
+        [`&:has(${Input}:active), &:has(${Input}:focus), &:active, &:focus`]: {
+          [Handler.Background]: mixColor('primary-container', 'primary', '12%'),
+        },
+        [`&:has(${Input}:active), &:active`]: {
+          [Handler.Offset]: '0px',
         },
 
         '&:has(input[type="checkbox"]:disabled)': {
