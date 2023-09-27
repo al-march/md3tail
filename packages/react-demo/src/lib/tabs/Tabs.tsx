@@ -15,7 +15,7 @@ export type TabsProps = {
   className?: string;
   type?: "primary" | "secondary";
 
-  onChange?: (activeTab: number) => void;
+  onValueChange?: (activeTab: number) => void;
 };
 
 type TabsState = {
@@ -40,7 +40,7 @@ export function Tabs({
   children,
   active = 0,
   type = "primary",
-  onChange = () => {},
+  onValueChange = () => {},
   className,
 }: TabsProps) {
   const classes = clsx(
@@ -58,7 +58,7 @@ export function Tabs({
 
   function setActive(tab: number) {
     setState((state) => ({ ...state, active: tab }));
-    onChange(tab);
+    onValueChange(tab);
   }
 
   function initTab(tabRef: HTMLElement) {

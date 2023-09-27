@@ -7,6 +7,7 @@ import { Switcher } from "./lib/form/switcher";
 import { TextField } from "./lib/form/text-input";
 import { Tab, Tabs } from "./lib/tabs/Tabs";
 import { List } from "./lib/list";
+import { NavigationBar } from "./lib/navigation";
 
 enum Themes {
   LIGHT = "light",
@@ -409,6 +410,24 @@ function App() {
             <Checkbox indeterminate />
             <Checkbox disabled />
           </div>
+        </section>
+
+        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <NavigationBar active={2}>
+            <NavigationBar.Button
+              icon={<span className="material-symbols-outlined">home</span>}
+              label="Home"
+            />
+            <NavigationBar.Button
+              onClick={() => {}}
+              icon={<span className="material-symbols-outlined">favorite</span>}
+              label="Favorite"
+            />
+            <NavigationBar.Button
+              icon={<span className="material-symbols-outlined">settings</span>}
+              label="Settings"
+            />
+          </NavigationBar>
         </section>
 
         <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
