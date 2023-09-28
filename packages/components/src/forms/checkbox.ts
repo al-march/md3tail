@@ -1,4 +1,4 @@
-import { MD3Color, Fonts } from "../../theming";
+import { MD3Color, MD3Fonts } from "@md3-ui/tailwind";
 
 enum Checkbox {
   Background = '--md-checkbox-background',

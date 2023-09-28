@@ -78,7 +78,7 @@ const colors = {
 
 export type MD3Color = keyof typeof colors;
 
-export function mixColor(mdColor1: MD3Color, mdColor2: MD3Color, percent: string) {
+export function MD3Mix(mdColor1: MD3Color, mdColor2: MD3Color, percent: string) {
   const color1 = MD3Color(mdColor1);
   const color2 = MD3Color(mdColor2);
   return `color-mix(in srgb, ${color1}, ${color2} ${percent})`
@@ -93,4 +93,4 @@ export function MD3Color(mdColor: MD3Color, opacity = '1'): string {
   }
 }
 
-export const Md3Colors = { ...colors };
+export const MD3Colors = { ...colors };

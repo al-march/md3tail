@@ -1,4 +1,4 @@
-import { mixColor, MD3Color, Fonts } from "../../theming";
+import { MD3Mix, MD3Color, MD3Fonts } from "@md3-ui/tailwind";
 
 
 export const InputStyles = () => {
@@ -58,13 +58,13 @@ export const InputStyles = () => {
         // Float label if input is focused || input has value
         '&:not(:has(input:placeholder-shown)), &:has(input:focus)': {
           '.text-field-label': {
-            ...Fonts['body-small'],
+            ...MD3Fonts['body-small'],
             top: '8px',
           },
         },
 
         '&:hover': {
-          '--text-field-bg-color': mixColor('surface-variant', 'on-surface-variant', '8%'),
+          '--text-field-bg-color': MD3Mix('surface-variant', 'on-surface-variant', '8%'),
         },
       },
 
@@ -79,7 +79,7 @@ export const InputStyles = () => {
 
         '&:not(:has(input:placeholder-shown)), &:has(input:focus)': {
           '.text-field-label': {
-            ...Fonts['body-small'],
+            ...MD3Fonts['body-small'],
             top: '0px',
             transform: 'translateY(-50%)',
             background: MD3Color('surface'),
@@ -93,7 +93,7 @@ export const InputStyles = () => {
       },
 
       '&-input': {
-        ...Fonts['body-large'],
+        ...MD3Fonts['body-large'],
         position: 'absolute',
         left: '0',
         right: '0',
@@ -116,7 +116,7 @@ export const InputStyles = () => {
       },
 
       '&-label': {
-        ...Fonts['body-large'],
+        ...MD3Fonts['body-large'],
         color: 'var(--text-field-color)',
         position: 'absolute',
         left: '0',
@@ -149,7 +149,7 @@ export const InputStyles = () => {
       },
 
       '&-support': {
-        ...Fonts['body-small'],
+        ...MD3Fonts['body-small'],
         position: 'absolute',
         bottom: '0',
         left: '0',

@@ -1,4 +1,4 @@
-import { MD3Color, mixColor, Fonts } from "../../theming";
+import { MD3Color, MD3Mix, MD3Fonts } from "@md3-ui/tailwind";
 
 enum NavigationBar {
   IconBg = '--md-navigation-bar-icon-bg',
@@ -53,11 +53,11 @@ export const NavigationBarStyles = () => {
           [NavigationBar.IconColor]: MD3Color('on-secondary-container'),
 
           '&:hover': {
-            [NavigationBar.IconBg]: mixColor('secondary-container', 'on-secondary-container', '8%'),
+            [NavigationBar.IconBg]: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
           },
   
           '&:active, &:focus': {
-            [NavigationBar.IconBg]: mixColor('secondary-container', 'on-secondary-container', '12%'),
+            [NavigationBar.IconBg]: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
           },
         },
 
@@ -88,7 +88,7 @@ export const NavigationBarStyles = () => {
         },
 
         '&-label': {
-          ...Fonts['label-medium']
+          ...MD3Fonts['label-medium']
         }
       }
     }

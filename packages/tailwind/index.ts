@@ -1,11 +1,11 @@
 import plugin from 'tailwindcss/plugin';
-import { Components } from './components';
-import { FontClasses, MD3Elevations, Md3Colors } from './theming';
+import { FontClasses, MD3Fonts, MD3Elevations, MD3Elevation, MD3Colors, MD3Color, MD3Mix } from './theming';
 import { Variables } from './theming/variables';
+
+export { MD3Fonts, MD3Elevations, MD3Elevation, MD3Color, MD3Colors, MD3Mix };
 
 export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilities, theme }) {
   addComponents({
-    ...Components(), 
     ...FontClasses,
     '[data-theme="dark"]': {
       [`@apply bg-background text-on-background body-medium`]: '',
@@ -32,7 +32,7 @@ export const md3Theme = plugin(function ({ addComponents, addBase, matchUtilitie
   theme: {
     extend: {
       elevation: MD3Elevations,
-      colors: Md3Colors,
+      colors: MD3Colors,
     }
   }
 });

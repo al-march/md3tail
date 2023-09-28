@@ -1,4 +1,4 @@
-import { mixColor, MD3Color, MD3Elevation, Fonts } from "../../theming";
+import { MD3Mix, MD3Color, MD3Elevation, MD3Fonts } from "@md3-ui/tailwind";
 
 export const FabStyles = () => {
   return {
@@ -17,14 +17,14 @@ export const FabStyles = () => {
       outline: 'none',
 
       '& > *': {
-        fontSize: '24',
+        MD3Fontsize: '24',
       },
 
       '&.fab-small': {
         borderRadius: '12px',
         padding: '8px',
         '& > *': {
-          fontSize: '24',
+          MD3Fontsize: '24',
         }
       },
 
@@ -32,18 +32,18 @@ export const FabStyles = () => {
         borderRadius: '28px',
         padding: '30px',
         '& > *': {
-          fontSize: '36px',
+          MD3Fontsize: '36px',
         }
       },
 
       '&:hover': {
         boxShadow: MD3Elevation(4),
-        background: mixColor('surface-container-high', 'primary', '8%'),
+        background: MD3Mix('surface-container-high', 'primary', '8%'),
       },
 
       '&:focus, &:active': {
         boxShadow: MD3Elevation(4),
-        background: mixColor('surface-container-high', 'primary', '12%'),
+        background: MD3Mix('surface-container-high', 'primary', '12%'),
       },
 
       '&-primary': {
@@ -52,12 +52,12 @@ export const FabStyles = () => {
 
         '&:hover': {
           boxShadow: MD3Elevation(4),
-          background: mixColor('primary-container', 'on-primary-container', '8%'),
+          background: MD3Mix('primary-container', 'on-primary-container', '8%'),
         },
   
         '&:focus, &:active': {
           boxShadow: MD3Elevation(4),
-          background: mixColor('primary-container', 'on-primary-container', '12%'),
+          background: MD3Mix('primary-container', 'on-primary-container', '12%'),
         },
       },
 
@@ -67,12 +67,12 @@ export const FabStyles = () => {
 
         '&:hover': {
           boxShadow: MD3Elevation(4),
-          background: mixColor('secondary-container', 'on-secondary-container', '8%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
         },
   
         '&:focus, &:active': {
           boxShadow: MD3Elevation(4),
-          background: mixColor('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
         },
       },
 
@@ -82,12 +82,12 @@ export const FabStyles = () => {
 
         '&:hover': {
           boxShadow: MD3Elevation(4),
-          background: mixColor('tertiary-container', 'on-tertiary-container', '8%'),
+          background: MD3Mix('tertiary-container', 'on-tertiary-container', '8%'),
         },
   
         '&:focus, &:active': {
           boxShadow: MD3Elevation(4),
-          background: mixColor('tertiary-container', 'on-tertiary-container', '12%'),
+          background: MD3Mix('tertiary-container', 'on-tertiary-container', '12%'),
         },
       },
 

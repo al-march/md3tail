@@ -1,4 +1,4 @@
-import { MD3Color, Fonts } from "../../theming";
+import { MD3Color, MD3Fonts } from "@md3-ui/tailwind";
 
 export const DialogStyles = () => {
   return {
@@ -11,7 +11,7 @@ export const DialogStyles = () => {
       },
 
       '&-content': {
-        ...Fonts['body-medium'],
+        ...MD3Fonts['body-medium'],
         background: MD3Color('surface-container-high'),
         color: MD3Color('on-surface'),
         borderRadius: '28px',
@@ -19,7 +19,7 @@ export const DialogStyles = () => {
       },
 
       '&-title': {
-        ...Fonts['headline-small'],
+        ...MD3Fonts['headline-small'],
       },
 
       '&-actions': {

@@ -1,4 +1,4 @@
-import { mixColor, MD3Color, Fonts } from "../../theming";
+import { MD3Mix, MD3Color, MD3Fonts } from "@md3-ui/tailwind";
 
 enum Radio {
   Color = '--md-radio-color',

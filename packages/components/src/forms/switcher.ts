@@ -1,4 +1,4 @@
-import { mixColor, MD3Color } from "../../theming";
+import { MD3Mix, MD3Color } from "@md3-ui/tailwind";
 
 enum Switcher {
   Height = '--switcher-height',
@@ -114,10 +114,10 @@ export const SwitcherStyles = () => {
         [Handler.Offset]: '2px',
 
         '&:hover': {
-          [Handler.Background]: mixColor('primary-container', 'primary', '8%'),
+          [Handler.Background]: MD3Mix('primary-container', 'primary', '8%'),
         },
         [`&:has(${Input}:active), &:has(${Input}:focus), &:active, &:focus`]: {
-          [Handler.Background]: mixColor('primary-container', 'primary', '12%'),
+          [Handler.Background]: MD3Mix('primary-container', 'primary', '12%'),
         },
         [`&:has(${Input}:active), &:active`]: {
           [Handler.Offset]: '0px',

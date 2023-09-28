@@ -1,4 +1,4 @@
-export const Fonts = {
+export const MD3Fonts = {
   'display-large': {
     fontFamily: 'var(--md-sys-typescale-display-large-font-family-name)',
     fontStyle: 'var(--md-sys-typescale-display-large-font-family-style)',
@@ -151,7 +151,7 @@ export const Fonts = {
   }
 }
 
-export type FontClassName = keyof typeof Fonts;
+export type FontClassName = keyof typeof MD3Fonts;
 
 export interface FontValue {
   fontFamily: string;
@@ -164,7 +164,7 @@ export interface FontValue {
   textDecoration: string;
 }
 
-export const FontClasses = Object.keys(Fonts).reduce((acc, className) => {
-  acc[`.${className}`] = Fonts[className as FontClassName];
+export const FontClasses = Object.keys(MD3Fonts).reduce((acc, className) => {
+  acc[`.${className}`] = MD3Fonts[className as FontClassName];
   return acc;
 }, {} as Record<string, FontValue>);

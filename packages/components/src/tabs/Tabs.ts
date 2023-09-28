@@ -1,4 +1,4 @@
-import { mixColor, MD3Color, Fonts } from "../../theming";
+import { MD3Mix, MD3Color, MD3Fonts } from "@md3-ui/tailwind";
 
 enum Vars {
   IndicatorWidth = '--tabs-indicator-width',
@@ -33,7 +33,7 @@ export const TabsStyles = () => {
       },
 
       '&-item': {
-        ...Fonts['title-small'],
+        ...MD3Fonts['title-small'],
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
@@ -52,19 +52,19 @@ export const TabsStyles = () => {
         transition: '0.15s ease all',
 
         '&:hover': {
-          background: mixColor('surface', 'on-surface', '8%'),
+          background: MD3Mix('surface', 'on-surface', '8%'),
         },
         '&:focus, &:active': {
-          background: mixColor('surface', 'on-surface', '12%'),
+          background: MD3Mix('surface', 'on-surface', '12%'),
         },
 
         '&-selected': {
           [Vars.TabsItemColor]: MD3Color('primary'),
           '&:hover': {
-            background: mixColor('surface', 'primary', '8%'),
+            background: MD3Mix('surface', 'primary', '8%'),
           },
           '&:focus, &:active': {
-            background: mixColor('surface', 'primary', '12%'),
+            background: MD3Mix('surface', 'primary', '12%'),
           }
         },
       },

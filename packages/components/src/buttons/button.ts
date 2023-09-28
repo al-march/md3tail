@@ -1,9 +1,9 @@
-import { mixColor, MD3Color, MD3Elevation, Fonts } from "../../theming";
+import { MD3Mix, MD3Color, MD3Elevation, MD3Fonts } from "@md3-ui/tailwind";
 
 export const ButtonStyles = () => {
   return {
     ".btn": {
-      ...Fonts['label-large'],
+      ...MD3Fonts['label-large'],
       outline: 'none',
       display: 'inline-flex',
       alignItems: 'center',
@@ -26,14 +26,14 @@ export const ButtonStyles = () => {
         color: MD3Color('on-primary'),
 
         '&:hover': {
-          background: mixColor('primary', 'on-primary', '8%'),
+          background: MD3Mix('primary', 'on-primary', '8%'),
           boxShadow: MD3Elevation(1),
         },
         '&:focus': {
-          background: mixColor('primary', 'on-primary', '12%'),
+          background: MD3Mix('primary', 'on-primary', '12%'),
         },
         '&:active': {
-          background: mixColor('primary', 'on-primary', '12%'),
+          background: MD3Mix('primary', 'on-primary', '12%'),
         },
         '&:disabled': {
           background: MD3Color('on-surface', '0.12'),
@@ -47,13 +47,13 @@ export const ButtonStyles = () => {
         color: MD3Color('primary'),
 
         '&:hover': {
-          background: mixColor('surface-container-low', 'primary', '8%'),
+          background: MD3Mix('surface-container-low', 'primary', '8%'),
         },
         '&:focus': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
         },
         '&:active': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
         },
         '&:disabled': {
           ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
@@ -69,14 +69,14 @@ export const ButtonStyles = () => {
         background: 'transpatent',
 
         '&:hover': {
-          background: mixColor('surface-container-low', 'primary', '8%'),
+          background: MD3Mix('surface-container-low', 'primary', '8%'),
         },
         '&:focus': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
           borderColor: MD3Color('primary'),
         },
         '&:active': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
         },
         '&:disabled': {
           background: 'transparent',
@@ -93,15 +93,15 @@ export const ButtonStyles = () => {
         color: MD3Color('primary'),
 
         '&:hover': {
-          background: mixColor('surface-container-low', 'primary', '8%'),
+          background: MD3Mix('surface-container-low', 'primary', '8%'),
           boxShadow: MD3Elevation(2),
         },
         '&:focus': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
           boxShadow: MD3Elevation(1),
         },
         '&:active': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
           boxShadow: MD3Elevation(1),
         },
         '&:disabled': {
@@ -114,13 +114,13 @@ export const ButtonStyles = () => {
         ['@apply bg-secondary-container text-on-secondary-container']: '',
         '&:hover': {
           ['@apply elevation-1']: '',
-          background: mixColor('secondary-container', 'on-secondary-container', '8%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
         },
         '&:focus': {
-          background: mixColor('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
         },
         '&:active': {
-          background: mixColor('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
         },
         '&:disabled': {
           ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',

@@ -1,4 +1,4 @@
-import { mixColor, MD3Color } from "../../theming";
+import { MD3Mix, MD3Color } from "@md3-ui/tailwind";
 
 export const IconButtonStyles = () => {
   return {
@@ -25,10 +25,10 @@ export const IconButtonStyles = () => {
         color: MD3Color('on-primary'),
 
         '&:hover': {
-          background: mixColor('primary', 'on-primary', '8%'),
+          background: MD3Mix('primary', 'on-primary', '8%'),
         },
         '&:focus, &:active': {
-          background: mixColor('primary', 'on-primary', '12%'),
+          background: MD3Mix('primary', 'on-primary', '12%'),
         },
       },
 
@@ -39,14 +39,14 @@ export const IconButtonStyles = () => {
         background: 'transpatent',
 
         '&:hover': {
-          background: mixColor('surface-container-low', 'primary', '8%'),
+          background: MD3Mix('surface-container-low', 'primary', '8%'),
         },
         '&:focus': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
           borderColor: MD3Color('primary'),
         },
         '&:active': {
-          background: mixColor('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', '12%'),
         },
         '&:disabled': {
           border: `1px solid ${MD3Color('on-surface', '0.12')}`
@@ -58,10 +58,10 @@ export const IconButtonStyles = () => {
         color: MD3Color('on-secondary-container'),
 
         '&:hover': {
-          background: mixColor('secondary-container', 'on-secondary-container', '8%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
         },
         '&:focus, &:active': {
-          background: mixColor('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
         },
       },
 
