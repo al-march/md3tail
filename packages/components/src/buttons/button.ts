@@ -1,4 +1,4 @@
-import { MD3Mix, MD3Color, MD3Elevation, MD3Fonts } from "@md3-ui/tailwind";
+import { MD3Mix, MD3Color, MD3Elevation, MD3Fonts } from "@md3-ui/colors";
 
 export const ButtonStyles = () => {
   return {

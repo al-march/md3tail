@@ -1,4 +1,4 @@
-import { MD3Color, MD3Fonts } from "@md3-ui/tailwind";
+import { MD3Color, MD3Fonts } from "@md3-ui/colors";
 
 export const DialogStyles = () => {
   return {
