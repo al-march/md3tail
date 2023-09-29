@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useRef,
   useState,
@@ -110,6 +111,12 @@ export function Tab({ className, icon, children }: TabProps) {
     }
   }, [button]);
 
+  function setActive() {
+    if (typeof value === "number") {
+      tabs.setActive(value);
+    }
+  }
+
   const classes = clsx(
     "tabs-item",
     {
@@ -119,12 +126,7 @@ export function Tab({ className, icon, children }: TabProps) {
   );
 
   return (
-    <button
-      ref={button}
-      type="button"
-      onClick={() => typeof value === "number" && tabs.setActive(value)}
-      className={classes}
-    >
+    <button ref={button} type="button" onClick={setActive} className={classes}>
       {icon && <span className="material-symbols-outlined">{icon}</span>}
       {children}
     </button>
@@ -133,20 +135,48 @@ export function Tab({ className, icon, children }: TabProps) {
 
 function TabIndicator() {
   const tabs = useContext(TabsContext);
+  const [activeTab, setActiveTab] = useState(getActiveTab());
+  const [tabWidth, setTabWidth] = useState(getActiveTab()?.scrollWidth);
+  const [offset, setOffset] = useState(getActiveTab()?.offsetLeft);
 
-  const currentRef = useMemo(() => {
-    return tabs.state.tabs[tabs.state.active];
+  /**
+   * Get the right width and offset of current tab
+   */
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const size = entry.borderBoxSize[0].inlineSize;
+        const tab = entry.target;
+        if (tab === activeTab && tab instanceof HTMLElement) {
+          setTabWidth(size);
+          setOffset(tab.offsetLeft);
+        }
+      }
+    });
+
+    if (activeTab) {
+      resizeObserver.observe(activeTab);
+    }
+    return () => resizeObserver.disconnect();
+  }, [activeTab]);
+
+  useLayoutEffect(() => {
+    setActiveTab(getActiveTab());
   }, [tabs]);
 
-  if (!currentRef) {
+  function getActiveTab() {
+    return tabs.state.tabs[tabs.state.active];
+  }
+
+  if (!activeTab) {
     return null;
   } else {
     return (
       <div
         className="tabs-indicator"
         style={{
-          width: currentRef.scrollWidth + "px",
-          left: currentRef.offsetLeft + "px",
+          width: tabWidth + "px",
+          left: offset + "px",
         }}
       />
     );
