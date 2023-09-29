@@ -1,4 +1,4 @@
-import { MD3Mix, MD3Color } from "@md3-ui/colors";
+import { MD3Mix, MD3Color } from "@md3-ui/theme";
 
 enum Switcher {
   Height = '--switcher-height',

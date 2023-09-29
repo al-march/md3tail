@@ -1,4 +1,4 @@
-import { MD3Color, MD3Mix, MD3Fonts } from "@md3-ui/colors";
+import { MD3Color, MD3Mix, MD3Fonts } from "@md3-ui/theme";
 
 enum NavigationBar {
   IconBg = '--md-navigation-bar-icon-bg',

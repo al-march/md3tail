@@ -1,4 +1,4 @@
-import { MD3Color, MD3Fonts } from "@md3-ui/colors";
+import { MD3Color, MD3Fonts } from "@md3-ui/theme";
 
 enum Checkbox {
   Background = '--md-checkbox-background',

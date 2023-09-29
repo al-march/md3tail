@@ -1,6 +1,6 @@
 {
-  "name": "@md3-ui/colors",
-  "version": "1.0.0",
+  "name": "@md3-ui/theme",
+  "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "types": "./dist/index.d.ts",

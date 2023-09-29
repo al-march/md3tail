@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const { md3Theme } = require("../tailwind/dist");
+const { md3Theme } = require("../theme/dist");
 const { md3Components } = require("../components/dist");
 
 module.exports = {

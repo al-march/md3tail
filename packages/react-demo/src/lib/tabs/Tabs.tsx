@@ -133,7 +133,10 @@ export function Tab({ className, icon, children }: TabProps) {
 
 function TabIndicator() {
   const tabs = useContext(TabsContext);
-  const currentRef = tabs.state.tabs[tabs.state.active];
+
+  const currentRef = useMemo(() => {
+    return tabs.state.tabs[tabs.state.active];
+  }, [tabs]);
 
   if (!currentRef) {
     return null;

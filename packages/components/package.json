@@ -1,6 +1,6 @@
 {
   "name": "@md3-ui/components",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.ts",
   "scripts": {
@@ -10,7 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@md3-ui/colors": "^1.0.0",
+    "@md3-ui/theme": "^0.0.1",
     "tailwindcss": "^3.3.3"
   }
 }
