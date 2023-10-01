@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "./lib/buttons";
 import { Dialog } from "./lib/dialog";
 import { Checkbox } from "./lib/form/checkbox";
@@ -13,6 +13,10 @@ enum Themes {
   LIGHT = "light",
   DARK = "dark",
 }
+
+const Icon = ({ name }: { name: string }) => {
+  return <span className="material-symbols-outlined">{name}</span>;
+};
 
 function App() {
   const toggleTheme = () => {
@@ -338,7 +342,7 @@ function App() {
           </div>
         </section>
 
-        <section className="flex gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+        <section className="flex gap-20 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
           <div className="flex flex-col gap-4">
             <Tabs type="primary" active={0}>
               <Tab icon="favorite">Sales</Tab>
@@ -364,70 +368,80 @@ function App() {
               <Tab icon="person" />
             </Tabs>
           </div>
-        </section>
+          <div className="flex flex-col gap-4">
+            <NavigationBar active={2}>
+              <NavigationBar.Button
+                icon={<Icon name="home" />}
+                label="Go Home"
+              />
+              <NavigationBar.Button
+                icon={<Icon name="favorite" />}
+                label="Favorite"
+              />
+              <NavigationBar.Button
+                icon={<Icon name="settings" />}
+                label="Settings"
+              />
+            </NavigationBar>
 
-        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
-          <div className="flex gap-4">
-            <Switcher />
-            <Switcher checked />
-            <Switcher disabled />
-            <Switcher disabled checked />
-          </div>
+            <NavigationBar active={2}>
+              <NavigationBar.Button icon={<Icon name="home" />} />
+              <NavigationBar.Button icon={<Icon name="favorite" />} />
+              <NavigationBar.Button icon={<Icon name="settings" />} />
+            </NavigationBar>
 
-          <div className="flex gap-4">
-            <Switcher withIcon />
-            <Switcher withIcon checked />
-            <Switcher withIcon disabled />
-            <Switcher withIcon disabled checked />
-          </div>
-        </section>
-
-        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
-          <div className="flex gap-4">
-            <Radio name="unchecked" />
-            <Radio name="unchecked" />
-            <Radio name="unchecked" />
-            <Radio name="unchecked" disabled />
-          </div>
-
-          <div className="flex gap-4">
-            <Radio name="checked" />
-            <Radio name="checked" />
-            <Radio name="checked" />
-            <Radio name="checked" defaultChecked disabled />
+            <NavigationBar active={2}>
+              <NavigationBar.Button label="home" />
+              <NavigationBar.Button label="favorite" />
+              <NavigationBar.Button label="settings" />
+            </NavigationBar>
           </div>
         </section>
 
-        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
-          <div className="flex gap-4">
-            <Checkbox error />
-            <Checkbox error indeterminate />
-            <Checkbox error disabled />
-          </div>
+        <section className="flex gap-12 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div className="flex flex-col gap-4">
+            <div className="flex gap-4">
+              <Switcher />
+              <Switcher checked />
+              <Switcher disabled />
+              <Switcher disabled checked />
+            </div>
 
-          <div className="flex gap-4">
-            <Checkbox />
-            <Checkbox indeterminate />
-            <Checkbox disabled />
+            <div className="flex gap-4">
+              <Switcher withIcon />
+              <Switcher withIcon checked />
+              <Switcher withIcon disabled />
+              <Switcher withIcon disabled checked />
+            </div>
           </div>
-        </section>
+          <div className="flex flex-col gap-4">
+            <div className="flex gap-4">
+              <Radio name="unchecked" />
+              <Radio name="unchecked" />
+              <Radio name="unchecked" />
+              <Radio name="unchecked" disabled />
+            </div>
 
-        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
-          <NavigationBar active={2}>
-            <NavigationBar.Button
-              icon={<span className="material-symbols-outlined">home</span>}
-              label="Home"
-            />
-            <NavigationBar.Button
-              onClick={() => {}}
-              icon={<span className="material-symbols-outlined">favorite</span>}
-              label="Favorite"
-            />
-            <NavigationBar.Button
-              icon={<span className="material-symbols-outlined">settings</span>}
-              label="Settings"
-            />
-          </NavigationBar>
+            <div className="flex gap-4">
+              <Radio name="checked" />
+              <Radio name="checked" />
+              <Radio name="checked" />
+              <Radio name="checked" defaultChecked disabled />
+            </div>
+          </div>
+          <div className="flex flex-col gap-4">
+            <div className="flex gap-4">
+              <Checkbox error />
+              <Checkbox error indeterminate />
+              <Checkbox error disabled />
+            </div>
+
+            <div className="flex gap-4">
+              <Checkbox />
+              <Checkbox indeterminate />
+              <Checkbox disabled />
+            </div>
+          </div>
         </section>
 
         <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">

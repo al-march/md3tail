@@ -16,6 +16,7 @@ export const NavigationBarStyles = () => {
       display: 'inline-flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+      width: 'fit-content',
       padding: '0 8px',
       background: MD3Color('surface-container'),
       color: MD3Color('on-surface'),
