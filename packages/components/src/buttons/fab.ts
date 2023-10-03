@@ -3,6 +3,7 @@ import { MD3Mix, MD3Color, MD3Elevation, MD3Fonts } from "@md3-ui/theme";
 export const FabStyles = () => {
   return {
     '.fab': {
+      ...MD3Fonts['label-large'],
       display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
@@ -16,24 +17,14 @@ export const FabStyles = () => {
       color: MD3Color('primary'),
       outline: 'none',
 
-      '& > *': {
-        MD3Fontsize: '24',
-      },
-
       '&.fab-small': {
         borderRadius: '12px',
         padding: '8px',
-        '& > *': {
-          MD3Fontsize: '24',
-        }
       },
 
       '&.fab-large': {
         borderRadius: '28px',
         padding: '30px',
-        '& > *': {
-          MD3Fontsize: '36px',
-        }
       },
 
       '&:hover': {
