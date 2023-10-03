@@ -450,6 +450,69 @@ function App() {
           </div>
         </section>
 
+        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+          <div className="flex gap-6">
+            <div className="md-menu">
+              <button className="md-menu-item min-w-[200px]">Menu item</button>
+              <button className="md-menu-item min-w-[200px]">Menu item</button>
+              <button className="md-menu-item min-w-[200px]">Menu item</button>
+              <button className="md-menu-item min-w-[200px]">Menu item</button>
+              <button className="md-menu-item min-w-[200px]">Menu item</button>
+            </div>
+
+            <div className="md-menu">
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />
+                <span className="md-menu-item-label">Menu item</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />
+                <span className="md-menu-item-label">Menu item</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />
+                <span className="md-menu-item-label">Menu item</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />
+                <span className="md-menu-item-label">Menu item</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />
+                <span className="md-menu-item-label">Menu item</span>
+              </button>
+            </div>
+
+            <div className="md-menu">
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />{" "}
+                <span className="md-menu-item-label">Menu item</span>{" "}
+                <span>⌘C</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />{" "}
+                <span className="md-menu-item-label">Menu item</span>{" "}
+                <span>⌘C</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />{" "}
+                <span className="md-menu-item-label">Menu item</span>{" "}
+                <span>⌘C</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />{" "}
+                <span className="md-menu-item-label">Menu item</span>{" "}
+                <span>⌘C</span>
+              </button>
+              <button className="md-menu-item min-w-[200px]">
+                <Icon name="settings" />{" "}
+                <span className="md-menu-item-label">Menu item</span>{" "}
+                <span>⌘C</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
         <div className="flex flex-col gap-4">
           <section className="flex gap-2">
             <p className="text-primary text-lg font-semibold">text primary</p>

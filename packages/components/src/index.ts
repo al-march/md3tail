@@ -4,6 +4,7 @@ import { Tabs } from './tabs';
 import { Dialogs } from './dialogs';
 import { Lists } from './lists';
 import { Navigations } from './navigations';
+import { Menu } from './menu';
 
 export const Components = () => {
   return {
@@ -13,5 +14,6 @@ export const Components = () => {
     ...Dialogs(),
     ...Lists(),
     ...Navigations(),
+    ...Menu(),
   }
 }
