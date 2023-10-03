@@ -1,4 +1,4 @@
-import { MD3Mix, MD3Color, MD3Fonts } from "@md3-ui/theme";
+import { MD3Color } from "@md3-ui/theme";
 
 enum Radio {
   Color = '--md-radio-color',
