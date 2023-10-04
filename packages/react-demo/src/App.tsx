@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { HTMLAttributes, useEffect, useRef } from "react";
 import { Button } from "./lib/buttons";
 import { Dialog } from "./lib/dialog";
 import { Checkbox } from "./lib/form/checkbox";
@@ -8,6 +8,8 @@ import { TextField } from "./lib/form/text-input";
 import { Tab, Tabs } from "./lib/tabs/Tabs";
 import { List } from "./lib/list";
 import { NavigationBar } from "./lib/navigation";
+import clsx from "clsx";
+import { Chip } from "./lib/chips";
 
 enum Themes {
   LIGHT = "light",
@@ -16,6 +18,14 @@ enum Themes {
 
 const Icon = ({ name }: { name: string }) => {
   return <span className="material-symbols-outlined">{name}</span>;
+};
+
+const Surface = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
+  const classes = clsx(
+    "flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4 overflow-hidden overflow-x-auto",
+    className
+  );
+  return <section className={classes} {...props} />;
 };
 
 function App() {
@@ -34,7 +44,7 @@ function App() {
       </header>
 
       <main className="p-4">
-        <section className="flex flex-col gap-2 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+        <Surface>
           <div className="flex gap-8 items-start">
             <div className="flex flex-col gap-2">
               <h2 className="body-large">Buttons</h2>
@@ -238,9 +248,9 @@ function App() {
               </section>
             </div>
           </div>
-        </section>
+        </Surface>
 
-        <section className="flex flex-col gap-2 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+        <Surface>
           <div className="flex gap-2">
             <TextField
               label="Label"
@@ -340,9 +350,9 @@ function App() {
               placeholder="placeholder"
             />
           </div>
-        </section>
+        </Surface>
 
-        <section className="flex gap-20 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+        <Surface>
           <div className="flex flex-col gap-4">
             <Tabs type="primary" active={0}>
               <Tab icon="favorite">Sales</Tab>
@@ -396,9 +406,9 @@ function App() {
               <NavigationBar.Button label="settings" />
             </NavigationBar>
           </div>
-        </section>
+        </Surface>
 
-        <section className="flex gap-12 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+        <Surface>
           <div className="flex flex-col gap-4">
             <div className="flex gap-4">
               <Switcher />
@@ -442,15 +452,15 @@ function App() {
               <Checkbox disabled />
             </div>
           </div>
-        </section>
+        </Surface>
 
-        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+        <Surface>
           <div>
             <DialogButton />
           </div>
-        </section>
+        </Surface>
 
-        <section className="flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4">
+        <Surface>
           <div className="flex gap-6">
             <div className="md-menu">
               <button className="md-menu-item min-w-[200px]">Menu item</button>
@@ -511,7 +521,39 @@ function App() {
               </button>
             </div>
           </div>
-        </section>
+        </Surface>
+
+        <Surface>
+          <div className="flex gap-4">
+            <Chip mdType="outlined">Label</Chip>
+            <Chip mdType="elevated">Label</Chip>
+            <Chip mdType="filled">Label</Chip>
+          </div>
+
+          <div className="flex gap-4">
+            <Chip mdType="outlined" leadingIcon="local_taxi">
+              Label
+            </Chip>
+            <Chip mdType="elevated" leadingIcon="local_taxi">
+              Label
+            </Chip>
+            <Chip mdType="filled" leadingIcon="local_taxi">
+              Label
+            </Chip>
+          </div>
+
+          <div className="flex gap-4">
+            <Chip mdType="outlined" trailingIcon="close">
+              Label
+            </Chip>
+            <Chip mdType="elevated" trailingIcon="close">
+              Label
+            </Chip>
+            <Chip mdType="filled" trailingIcon="close">
+              Label
+            </Chip>
+          </div>
+        </Surface>
 
         <div className="flex flex-col gap-4">
           <section className="flex gap-2">
