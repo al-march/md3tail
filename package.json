@@ -7,12 +7,19 @@
     "./packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:components": "cd packages/components && npm run dev",
+    "dev:theme": "cd packages/theme && npm run dev",
+    "dev:react": "cd packages/react-demo && npm run start",
+    "dev": "concurrently \"npm run dev:components\" \"npm run dev:theme\" \"npm run dev:react\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.1"
   }
 }
