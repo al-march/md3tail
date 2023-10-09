@@ -15,6 +15,7 @@
     "baseUrl": ".",
     "outDir": "dist",
     "resolveJsonModule": true,
+    "strict": true,
     "paths": {
       "*": ["node_modules/*"]
     }

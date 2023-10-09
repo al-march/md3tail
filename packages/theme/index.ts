@@ -21,7 +21,15 @@ import plugin from 'tailwindcss/plugin';
 import { Variables } from './theming/variables';
 import { GenerateTheme, ThemeMode, GenerateCSS } from './parser';
 
-export const md3Theme = plugin.withOptions(options => {
+type md3ThemeOptions = {
+  /**
+   * CSS tokens from Material Design 3
+   */
+  tokens?: string;
+}
+
+export const md3Theme = plugin.withOptions<md3ThemeOptions | undefined>((options) => {
+
   return function ({ addComponents, addBase, matchUtilities, theme }) {
     addComponents({
       ...FontClasses,
@@ -41,7 +49,7 @@ export const md3Theme = plugin.withOptions(options => {
 
     addBase({
       ':root': {
-        ...GenerateCSS(),
+        ...GenerateCSS(options?.tokens || undefined),
       },
       '[data-theme="light"]': Variables.Light,
       '[data-theme="dark"]': Variables.Dark,
@@ -55,7 +63,7 @@ export const md3Theme = plugin.withOptions(options => {
       values: theme('elevation')
     });
   }
-}, (options) => {
+}, () => {
   return {
     theme: {
       extend: {
