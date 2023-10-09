@@ -1,5 +1,4 @@
-
-export const light = {
+export const Light = {
   // Surfaces
   '--md-sys-color-surface-container-lowest': '255 255 255',
   '--md-sys-color-surface-container-low': '247 242 250',
@@ -14,7 +13,7 @@ export const light = {
   '--md-sys-elevation-5': '0px 4px 4px 0px rgba(0, 0, 0, 0.30), 0px 8px 12px 6px rgba(0, 0, 0, 0.15)',
 }
 
-export const dark = {
+export const Dark = {
   // Surfaces
   '--md-sys-color-surface-container-lowest': '15 13 19',
   '--md-sys-color-surface-container-low': '29 27 32',
@@ -30,6 +29,6 @@ export const dark = {
 }
 
 export const Variables = {
-  light,
-  dark,
+  Light,
+  Dark,
 }

@@ -7,5 +7,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [md3Theme, md3Components],
+  plugins: [md3Theme(), md3Components],
 };

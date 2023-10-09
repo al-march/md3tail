@@ -1,9 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('css/theme.css');
-
-body {
-  @apply bg-surface-container;
-}
