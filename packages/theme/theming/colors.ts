@@ -1,96 +1,94 @@
-const PALETTES = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100];
+const PALETTES = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100] as const;
 
 const alphaValue = '<alpha-value>';
 
-const generateColor = (color: string) => (
+const color = <T extends string>(color: T): `rgb(var(--md-sys-color-${T}) / ${typeof alphaValue})` => (
   `rgb(var(--md-sys-color-${color}) / ${alphaValue})`
-)
+);
 
-const generatePalette = (color: string) => (
+const palette = <T extends string>(color: T) => (
   `rgb(var(--md-ref-palette-${color}) / ${alphaValue})`
-)
+);
 
-const generatePaletteList = (mask: string) => {
+const paletteList = <T extends string>(color: T) => {
+  type Key = `${T}-${typeof PALETTES[number]}`;
+
   return PALETTES.reduce((acc, p) => {
-    acc[p] = `rgb(var(${mask}${p}) / ${alphaValue})`;
+    acc[`${color}-${p}`] = `rgb(var(--md-ref-palette-${color}${p}) / ${alphaValue})`;
     return acc;
-  }, {} as Record<string, string>);
-}
+  }, {} as Record<Key, string>);
+};
 
 const colors = {
   // Primary
-  primary: {
-    ...generatePaletteList('--md-ref-palette-primary'),
-    DEFAULT: generateColor('primary'),
-  },
-  'on-primary': generateColor('on-primary'),
-  'primary-container': generateColor('primary-container'),
-  'on-primary-container': generateColor('on-primary-container'),
+  'primary': color('primary'),
+  ...paletteList('primary'),
+  'on-primary': color('on-primary'),
+  'primary-container': color('primary-container'),
+  'on-primary-container': color('on-primary-container'),
   // Secondary
-  'secondary': {
-    ...generatePaletteList('--md-ref-palette-secondary'),
-    DEFAULT: generateColor('secondary'),
-  },
-  'on-secondary': generateColor('on-secondary'),
-  'secondary-container': generateColor('secondary-container'),
-  'on-secondary-container': generateColor('on-secondary-container'),
+  'secondary': color('secondary'),
+  ...paletteList('secondary'),
+  'on-secondary': color('on-secondary'),
+  'secondary-container': color('secondary-container'),
+  'on-secondary-container': color('on-secondary-container'),
   // Tertiary
-  'tertiary': {
-    ...generatePaletteList('--md-ref-palette-tertiary'),
-    DEFAULT: generateColor('tertiary'),
-  },
-  'on-tertiary': generateColor('on-tertiary'),
-  'tertiary-container': generateColor('tertiary-container'),
-  'on-tertiary-container': generateColor('on-tertiary-container'),
+  'tertiary': color('tertiary'),
+  ...paletteList('tertiary'),
+  'on-tertiary': color('on-tertiary'),
+  'tertiary-container': color('tertiary-container'),
+  'on-tertiary-container': color('on-tertiary-container'),
   // Error
-  'error': {
-    ...generatePaletteList('--md-ref-palette-error'),
-    DEFAULT: generateColor('error'),
-  },
-  'on-error': generateColor('on-error'),
-  'error-container': generateColor('error-container'),
-  'on-error-container': generateColor('on-error-container'),
+  'error': color('error'),
+  ...paletteList('error'),
+  'on-error': color('on-error'),
+  'error-container': color('error-container'),
+  'on-error-container': color('on-error-container'),
   // Background
-  'background': generateColor('background'),
-  'on-background': generateColor('on-background'),
+  'background': color('background'),
+  'on-background': color('on-background'),
   // Surface
   // https://m3.material.io/styles/color/the-color-system/tokens
-  'surface': generateColor('surface'),
-  'surface-container': generateColor('surface-container'),
-  'surface-container-lowest': generateColor('surface-container-lowest'),
-  'surface-container-low': generateColor('surface-container-low'),
-  'surface-container-high': generateColor('surface-container-high'),
-  'surface-container-highest': generateColor('surface-container-highest'),
-  'on-surface': generateColor('on-surface'),
-  'surface-variant': generateColor('surface-variant'),
-  'on-surface-variant': generateColor('on-surface-variant'),
+  'surface': color('surface'),
+  'surface-container': color('surface-container'),
+  'surface-container-lowest': color('surface-container-lowest'),
+  'surface-container-low': color('surface-container-low'),
+  'surface-container-high': color('surface-container-high'),
+  'surface-container-highest': color('surface-container-highest'),
+  'on-surface': color('on-surface'),
+  'surface-variant': color('surface-variant'),
+  'on-surface-variant': color('on-surface-variant'),
   // Inverse
-  'inverse-surface': generateColor('inverse-surface'),
-  'inverse-on-surface': generateColor('inverse-on-surface'),
-  'inverse-primary': generateColor('inverse-primary'),
+  'inverse-surface': color('inverse-surface'),
+  'inverse-on-surface': color('inverse-on-surface'),
+  'inverse-primary': color('inverse-primary'),
   // Others
-  'shadow': generateColor('shadow'),
-  'surface-tint': generateColor('surface-tint'),
-  'outline-variant': generateColor('outline-variant'),
-  'scrim': generateColor('scrim'),
-  'outline': generatePalette('neutral60'),
-}
+  'shadow': color('shadow'),
+  'surface-tint': color('surface-tint'),
+  'outline-variant': color('outline-variant'),
+  'scrim': color('scrim'),
+  'outline': palette('neutral60'),
+} as const;
 
 export type MD3Color = keyof typeof colors;
 
-export function MD3Mix(mdColor1: MD3Color, mdColor2: MD3Color, percent: string) {
+export function MD3Mix(mdColor1: MD3Color, mdColor2: MD3Color, percent: string | number) {
   const color1 = MD3Color(mdColor1);
   const color2 = MD3Color(mdColor2);
-  return `color-mix(in srgb, ${color1}, ${color2} ${percent})`
+
+  return `color-mix(in srgb, ${color1}, ${color2} ${getPercent(percent)})`;
+
+  function getPercent(percent: string | number) {
+    if (typeof percent === 'number') {
+      return `${percent * 100}%`;
+    } else {
+      return percent;
+    }
+  }
 }
 
 export function MD3Color(mdColor: MD3Color, opacity = '1'): string {
-  const color = colors[mdColor];
-  if (typeof color === 'string') {
-    return color.replace(alphaValue, opacity);
-  } else {
-    return color['DEFAULT'].replace(alphaValue, opacity);
-  }
+  return colors[mdColor].replace(alphaValue, opacity);
 }
 
 export const MD3Colors = { ...colors };

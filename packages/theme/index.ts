@@ -21,15 +21,42 @@ import plugin from 'tailwindcss/plugin';
 import { Variables } from './theming/variables';
 import { GenerateTheme, ThemeMode, GenerateCSS } from './parser';
 
-type md3ThemeOptions = {
+export type md3ThemeOptions = {
   /**
    * CSS tokens from Material Design 3
    */
   tokens?: string;
+  colors?: Record<string, string>;
+  stateLayers?: {
+    hover?: number;
+    press?: number;
+    focus?: number;
+    drag?: number;
+  };
+};
+
+const stateColors = ['primary', 'secondary', 'tertiary', 'error', 'surface'] as const;
+
+function generateStateLayers(
+  colors = stateColors,
+  stateLayers: md3ThemeOptions['stateLayers'] = {},
+) {
+  const states: Record<string, string> = {};
+
+  colors.forEach((color) => {
+    const onColor = MD3Color(`on-${color}`);
+    if (onColor) {
+      states[`${color}-hover`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.hover || '8%');
+      states[`${color}-press`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.press || '10%');
+      states[`${color}-focus`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.focus || '10%');
+      states[`${color}-drag`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.drag || '16%');
+    }
+  });
+
+  return states;
 }
 
-export const md3Theme = plugin.withOptions<md3ThemeOptions | undefined>((options) => {
-
+export const md3Theme = plugin.withOptions<md3ThemeOptions | undefined>((options = {}) => {
   return function ({ addComponents, addBase, matchUtilities, theme }) {
     addComponents({
       ...FontClasses,
@@ -62,14 +89,17 @@ export const md3Theme = plugin.withOptions<md3ThemeOptions | undefined>((options
     }, {
       values: theme('elevation')
     });
-  }
-}, () => {
+  };
+}, (options = {}) => {
   return {
     theme: {
       extend: {
         elevation: MD3Elevations,
-        colors: MD3Colors,
+        colors: {
+          ...MD3Colors,
+          ...generateStateLayers(stateColors, options?.stateLayers)
+        },
       }
     }
-  }
+  };
 });

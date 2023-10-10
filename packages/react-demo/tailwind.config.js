@@ -15,5 +15,15 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [md3Theme({ tokens }), md3Components],
+  plugins: [
+    md3Theme({
+      tokens,
+      stateLayers: {
+        hover: 0.08,
+        focus: 0.1,
+        drag: 0.16,
+      },
+    }),
+    md3Components,
+  ],
 };

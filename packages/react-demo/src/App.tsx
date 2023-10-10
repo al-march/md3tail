@@ -636,6 +636,36 @@ function App() {
               elevation-5
             </div>
           </section>
+
+          <Surface>
+            <div className="flex gap-2">
+              <div className="h-40 w-40 bg-primary"></div>
+              <div className="h-40 w-40 bg-primary-hover"></div>
+              <div className="h-40 w-40 bg-primary-focus"></div>
+              <div className="h-40 w-40 bg-primary-drag"></div>
+            </div>
+
+            <div className="flex gap-2">
+              <div className="h-40 w-40 bg-secondary"></div>
+              <div className="h-40 w-40 bg-secondary-hover"></div>
+              <div className="h-40 w-40 bg-secondary-focus"></div>
+              <div className="h-40 w-40 bg-secondary-drag"></div>
+            </div>
+
+            <div className="flex gap-2">
+              <div className="h-40 w-40 bg-error"></div>
+              <div className="h-40 w-40 bg-error-hover"></div>
+              <div className="h-40 w-40 bg-error-focus"></div>
+              <div className="h-40 w-40 bg-error-drag"></div>
+            </div>
+
+            <div className="flex gap-2">
+              <div className="h-40 w-40 bg-surface"></div>
+              <div className="h-40 w-40 bg-surface-hover"></div>
+              <div className="h-40 w-40 bg-surface-focus"></div>
+              <div className="h-40 w-40 bg-surface-drag"></div>
+            </div>
+          </Surface>
         </div>
       </main>
     </div>
