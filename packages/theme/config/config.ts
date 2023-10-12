@@ -1,4 +1,4 @@
-export type md3ThemeConfig = {
+export type MD3ThemeConfig = {
   /**
    * CSS tokens from Material Design 3
    */
