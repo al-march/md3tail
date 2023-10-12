@@ -1,6 +1,11 @@
-import { MD3Mix, MD3Color, MD3Elevation, MD3Fonts } from "@md3-ui/theme";
+import { MD3Elevation, MD3Fonts } from "@md3-ui/theme";
+import { getColor, getState } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
-export const FabStyles = () => {
+export const FabStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     '.fab': {
       ...MD3Fonts['label-large'],
@@ -29,12 +34,12 @@ export const FabStyles = () => {
 
       '&:hover': {
         boxShadow: MD3Elevation(4),
-        background: MD3Mix('surface-container-high', 'primary', '8%'),
+        background: MD3Mix('surface-container-high', 'primary', 'hover'),
       },
 
       '&:focus, &:active': {
         boxShadow: MD3Elevation(4),
-        background: MD3Mix('surface-container-high', 'primary', '12%'),
+        background: MD3Mix('surface-container-high', 'primary', 'focus'),
       },
 
       '&-primary': {
@@ -43,12 +48,12 @@ export const FabStyles = () => {
 
         '&:hover': {
           boxShadow: MD3Elevation(4),
-          background: MD3Mix('primary-container', 'on-primary-container', '8%'),
+          background: MD3Mix('primary-container', 'on-primary-container', 'hover'),
         },
-  
+
         '&:focus, &:active': {
           boxShadow: MD3Elevation(4),
-          background: MD3Mix('primary-container', 'on-primary-container', '12%'),
+          background: MD3Mix('primary-container', 'on-primary-container', 'focus'),
         },
       },
 
@@ -58,12 +63,12 @@ export const FabStyles = () => {
 
         '&:hover': {
           boxShadow: MD3Elevation(4),
-          background: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', 'hover'),
         },
-  
+
         '&:focus, &:active': {
           boxShadow: MD3Elevation(4),
-          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Mix('secondary-container', 'on-secondary-container', 'focus'),
         },
       },
 
@@ -73,12 +78,12 @@ export const FabStyles = () => {
 
         '&:hover': {
           boxShadow: MD3Elevation(4),
-          background: MD3Mix('tertiary-container', 'on-tertiary-container', '8%'),
+          background: MD3Mix('tertiary-container', 'on-tertiary-container', 'hover'),
         },
-  
+
         '&:focus, &:active': {
           boxShadow: MD3Elevation(4),
-          background: MD3Mix('tertiary-container', 'on-tertiary-container', '12%'),
+          background: MD3Mix('tertiary-container', 'on-tertiary-container', 'focus'),
         },
       },
 
@@ -98,5 +103,5 @@ export const FabStyles = () => {
         cursor: 'not-allowed',
       }
     }
-  }
-}
+  };
+};

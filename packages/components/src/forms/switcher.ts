@@ -1,4 +1,5 @@
-import { MD3Mix, MD3Color } from "@md3-ui/theme";
+import { getColor, getState } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
 enum Switcher {
   Height = '--switcher-height',
@@ -18,9 +19,12 @@ enum Handler {
 
 const Var = (variable: Switcher | Handler) => `var(${variable})`;
 
-const Input = 'input[type="checkbox"]'
+const Input = 'input[type="checkbox"]';
 
-export const SwitcherStyles = () => {
+export const SwitcherStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     '.switcher': {
       [Switcher.Background]: MD3Color('surface-container-highest'),
@@ -114,10 +118,10 @@ export const SwitcherStyles = () => {
         [Handler.Offset]: '2px',
 
         '&:hover': {
-          [Handler.Background]: MD3Mix('primary-container', 'primary', '8%'),
+          [Handler.Background]: MD3Mix('primary-container', 'primary', 'hover'),
         },
         [`&:has(${Input}:active), &:has(${Input}:focus), &:active, &:focus`]: {
-          [Handler.Background]: MD3Mix('primary-container', 'primary', '12%'),
+          [Handler.Background]: MD3Mix('primary-container', 'primary', 'focus'),
         },
         [`&:has(${Input}:active), &:active`]: {
           [Handler.Offset]: '0px',
@@ -150,5 +154,5 @@ export const SwitcherStyles = () => {
         opacity: '0.38'
       }
     }
-  }
-}
+  };
+};

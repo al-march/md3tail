@@ -1,4 +1,5 @@
-import { MD3Color, MD3Fonts } from "@md3-ui/theme";
+import { getColor } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
 enum Checkbox {
   Background = '--md-checkbox-background',
@@ -11,7 +12,9 @@ const Var = (variable: Checkbox) => `var(${variable})`;
 
 const Input = 'input[type="checkbox"]';
 
-export const CheckboxStyles = () => {
+export const CheckboxStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+
   return {
     '.checkbox': {
       [Checkbox.Border]: MD3Color('on-surface-variant'),
@@ -136,7 +139,7 @@ export const CheckboxStyles = () => {
           [Checkbox.Background]: MD3Color('error'),
           [Checkbox.Border]: MD3Color('error'),
           [Checkbox.Color]: MD3Color('on-error'),
-  
+
           '&:after': {
             content: `"-"`,
           }
@@ -154,5 +157,5 @@ export const CheckboxStyles = () => {
         height: '0',
       }
     }
-  }
-}
+  };
+};

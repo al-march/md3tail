@@ -1,7 +1,8 @@
-import { NavigationBarStyles } from "./navigation-bar"
+import { PluginAPI } from "tailwindcss/types/config";
+import { NavigationBarStyles } from "./navigation-bar";
 
-export const Navigations = () => {
+export const Navigations = (api: PluginAPI) => {
   return {
-    ...NavigationBarStyles(),
-  }
-}
+    ...NavigationBarStyles(api),
+  };
+};

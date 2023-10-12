@@ -1,75 +1,54 @@
+import plugin from 'tailwindcss/plugin';
+import { MD3ThemeConfig } from './config';
+
 import {
   FontClasses,
   MD3Fonts,
   MD3Elevations,
   MD3Elevation,
-  MD3Colors,
+  md3Colors,
+  MD3BaseColor,
+  MD3StateColor,
+  MD3PalleteColor,
   MD3Color,
-  MD3Mix
+  alphaValue,
 } from './theming';
 
 export {
+  MD3ThemeConfig,
   MD3Fonts,
   MD3Elevations,
   MD3Elevation,
+  MD3BaseColor,
+  MD3StateColor,
+  MD3PalleteColor,
   MD3Color,
-  MD3Colors,
-  MD3Mix
 };
 
-import plugin from 'tailwindcss/plugin';
 import { Variables } from './theming/variables';
 import { GenerateTheme, ThemeMode, GenerateCSS } from './parser';
 
-export type md3ThemeOptions = {
-  /**
-   * CSS tokens from Material Design 3
-   */
-  tokens?: string;
-  colors?: Record<string, string>;
-  stateLayers?: {
-    hover?: number;
-    press?: number;
-    focus?: number;
-    drag?: number;
-  };
-};
 
-const stateColors = ['primary', 'secondary', 'tertiary', 'error', 'surface'] as const;
-
-function generateStateLayers(
-  colors = stateColors,
-  stateLayers: md3ThemeOptions['stateLayers'] = {},
-) {
-  const states: Record<string, string> = {};
-
-  colors.forEach((color) => {
-    const onColor = MD3Color(`on-${color}`);
-    if (onColor) {
-      states[`${color}-hover`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.hover || '8%');
-      states[`${color}-press`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.press || '10%');
-      states[`${color}-focus`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.focus || '10%');
-      states[`${color}-drag`] = MD3Mix(color, `on-${color}` as MD3Color, stateLayers.drag || '16%');
-    }
-  });
-
-  return states;
-}
-
-export const md3Theme = plugin.withOptions<md3ThemeOptions | undefined>((options = {}) => {
+export const md3Theme = plugin.withOptions<MD3ThemeConfig | undefined>((options = {}) => {
   return function ({ addComponents, addBase, matchUtilities, theme }) {
+
+    const getColor = (color: MD3Color): string => {
+      const c = (theme(`colors.${color}`) || '') as string;
+      return c.replace(alphaValue, '1');
+    };
+
     addComponents({
       ...FontClasses,
       '[data-theme="dark"]': {
         ...MD3Fonts['body-medium'],
-        background: MD3Color('background'),
-        color: MD3Color('on-background'),
+        background: getColor('background'),
+        color: getColor('on-background'),
         ...GenerateTheme(ThemeMode.Dark),
       },
       '[data-theme="light"]': {
         ...MD3Fonts['body-medium'],
-        background: MD3Color('background'),
-        color: MD3Color('on-background'),
+        background: getColor('background'),
+        color: getColor('on-background'),
         ...GenerateTheme(ThemeMode.Light),
       },
     });
@@ -96,10 +75,10 @@ export const md3Theme = plugin.withOptions<md3ThemeOptions | undefined>((options
       extend: {
         elevation: MD3Elevations,
         colors: {
-          ...MD3Colors,
-          ...generateStateLayers(stateColors, options?.stateLayers)
+          ...md3Colors(options),
         },
       }
-    }
+    },
+    md3Options: options
   };
 });

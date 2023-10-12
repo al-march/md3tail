@@ -1,11 +1,12 @@
 import { ButtonStyles } from './button';
 import { IconButtonStyles } from './icon-button';
 import { FabStyles } from './fab'
+import { PluginAPI } from 'tailwindcss/types/config';
 
-export const Buttons = () => {
+export function Buttons(api: PluginAPI) {
   return {
-    ...ButtonStyles(),
-    ...IconButtonStyles(),
-    ...FabStyles(),
-  }
+    ...ButtonStyles(api),
+    ...IconButtonStyles(api),
+    ...FabStyles(api),
+  };
 }

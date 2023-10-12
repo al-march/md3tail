@@ -1,4 +1,6 @@
-import { MD3Mix, MD3Color, MD3Fonts, MD3Elevation } from "@md3-ui/theme";
+import { MD3Fonts, MD3Elevation } from "@md3-ui/theme";
+import { getColor, getState } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
 enum Vars {
   ItemColor = '--md-menu-item-color',
@@ -7,7 +9,10 @@ enum Vars {
 
 const Var = (variable: Vars) => `var(${variable})`;
 
-export const MenuStyles = () => {
+export const MenuStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     '.md-menu': {
       [Vars.ItemColor]: 'transparent',
@@ -38,11 +43,11 @@ export const MenuStyles = () => {
         transition: 'background ease 0.2s',
 
         '&:hover': {
-          [Vars.ItemColor]: MD3Mix('surface-container', 'on-surface', '8%'),
+          [Vars.ItemColor]: MD3Mix('surface-container', 'on-surface', 'hover'),
         },
 
         '&:focus, &:active': {
-          [Vars.ItemColor]: MD3Mix('surface-container', 'on-surface', '12%'),
+          [Vars.ItemColor]: MD3Mix('surface-container', 'on-surface', 'focus'),
         },
 
         '&-label': {

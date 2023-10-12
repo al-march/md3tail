@@ -1,6 +1,9 @@
-import { MD3Mix, MD3Color } from "@md3-ui/theme";
+import { getColor } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
-export const IconButtonStyles = () => {
+export const IconButtonStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+
   return {
     '.icon-btn': {
       display: 'inline-flex',
@@ -25,10 +28,10 @@ export const IconButtonStyles = () => {
         color: MD3Color('on-primary'),
 
         '&:hover': {
-          background: MD3Mix('primary', 'on-primary', '8%'),
+          background: MD3Color('primary-hover'),
         },
         '&:focus, &:active': {
-          background: MD3Mix('primary', 'on-primary', '12%'),
+          background: MD3Color('primary-focus'),
         },
       },
 
@@ -39,14 +42,14 @@ export const IconButtonStyles = () => {
         background: 'transpatent',
 
         '&:hover': {
-          background: MD3Mix('surface-container-low', 'primary', '8%'),
+          background: MD3Color('surface-hover'),
         },
         '&:focus': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Color('surface-focus'),
           borderColor: MD3Color('primary'),
         },
         '&:active': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Color('surface-press'),
         },
         '&:disabled': {
           border: `1px solid ${MD3Color('on-surface', '0.12')}`
@@ -58,10 +61,10 @@ export const IconButtonStyles = () => {
         color: MD3Color('on-secondary-container'),
 
         '&:hover': {
-          background: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
+          background: MD3Color('secondary-container-hover'),
         },
         '&:focus, &:active': {
-          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Color('secondary-container-focus'),
         },
       },
 
@@ -71,5 +74,5 @@ export const IconButtonStyles = () => {
         cursor: 'not-allowed'
       },
     }
-  }
-}
+  };
+};

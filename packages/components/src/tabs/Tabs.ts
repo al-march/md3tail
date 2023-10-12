@@ -1,4 +1,6 @@
-import { MD3Mix, MD3Color, MD3Fonts } from "@md3-ui/theme";
+import { MD3Fonts } from "@md3-ui/theme";
+import { getColor, getState } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
 enum Vars {
   IndicatorWidth = '--tabs-indicator-width',
@@ -11,7 +13,10 @@ enum Vars {
 
 const Var = (variable: Vars) => `var(${variable})`;
 
-export const TabsStyles = () => {
+export const TabsStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     '.tabs': {
       [Vars.IndicatorWidth]: '24px',
@@ -52,19 +57,19 @@ export const TabsStyles = () => {
         transition: '0.15s ease all',
 
         '&:hover': {
-          background: MD3Mix('surface', 'on-surface', '8%'),
+          background: MD3Mix('surface', 'on-surface', 'hover'),
         },
         '&:focus, &:active': {
-          background: MD3Mix('surface', 'on-surface', '12%'),
+          background: MD3Mix('surface', 'on-surface', 'focus'),
         },
 
         '&-selected': {
           [Vars.TabsItemColor]: MD3Color('primary'),
           '&:hover': {
-            background: MD3Mix('surface', 'primary', '8%'),
+            background: MD3Mix('surface', 'primary', 'hover'),
           },
           '&:focus, &:active': {
-            background: MD3Mix('surface', 'primary', '12%'),
+            background: MD3Mix('surface', 'primary', 'focus'),
           }
         },
       },
@@ -93,5 +98,5 @@ export const TabsStyles = () => {
         [Vars.TabsItemGap]: '8px',
       },
     },
-  }
-}
+  };
+};

@@ -1,7 +1,8 @@
+import { PluginAPI } from "tailwindcss/types/config";
 import { DialogStyles } from "./dialog"
 
-export const Dialogs = () => {
+export const Dialogs = (api: PluginAPI) => {
   return {
-    ...DialogStyles(),
+    ...DialogStyles(api),
   }
 }

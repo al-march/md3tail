@@ -2,24 +2,11 @@ import { COLORS, CORE_COLORS, Color, MD3BaseColor, MD3PalleteColor, MD3StateColo
 import { MD3ThemeConfig } from '../config';
 
 
-const alphaValue = '<alpha-value>';
+export const alphaValue = '<alpha-value>';
 
 const getColor = <T extends Color>(color: T) => (
   `rgb(var(--md-sys-color-${color}) / ${alphaValue})`
 );
-
-const getPalette = <T extends string>(color: T) => (
-  `rgb(var(--md-ref-palette-${color}) / ${alphaValue})`
-);
-
-const getPaletteList = <T extends string>(color: T) => {
-  type Key = `${T}-${typeof PALETTES[number]}`;
-
-  return PALETTES.reduce((acc, p) => {
-    acc[`${color}-${p}`] = `rgb(var(--md-ref-palette-${color}${p}) / ${alphaValue})`;
-    return acc;
-  }, {} as Record<Key, string>);
-};
 
 const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
   const baseColors = generateBaseColors();

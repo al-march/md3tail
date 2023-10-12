@@ -1,7 +1,12 @@
-import { MD3Mix, MD3Color, MD3Fonts } from "@md3-ui/theme";
+import { MD3Fonts } from "@md3-ui/theme";
+import { getColor, getState } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
 
-export const InputStyles = () => {
+export const InputStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     '.text-field': {
       '--text-field-border-width': '1px',
@@ -64,7 +69,7 @@ export const InputStyles = () => {
         },
 
         '&:hover': {
-          '--text-field-bg-color': MD3Mix('surface-variant', 'on-surface-variant', '8%'),
+          '--text-field-bg-color': MD3Mix('surface-variant', 'on-surface-variant', 'hover'),
         },
       },
 
@@ -166,5 +171,5 @@ export const InputStyles = () => {
         padding: '8px',
       },
     },
-  }
-}
+  };
+};

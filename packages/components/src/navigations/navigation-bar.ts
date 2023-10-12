@@ -1,4 +1,6 @@
-import { MD3Color, MD3Mix, MD3Fonts } from "@md3-ui/theme";
+import { MD3Fonts } from "@md3-ui/theme";
+import { getColor, getState } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
 enum NavigationBar {
   IconBg = '--md-navigation-bar-icon-bg',
@@ -7,7 +9,10 @@ enum NavigationBar {
 
 const Var = (variable: NavigationBar) => `var(${variable})`;
 
-export const NavigationBarStyles = () => {
+export const NavigationBarStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     '.md-navigation-bar': {
       [NavigationBar.IconBg]: 'transparent',
@@ -54,11 +59,11 @@ export const NavigationBarStyles = () => {
           [NavigationBar.IconColor]: MD3Color('on-secondary-container'),
 
           '&:hover': {
-            [NavigationBar.IconBg]: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
+            [NavigationBar.IconBg]: MD3Mix('secondary-container', 'on-secondary-container', 'hover'),
           },
-  
+
           '&:active, &:focus': {
-            [NavigationBar.IconBg]: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
+            [NavigationBar.IconBg]: MD3Mix('secondary-container', 'on-secondary-container', 'focus'),
           },
         },
 
@@ -93,5 +98,5 @@ export const NavigationBarStyles = () => {
         }
       }
     }
-  }
-}
+  };
+};

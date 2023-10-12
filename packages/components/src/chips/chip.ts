@@ -1,5 +1,6 @@
-import { MD3Color, MD3Elevation, MD3Fonts, MD3Mix } from "@md3-ui/theme"
-import { Var } from '../utils';
+import { MD3Elevation, MD3Fonts } from "@md3-ui/theme";
+import { Var, getColor, getState } from '../utils';
+import { PluginAPI } from "tailwindcss/types/config";
 
 enum Vars {
   BackgroundColor = '--md-chip-background-color',
@@ -8,7 +9,10 @@ enum Vars {
   BorderWidth = '--md-chip-border-width',
 }
 
-export const ChipStyles = () => {
+export const ChipStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     '.md-chip': {
       [Vars.BackgroundColor]: 'transparent',
@@ -22,7 +26,7 @@ export const ChipStyles = () => {
       justifyContent: 'center',
       width: 'max-content',
       height: '32px',
-      
+
 
       padding: `calc(6px - ${Var(Vars.BorderWidth)}) calc(12px - ${Var(Vars.BorderWidth)})`,
       gap: '8px',
@@ -44,10 +48,10 @@ export const ChipStyles = () => {
         [Vars.BorderColor]: 'transparent',
 
         '&:hover': {
-          [Vars.BackgroundColor]: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
+          [Vars.BackgroundColor]: MD3Mix('secondary-container', 'on-secondary-container', 'hover'),
         },
         '&:active, &:focus': {
-          [Vars.BackgroundColor]: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
+          [Vars.BackgroundColor]: MD3Mix('secondary-container', 'on-secondary-container', 'focus'),
         }
       },
 
@@ -57,12 +61,12 @@ export const ChipStyles = () => {
         boxShadow: MD3Elevation(1),
 
         '&:hover': {
-          [Vars.BackgroundColor]: MD3Mix('surface-container-low', 'on-surface', '8%'),
+          [Vars.BackgroundColor]: MD3Mix('surface-container-low', 'on-surface', 'hover'),
         },
         '&:active, &:focus': {
-          [Vars.BackgroundColor]: MD3Mix('surface-container-low', 'on-surface', '12%'),
+          [Vars.BackgroundColor]: MD3Mix('surface-container-low', 'on-surface', 'focus'),
         }
       }
     }
-  }
-}
+  };
+};

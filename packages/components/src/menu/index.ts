@@ -1,7 +1,8 @@
+import { PluginAPI } from "tailwindcss/types/config";
 import { MenuStyles } from "./menu"
 
-export const Menu = () => {
+export const Menu = (api: PluginAPI) => {
   return {
-    ...MenuStyles()
+    ...MenuStyles(api)
   }
 }

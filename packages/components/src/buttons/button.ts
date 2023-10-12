@@ -1,6 +1,11 @@
-import { MD3Mix, MD3Color, MD3Elevation, MD3Fonts } from "@md3-ui/theme";
+import { MD3Elevation, MD3Fonts } from "@md3-ui/theme";
+import { getColor, getState } from '../utils';
+import { PluginAPI } from "tailwindcss/types/config";
 
-export const ButtonStyles = () => {
+export function ButtonStyles(api: PluginAPI) {
+  const MD3Color = getColor(api);
+  const MD3Mix = getState(api);
+
   return {
     ".btn": {
       ...MD3Fonts['label-large'],
@@ -26,14 +31,14 @@ export const ButtonStyles = () => {
         color: MD3Color('on-primary'),
 
         '&:hover': {
-          background: MD3Mix('primary', 'on-primary', '8%'),
+          background: MD3Color('primary-hover'),
           boxShadow: MD3Elevation(1),
         },
         '&:focus': {
-          background: MD3Mix('primary', 'on-primary', '12%'),
+          background: MD3Color('primary-focus'),
         },
         '&:active': {
-          background: MD3Mix('primary', 'on-primary', '12%'),
+          background: MD3Color('primary-press'),
         },
         '&:disabled': {
           background: MD3Color('on-surface', '0.12'),
@@ -47,13 +52,13 @@ export const ButtonStyles = () => {
         color: MD3Color('primary'),
 
         '&:hover': {
-          background: MD3Mix('surface-container-low', 'primary', '8%'),
+          background: MD3Mix('surface-container-low', 'primary', 'hover'),
         },
         '&:focus': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', 'focus'),
         },
         '&:active': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', 'focus'),
         },
         '&:disabled': {
           ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
@@ -69,14 +74,14 @@ export const ButtonStyles = () => {
         background: 'transpatent',
 
         '&:hover': {
-          background: MD3Mix('surface-container-low', 'primary', '8%'),
+          background: MD3Mix('surface-container-low', 'primary', 'hover'),
         },
         '&:focus': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', 'focus'),
           borderColor: MD3Color('primary'),
         },
         '&:active': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Mix('surface-container-low', 'primary', 'focus'),
         },
         '&:disabled': {
           background: 'transparent',
@@ -93,15 +98,15 @@ export const ButtonStyles = () => {
         color: MD3Color('primary'),
 
         '&:hover': {
-          background: MD3Mix('surface-container-low', 'primary', '8%'),
+          background: MD3Color('surface-hover'),
           boxShadow: MD3Elevation(2),
         },
         '&:focus': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Color('surface-focus'),
           boxShadow: MD3Elevation(1),
         },
         '&:active': {
-          background: MD3Mix('surface-container-low', 'primary', '12%'),
+          background: MD3Color('surface-press'),
           boxShadow: MD3Elevation(1),
         },
         '&:disabled': {
@@ -114,13 +119,13 @@ export const ButtonStyles = () => {
         ['@apply bg-secondary-container text-on-secondary-container']: '',
         '&:hover': {
           ['@apply elevation-1']: '',
-          background: MD3Mix('secondary-container', 'on-secondary-container', '8%'),
+          background: MD3Color('secondary-container-hover'),
         },
         '&:focus': {
-          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Color('secondary-container-focus'),
         },
         '&:active': {
-          background: MD3Mix('secondary-container', 'on-secondary-container', '12%'),
+          background: MD3Color('secondary-container-press'),
         },
         '&:disabled': {
           ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',

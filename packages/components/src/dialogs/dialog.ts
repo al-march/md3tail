@@ -1,6 +1,10 @@
-import { MD3Color, MD3Fonts } from "@md3-ui/theme";
+import { MD3Fonts } from "@md3-ui/theme";
+import { getColor } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
-export const DialogStyles = () => {
+export const DialogStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+
   return {
     '.dialog': {
       background: 'transparent',
@@ -33,5 +37,5 @@ export const DialogStyles = () => {
         }
       }
     }
-  }
-}
+  };
+};

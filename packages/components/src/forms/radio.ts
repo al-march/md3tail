@@ -1,4 +1,5 @@
-import { MD3Color } from "@md3-ui/theme";
+import { getColor } from "../utils";
+import { PluginAPI } from "tailwindcss/types/config";
 
 enum Radio {
   Color = '--md-radio-color',
@@ -8,7 +9,9 @@ enum Radio {
 const Var = (variable: Radio) => `var(${variable})`;
 const Input = 'input[type="radio"]';
 
-export const RadioStyles = () => {
+export const RadioStyles = (api: PluginAPI) => {
+  const MD3Color = getColor(api);
+
   return {
     '.radio': {
       [Radio.Color]: MD3Color('on-surface-variant'),
@@ -71,5 +74,5 @@ export const RadioStyles = () => {
         opacity: '0.38',
       }
     }
-  }
-}
+  };
+};

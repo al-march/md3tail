@@ -1,7 +1,8 @@
+import { PluginAPI } from 'tailwindcss/types/config';
 import { TabsStyles } from './Tabs';
 
-export const Tabs = () => {
+export const Tabs = (api: PluginAPI) => {
   return {
-    ...TabsStyles()
+    ...TabsStyles(api)
   }
 }
