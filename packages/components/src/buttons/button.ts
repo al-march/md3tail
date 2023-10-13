@@ -1,6 +1,16 @@
 import { MD3Elevation, MD3Fonts } from "@md3-ui/theme";
-import { getColor, getState } from '../utils';
+import { Var, getColor, getState } from '../utils';
 import { PluginAPI } from "tailwindcss/types/config";
+
+enum Vars {
+  Color = '--md-button-color',
+  Background = '--md-button-background',
+  BorderWidth = '--md-button-border-width',
+  BorderColor = '--md-button-border-color',
+  BorderStyle = '--md-button-border-style',
+  BorderRadius = '--md-button-border-radius',
+  Shadow = '--md-button-shadow',
+}
 
 export function ButtonStyles(api: PluginAPI) {
   const MD3Color = getColor(api);
@@ -8,16 +18,30 @@ export function ButtonStyles(api: PluginAPI) {
 
   return {
     ".btn": {
+      [Vars.Color]: MD3Color('primary'),
+      [Vars.Background]: 'transparent',
+      [Vars.BorderColor]: 'transparent',
+      [Vars.BorderWidth]: '1px',
+      [Vars.BorderStyle]: 'solid',
+      [Vars.BorderRadius]: '20px',
+      [Vars.Shadow]: 'none',
+
       ...MD3Fonts['label-large'],
       outline: 'none',
       display: 'inline-flex',
       alignItems: 'center',
       gap: '8px',
       padding: '0 24px',
-      borderRadius: '20px',
-      lineHeight: '40px',
+      lineHeight: `calc(40px - ${Var(Vars.BorderWidth)} * 2)`,
       transition: '0.3s ease all',
 
+      boxShadow: Var(Vars.Shadow),
+      color: Var(Vars.Color),
+      background: Var(Vars.Background),
+      borderWidth: Var(Vars.BorderWidth),
+      borderColor: Var(Vars.BorderColor),
+      borderStyle: Var(Vars.BorderStyle),
+      borderRadius: Var(Vars.BorderRadius),
 
       '&-with-icon': {
         paddingLeft: '16px',
@@ -27,38 +51,36 @@ export function ButtonStyles(api: PluginAPI) {
       },
 
       '&-filled': {
-        background: MD3Color('primary'),
-        color: MD3Color('on-primary'),
+        [Vars.Background]: MD3Color('primary'),
+        [Vars.Color]: MD3Color('on-primary'),
 
         '&:hover': {
-          background: MD3Color('primary-hover'),
-          boxShadow: MD3Elevation(1),
+          [Vars.Background]: MD3Color('primary-hover'),
+          [Vars.Shadow]: MD3Elevation(1),
         },
         '&:focus': {
-          background: MD3Color('primary-focus'),
+          [Vars.Background]: MD3Color('primary-focus'),
         },
         '&:active': {
-          background: MD3Color('primary-press'),
+          [Vars.Background]: MD3Color('primary-press'),
         },
         '&:disabled': {
-          background: MD3Color('on-surface', '0.12'),
-          color: MD3Color('on-surface', '0.38'),
-          boxShadow: 'none',
+          [Vars.Background]: MD3Color('on-surface', '0.12'),
+          [Vars.Color]: MD3Color('on-surface', '0.38'),
+          [Vars.Shadow]: 'none',
           cursor: 'not-allowed'
         }
       },
 
       '&-text': {
-        color: MD3Color('primary'),
-
         '&:hover': {
-          background: MD3Mix('surface-container-low', 'primary', 'hover'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'hover'),
         },
         '&:focus': {
-          background: MD3Mix('surface-container-low', 'primary', 'focus'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'focus'),
         },
         '&:active': {
-          background: MD3Mix('surface-container-low', 'primary', 'focus'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'focus'),
         },
         '&:disabled': {
           ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
@@ -67,47 +89,44 @@ export function ButtonStyles(api: PluginAPI) {
       },
 
       '&-outlined': {
-        borderRadius: '100px',
-        borderWidth: '1px',
-        borderColor: MD3Color('outline'),
-        color: MD3Color('primary'),
-        background: 'transpatent',
+        [Vars.BorderColor]: MD3Color('outline'),
+        [Vars.Background]: 'transpatent',
+        [Vars.BorderRadius]: '100px',
 
         '&:hover': {
-          background: MD3Mix('surface-container-low', 'primary', 'hover'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'hover'),
         },
         '&:focus': {
-          background: MD3Mix('surface-container-low', 'primary', 'focus'),
-          borderColor: MD3Color('primary'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'focus'),
+          [Vars.BorderColor]: MD3Color('primary'),
         },
         '&:active': {
-          background: MD3Mix('surface-container-low', 'primary', 'focus'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'focus'),
         },
         '&:disabled': {
-          background: 'transparent',
-          color: MD3Color('on-surface', '0.38'),
-          boxShadow: 'none',
+          [Vars.Background]: 'transparent',
+          [Vars.Color]: MD3Color('on-surface', '0.38'),
+          [Vars.BorderColor]: MD3Color('on-surface', '0.12'),
+          [Vars.Shadow]: 'none',
           cursor: 'not-allowed',
-          border: `1px solid ${MD3Color('on-surface', '0.12')}`
         }
       },
 
       '&-elevated': {
-        boxShadow: MD3Elevation(1),
-        background: MD3Color('surface-container-low'),
-        color: MD3Color('primary'),
+        [Vars.Shadow]: MD3Elevation(1),
+        [Vars.Background]: MD3Color('surface-container-low'),
 
         '&:hover': {
-          background: MD3Color('surface-hover'),
-          boxShadow: MD3Elevation(2),
+          [Vars.Background]: MD3Color('surface-hover'),
+          [Vars.Shadow]: MD3Elevation(2),
         },
         '&:focus': {
-          background: MD3Color('surface-focus'),
-          boxShadow: MD3Elevation(1),
+          [Vars.Background]: MD3Color('surface-focus'),
+          [Vars.Shadow]: MD3Elevation(1),
         },
         '&:active': {
-          background: MD3Color('surface-press'),
-          boxShadow: MD3Elevation(1),
+          [Vars.Background]: MD3Color('surface-press'),
+          [Vars.Shadow]: MD3Elevation(1),
         },
         '&:disabled': {
           ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',
@@ -116,16 +135,18 @@ export function ButtonStyles(api: PluginAPI) {
       },
 
       '&-tonal': {
-        ['@apply bg-secondary-container text-on-secondary-container']: '',
+        [Vars.Background]: MD3Color('secondary-container'),
+        [Vars.Color]: MD3Color('on-secondary-container'),
+
         '&:hover': {
-          ['@apply elevation-1']: '',
-          background: MD3Color('secondary-container-hover'),
+          [Vars.Background]: MD3Color('secondary-container-hover'),
+          [Vars.Shadow]: MD3Elevation(1),
         },
         '&:focus': {
-          background: MD3Color('secondary-container-focus'),
+          [Vars.Background]: MD3Color('secondary-container-focus'),
         },
         '&:active': {
-          background: MD3Color('secondary-container-press'),
+          [Vars.Background]: MD3Color('secondary-container-press'),
         },
         '&:disabled': {
           ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',
