@@ -1,76 +1,97 @@
-import { getColor } from "../utils";
+import { Var, getColor } from "../utils";
 import { PluginAPI } from "tailwindcss/types/config";
+
+enum Vars {
+  Color = '--md-button-color',
+  Background = '--md-button-background',
+  BorderWidth = '--md-button-border-width',
+  BorderColor = '--md-button-border-color',
+  BorderStyle = '--md-button-border-style',
+  BorderRadius = '--md-button-border-radius',
+}
 
 export const IconButtonStyles = (api: PluginAPI) => {
   const MD3Color = getColor(api);
 
   return {
     '.icon-btn': {
+      [Vars.Color]: MD3Color('on-surface'),
+      [Vars.Background]: 'transparent',
+      [Vars.BorderColor]: 'transparent',
+      [Vars.BorderWidth]: '1px',
+      [Vars.BorderStyle]: 'solid',
+      [Vars.BorderRadius]: '100px',
+
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '8px',
-      border: 'none',
-      borderRadius: '100px',
+      padding: `calc(8px - ${Var(Vars.BorderWidth)})`,
+
+      color: Var(Vars.Color),
+      background: Var(Vars.Background),
+
+      borderColor: Var(Vars.BorderColor),
+      borderWidth: Var(Vars.BorderWidth),
+      borderStyle: Var(Vars.BorderStyle),
+      borderRadius: Var(Vars.BorderRadius),
+
       transition: '0.3s ease all',
       outline: 'none',
-      color: MD3Color('on-surface'),
 
       '&:hover': {
-        background: MD3Color('on-surface-variant', '0.08'),
+        [Vars.Background]: MD3Color('on-surface-variant', '0.08'),
       },
       '&:active, &:focus': {
-        background: MD3Color('on-surface-variant', '0.12'),
+        [Vars.Background]: MD3Color('on-surface-variant', '0.12'),
       },
 
       '&-filled': {
-        background: MD3Color('primary'),
-        color: MD3Color('on-primary'),
+        [Vars.Background]: MD3Color('primary'),
+        [Vars.Color]: MD3Color('on-primary'),
 
         '&:hover': {
-          background: MD3Color('primary-hover'),
+          [Vars.Background]: MD3Color('primary-hover'),
         },
         '&:focus, &:active': {
-          background: MD3Color('primary-focus'),
+          [Vars.Background]: MD3Color('primary-focus'),
         },
       },
 
       '&-outlined': {
-        border: '1px solid',
-        borderColor: MD3Color('outline'),
-        color: MD3Color('primary'),
-        background: 'transpatent',
+        [Vars.Color]: MD3Color('primary'),
+        [Vars.Background]: 'transpatent',
+        [Vars.BorderColor]: MD3Color('outline'),
 
         '&:hover': {
-          background: MD3Color('surface-hover'),
+          [Vars.Background]: MD3Color('surface-hover'),
         },
         '&:focus': {
-          background: MD3Color('surface-focus'),
-          borderColor: MD3Color('primary'),
+          [Vars.Background]: MD3Color('surface-focus'),
+          [Vars.BorderColor]: MD3Color('primary'),
         },
         '&:active': {
-          background: MD3Color('surface-press'),
+          [Vars.Background]: MD3Color('surface-press'),
         },
         '&:disabled': {
-          border: `1px solid ${MD3Color('on-surface', '0.12')}`
+          [Vars.BorderColor]: MD3Color('on-surface', '0.12'),
         }
       },
 
       '&-tonal': {
-        background: MD3Color('secondary-container'),
-        color: MD3Color('on-secondary-container'),
+        [Vars.Background]: MD3Color('secondary-container'),
+        [Vars.Color]: MD3Color('on-secondary-container'),
 
         '&:hover': {
-          background: MD3Color('secondary-container-hover'),
+          [Vars.Background]: MD3Color('secondary-container-hover'),
         },
         '&:focus, &:active': {
-          background: MD3Color('secondary-container-focus'),
+          [Vars.Background]: MD3Color('secondary-container-focus'),
         },
       },
 
       '&:disabled': {
-        background: 'transparent',
-        color: MD3Color('on-surface', '0.38'),
+        [Vars.Background]: 'transparent',
+        [Vars.Color]: MD3Color('on-surface', '0.38'),
         cursor: 'not-allowed'
       },
     }
