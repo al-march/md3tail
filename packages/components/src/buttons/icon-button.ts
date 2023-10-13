@@ -2,12 +2,12 @@ import { Var, getColor } from "../utils";
 import { PluginAPI } from "tailwindcss/types/config";
 
 enum Vars {
-  Color = '--md-button-color',
-  Background = '--md-button-background',
-  BorderWidth = '--md-button-border-width',
-  BorderColor = '--md-button-border-color',
-  BorderStyle = '--md-button-border-style',
-  BorderRadius = '--md-button-border-radius',
+  Color = '--md-icon-button-color',
+  Background = '--md-icon-button-background',
+  BorderWidth = '--md-icon-button-border-width',
+  BorderColor = '--md-icon-button-border-color',
+  BorderStyle = '--md-icon-button-border-style',
+  BorderRadius = '--md-icon-button-border-radius',
 }
 
 export const IconButtonStyles = (api: PluginAPI) => {
