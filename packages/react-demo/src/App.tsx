@@ -38,7 +38,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="bg-surface-container">
       <header className="flex gap-4 items-center bg-surface elevation-3 p-2 sticky top-0 z-10">
         <Button className="h-[40px]" icon="light_mode" onClick={toggleTheme} />
       </header>

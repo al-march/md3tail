@@ -6,6 +6,10 @@ export const COLORS = [
   'on-primary',
   'primary-container',
   'on-primary-container',
+  'primary-fixed',
+  'on-primary-fixed',
+  'primary-fixed-dim',
+  'on-primary-fixed-variant',
   'secondary',
   'on-secondary',
   'secondary-container',
@@ -26,6 +30,8 @@ export const COLORS = [
   'surface-container-low',
   'surface-container-high',
   'surface-container-highest',
+  'surface-bright',
+  'surface-dim',
   'surface-tint',
   'on-surface',
   'surface-variant',
@@ -59,7 +65,10 @@ export const CORE_COLORS = [
   'secondary',
   'tertiary',
   'error',
+  'neutral-variant',
 ] as const;
+
+export const NEUTRAL_COLOR = 'neutral';
 
 /**
  * One core color becomes thirteen tones
@@ -67,11 +76,39 @@ export const CORE_COLORS = [
  */
 export const PALETTES = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100] as const;
 
+export const NEUTRAL_PALLETE = [
+  0,
+  4,
+  6,
+  10,
+  12,
+  17,
+  20,
+  22,
+  24,
+  30,
+  40,
+  50,
+  60,
+  70,
+  80,
+  87,
+  90,
+  92,
+  94,
+  95,
+  96,
+  98,
+  99,
+  100,
+] as const;
+
 export type Color = typeof COLORS[number];
 
 type State = typeof STATES[number];
 type CoreColor = typeof CORE_COLORS[number];
 type Palette = typeof PALETTES[number];
+type NeutralPalette = typeof NEUTRAL_PALLETE[number];
 
 /**
  * Only color which has `on-` prefix
@@ -83,5 +120,10 @@ export type StatefullColors = GetStatelessColors<Color>;
 export type MD3BaseColor = Color;
 export type MD3StateColor = `${StatefullColors}-${State}`;
 export type MD3PalleteColor = `${CoreColor}${Palette}`;
+export type MD3NeutralPalette = `neutral${NeutralPalette}`;
 
-export type MD3Color = MD3BaseColor | MD3StateColor | MD3PalleteColor;
+export type MD3Color =
+  | MD3BaseColor
+  | MD3StateColor
+  | MD3PalleteColor
+  | MD3NeutralPalette;

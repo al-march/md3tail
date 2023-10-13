@@ -29,6 +29,14 @@ export const Theme = {
   SurfaceVariant: '--md-sys-color-surface-variant',
   OnSurfaceVariant: '--md-sys-color-on-surface-variant',
 
+  SurfaceContainerHighest: '--md-sys-color-surface-container-highest',
+  SurfaceContainerHigh: '--md-sys-color-surface-container-high',
+  SurfaceContainer: '--md-sys-color-surface-container',
+  SurfaceContainerLow: '--md-sys-color-surface-container-low',
+  SurfaceContainerLowest: '--md-sys-color-surface-container-lowest',
+  SurfaceBright: '--md-sys-color-surface-bright',
+  SurfaceDim: '--md-sys-color-surface-dim',
+
   Outline: '--md-sys-color-outline',
   InverseOnSurface: '--md-sys-color-inverse-on-surface',
   InverseSurface: '--md-sys-color-inverse-surface',

@@ -1,4 +1,16 @@
-import { COLORS, CORE_COLORS, Color, MD3BaseColor, MD3PalleteColor, MD3StateColor, PALETTES, StatefullColors, MD3Color } from './base';
+import {
+  COLORS,
+  CORE_COLORS,
+  Color,
+  MD3BaseColor,
+  MD3PalleteColor,
+  MD3StateColor,
+  PALETTES,
+  StatefullColors,
+  MD3Color,
+  MD3NeutralPalette,
+  NEUTRAL_PALLETE
+} from './base';
 import { MD3ThemeConfig } from '../config';
 
 
@@ -12,11 +24,13 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
   const baseColors = generateBaseColors();
   const palettes = generatePalettes();
   const states = generateStateLayers(config.stateLayers);
+  const neutrals = generateNeutralPalettes();
 
   return {
     ...baseColors,
     ...palettes,
-    ...states
+    ...states,
+    ...neutrals,
   };
 
   function generateBaseColors(): Record<MD3BaseColor, string> {
@@ -36,6 +50,13 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
     }, {} as Record<MD3PalleteColor, string>);
   }
 
+  function generateNeutralPalettes(): Record<MD3NeutralPalette, string> {
+    return NEUTRAL_PALLETE.reduce((acc, palette) => {
+      acc[`neutral${palette}`] = `rgb(var(--md-ref-palette-neutral${palette}) / ${alphaValue})`;
+      return acc;
+    }, {} as Record<MD3NeutralPalette, string>);
+  }
+
   function generateStateLayers(
     stateLayers: MD3ThemeConfig['stateLayers'] = {},
   ) {
@@ -43,7 +64,7 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
     const states = {} as Record<MD3StateColor, string>;
 
     colors.forEach((c) => {
-      const onColorName = `on-${c}` as MD3BaseColor;
+      const onColorName = `on-${c}`;
       const onColor = md3Color(onColorName);
       const color = md3Color(c);
       if (color && onColor) {
@@ -57,7 +78,7 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
     return states;
   }
 
-  function md3Mix(mdColor1: MD3BaseColor, mdColor2: MD3BaseColor, percent: string | number) {
+  function md3Mix(mdColor1: string, mdColor2: string, percent: string | number) {
     const color1 = md3Color(mdColor1);
     const color2 = md3Color(mdColor2);
 
@@ -72,8 +93,12 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
     }
   }
 
-  function md3Color(mdColor: MD3BaseColor, opacity = '1'): string {
-    if (baseColors[mdColor]) {
+  function md3Color(mdColor: string, opacity = '1'): string {
+    const isMD3Color = (mdColor: string): mdColor is MD3BaseColor => {
+      return mdColor in baseColors;
+    };
+
+    if (isMD3Color(mdColor)) {
       return baseColors[mdColor].replace(alphaValue, opacity);
     }
     return '';
