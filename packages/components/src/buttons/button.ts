@@ -10,6 +10,7 @@ enum Vars {
   BorderStyle = '--md-button-border-style',
   BorderRadius = '--md-button-border-radius',
   Shadow = '--md-button-shadow',
+  Cursor = '--md-button-cursor',
 }
 
 export function ButtonStyles(api: PluginAPI) {
@@ -25,6 +26,7 @@ export function ButtonStyles(api: PluginAPI) {
       [Vars.BorderStyle]: 'solid',
       [Vars.BorderRadius]: '20px',
       [Vars.Shadow]: 'none',
+      [Vars.Cursor]: 'pointer',
 
       ...MD3Fonts['label-large'],
       outline: 'none',
@@ -42,6 +44,7 @@ export function ButtonStyles(api: PluginAPI) {
       borderColor: Var(Vars.BorderColor),
       borderStyle: Var(Vars.BorderStyle),
       borderRadius: Var(Vars.BorderRadius),
+      cursor: Var(Vars.Cursor),
 
       '&-with-icon': {
         paddingLeft: '16px',
@@ -68,7 +71,7 @@ export function ButtonStyles(api: PluginAPI) {
           [Vars.Background]: MD3Color('on-surface', '0.12'),
           [Vars.Color]: MD3Color('on-surface', '0.38'),
           [Vars.Shadow]: 'none',
-          cursor: 'not-allowed'
+          [Vars.Cursor]: 'not-allowed'
         }
       },
 
@@ -80,11 +83,13 @@ export function ButtonStyles(api: PluginAPI) {
           [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'focus'),
         },
         '&:active': {
-          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'focus'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'press'),
         },
         '&:disabled': {
-          ['@apply bg-transparent text-on-surface text-opacity-[0.38]']: '',
-          ['@apply cursor-not-allowed']: ''
+          [Vars.Background]: 'transparent',
+          [Vars.Color]: MD3Color('on-surface', '0.38'),
+          [Vars.Shadow]: 'none',
+          [Vars.Cursor]: 'not-allowed',
         }
       },
 
@@ -102,14 +107,14 @@ export function ButtonStyles(api: PluginAPI) {
           [Vars.BorderColor]: MD3Color('primary'),
         },
         '&:active': {
-          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'focus'),
+          [Vars.Background]: MD3Mix('surface-container-low', 'primary', 'press'),
         },
         '&:disabled': {
           [Vars.Background]: 'transparent',
           [Vars.Color]: MD3Color('on-surface', '0.38'),
           [Vars.BorderColor]: MD3Color('on-surface', '0.12'),
           [Vars.Shadow]: 'none',
-          cursor: 'not-allowed',
+          [Vars.Cursor]: 'not-allowed',
         }
       },
 
@@ -130,8 +135,10 @@ export function ButtonStyles(api: PluginAPI) {
           [Vars.Shadow]: MD3Elevation(1),
         },
         '&:disabled': {
-          ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',
-          ['@apply elevation-0 cursor-not-allowed']: ''
+          [Vars.Background]: MD3Color('on-surface', '0.12'),
+          [Vars.Color]: MD3Color('on-surface', '0.38'),
+          [Vars.Shadow]: 'none',
+          [Vars.Cursor]: 'not-allowed',
         }
       },
 
@@ -150,8 +157,10 @@ export function ButtonStyles(api: PluginAPI) {
           [Vars.Background]: MD3Color('secondary-container-press'),
         },
         '&:disabled': {
-          ['@apply bg-on-surface bg-opacity-[0.12] text-on-surface text-opacity-[0.38]']: '',
-          ['@apply elevation-0 cursor-not-allowed']: '',
+          [Vars.Background]: MD3Color('on-surface', '0.12'),
+          [Vars.Color]: MD3Color('on-surface', '0.38'),
+          [Vars.Shadow]: 'none',
+          [Vars.Cursor]: 'not-allowed',
         }
       }
     },

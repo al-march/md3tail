@@ -8,6 +8,7 @@ enum Vars {
   BorderColor = '--md-icon-button-border-color',
   BorderStyle = '--md-icon-button-border-style',
   BorderRadius = '--md-icon-button-border-radius',
+  Cursor = '--md-icon-button-cursor',
 }
 
 export const IconButtonStyles = (api: PluginAPI) => {
@@ -21,6 +22,7 @@ export const IconButtonStyles = (api: PluginAPI) => {
       [Vars.BorderWidth]: '1px',
       [Vars.BorderStyle]: 'solid',
       [Vars.BorderRadius]: '100px',
+      [Vars.Cursor]: 'pointer',
 
       display: 'inline-flex',
       alignItems: 'center',
@@ -34,6 +36,7 @@ export const IconButtonStyles = (api: PluginAPI) => {
       borderWidth: Var(Vars.BorderWidth),
       borderStyle: Var(Vars.BorderStyle),
       borderRadius: Var(Vars.BorderRadius),
+      cursor: Var(Vars.Cursor),
 
       transition: '0.3s ease all',
       outline: 'none',
@@ -52,9 +55,12 @@ export const IconButtonStyles = (api: PluginAPI) => {
         '&:hover': {
           [Vars.Background]: MD3Color('primary-hover'),
         },
-        '&:focus, &:active': {
+        '&:focus': {
           [Vars.Background]: MD3Color('primary-focus'),
         },
+        '&:active': {
+          [Vars.Background]: MD3Color('primary-press'),
+        }
       },
 
       '&-outlined': {
@@ -84,8 +90,11 @@ export const IconButtonStyles = (api: PluginAPI) => {
         '&:hover': {
           [Vars.Background]: MD3Color('secondary-container-hover'),
         },
-        '&:focus, &:active': {
+        '&:focus': {
           [Vars.Background]: MD3Color('secondary-container-focus'),
+        },
+        '&:active': {
+          [Vars.Background]: MD3Color('secondary-container-press'),
         },
       },
 

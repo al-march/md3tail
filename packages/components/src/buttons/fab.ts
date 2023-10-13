@@ -1,6 +1,14 @@
 import { MD3Elevation, MD3Fonts } from "@md3-ui/theme";
-import { getColor, getState } from "../utils";
+import { Var, getColor, getState } from "../utils";
 import { PluginAPI } from "tailwindcss/types/config";
+
+enum Vars {
+  Color = '--md-fab-color',
+  Background = '--md-fab-background',
+  BorderRadius = '--md-fab-border-radius',
+  Shadow = '--md-fab-shadow',
+  Cursor = '--md-fab-cursor',
+}
 
 export const FabStyles = (api: PluginAPI) => {
   const MD3Color = getColor(api);
@@ -8,83 +16,99 @@ export const FabStyles = (api: PluginAPI) => {
 
   return {
     '.fab': {
+      [Vars.Color]: MD3Color('primary'),
+      [Vars.Background]: MD3Color('surface-container-high'),
+      [Vars.BorderRadius]: '16px',
+      [Vars.Shadow]: MD3Elevation(3),
+      [Vars.Cursor]: 'pointer',
+
       ...MD3Fonts['label-large'],
       display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
       gap: '12px',
-      borderRadius: '16px',
+      borderRadius: Var(Vars.BorderRadius),
       padding: '16px',
       transition: '0.3s ease all',
 
-      boxShadow: MD3Elevation(3),
-      background: MD3Color('surface-container-high'),
-      color: MD3Color('primary'),
+      boxShadow: Var(Vars.Shadow),
+      background: Var(Vars.Background),
+      color: Var(Vars.Color),
+      cursor: Var(Vars.Cursor),
       outline: 'none',
 
       '&.fab-small': {
-        borderRadius: '12px',
+        [Vars.BorderRadius]: '12px',
         padding: '8px',
       },
 
       '&.fab-large': {
-        borderRadius: '28px',
+        [Vars.BorderRadius]: '28px',
         padding: '30px',
       },
 
-      '&:hover': {
-        boxShadow: MD3Elevation(4),
-        background: MD3Mix('surface-container-high', 'primary', 'hover'),
+      '&:hover, &:focus, &:active': {
+        [Vars.Shadow]: MD3Elevation(4),
       },
-
-      '&:focus, &:active': {
-        boxShadow: MD3Elevation(4),
-        background: MD3Mix('surface-container-high', 'primary', 'focus'),
+      '&:hover': {
+        [Vars.Background]: MD3Mix('surface-container-high', 'primary', 'hover'),
+      },
+      '&:focus': {
+        [Vars.Background]: MD3Mix('surface-container-high', 'primary', 'focus'),
+      },
+      '&:active': {
+        [Vars.Background]: MD3Mix('surface-container-high', 'primary', 'press'),
       },
 
       '&-primary': {
-        background: MD3Color('primary-container'),
-        color: MD3Color('on-primary-container'),
-
+        [Vars.Background]: MD3Color('primary-container'),
+        [Vars.Color]: MD3Color('on-primary-container'),
+        '&:hover, &:focus, &:active': {
+          [Vars.Shadow]: MD3Elevation(4),
+        },
         '&:hover': {
-          boxShadow: MD3Elevation(4),
-          background: MD3Mix('primary-container', 'on-primary-container', 'hover'),
+          [Vars.Background]: MD3Color('primary-container-hover'),
         },
-
-        '&:focus, &:active': {
-          boxShadow: MD3Elevation(4),
-          background: MD3Mix('primary-container', 'on-primary-container', 'focus'),
+        '&:focus': {
+          [Vars.Background]: MD3Color('primary-container-focus'),
         },
+        '&:active': {
+          [Vars.Background]: MD3Color('primary-container-press'),
+        }
       },
 
       '&-secondary': {
-        background: MD3Color('secondary-container'),
-        color: MD3Color('on-secondary-container'),
-
+        [Vars.Background]: MD3Color('secondary-container'),
+        [Vars.Color]: MD3Color('on-secondary-container'),
+        '&:hover, &:focus, &:active': {
+          [Vars.Shadow]: MD3Elevation(4),
+        },
         '&:hover': {
-          boxShadow: MD3Elevation(4),
-          background: MD3Mix('secondary-container', 'on-secondary-container', 'hover'),
+          [Vars.Background]: MD3Color('secondary-container-hover'),
         },
-
-        '&:focus, &:active': {
-          boxShadow: MD3Elevation(4),
-          background: MD3Mix('secondary-container', 'on-secondary-container', 'focus'),
+        '&:focus': {
+          [Vars.Background]: MD3Color('secondary-container-focus'),
         },
+        '&:active': {
+          [Vars.Background]: MD3Color('secondary-container-press'),
+        }
       },
 
       '&-tertiary': {
-        background: MD3Color('tertiary-container'),
-        color: MD3Color('on-tertiary-container'),
-
+        [Vars.Background]: MD3Color('tertiary-container'),
+        [Vars.Color]: MD3Color('on-tertiary-container'),
+        '&:hover, &:focus, &:active': {
+          [Vars.Shadow]: MD3Elevation(4),
+        },
         '&:hover': {
-          boxShadow: MD3Elevation(4),
-          background: MD3Mix('tertiary-container', 'on-tertiary-container', 'hover'),
+          [Vars.Background]: MD3Color('tertiary-container-hover'),
         },
-
-        '&:focus, &:active': {
-          boxShadow: MD3Elevation(4),
-          background: MD3Mix('tertiary-container', 'on-tertiary-container', 'focus'),
+        '&:focus': {
+          [Vars.Background]: MD3Color('tertiary-container-focus'),
         },
+        '&:active': {
+          [Vars.Background]: MD3Color('tertiary-container-press'),
+        }
       },
 
       '&-extended': {
@@ -95,12 +119,11 @@ export const FabStyles = (api: PluginAPI) => {
         borderRadius: '16px',
       },
 
-
       '&:disabled': {
-        boxShadow: MD3Elevation(0),
-        background: MD3Color('surface-container-high', '0.38'),
-        color: MD3Color('primary', '0.38'),
-        cursor: 'not-allowed',
+        [Vars.Shadow]: MD3Elevation(0),
+        [Vars.Background]: MD3Color('surface-container-high', '0.38'),
+        [Vars.Color]: MD3Color('primary', '0.38'),
+        [Vars.Cursor]: 'not-allowed',
       }
     }
   };
