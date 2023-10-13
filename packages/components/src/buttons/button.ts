@@ -89,8 +89,9 @@ export function ButtonStyles(api: PluginAPI) {
       },
 
       '&-outlined': {
-        [Vars.BorderColor]: MD3Color('outline'),
         [Vars.Background]: 'transpatent',
+        [Vars.BorderColor]: MD3Color('outline'),
+        [Vars.BorderWidth]: '1px',
         [Vars.BorderRadius]: '100px',
 
         '&:hover': {
