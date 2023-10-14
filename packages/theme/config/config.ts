@@ -3,6 +3,7 @@ export type MD3ThemeConfig = {
    * CSS tokens from Material Design 3
    */
   tokens?: string;
+  source?: string;
   colors?: Record<string, string>;
   stateLayers?: {
     hover?: number;

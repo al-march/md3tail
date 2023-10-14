@@ -2,7 +2,6 @@ import plugin from 'tailwindcss/plugin';
 import { MD3ThemeConfig } from './config';
 
 import {
-  FontClasses,
   MD3Fonts,
   MD3Elevations,
   MD3Elevation,
@@ -12,6 +11,8 @@ import {
   MD3PalleteColor,
   MD3Color,
   alphaValue,
+  tokensFromSource,
+  MD3FontTokens,
 } from './theming';
 
 export {
@@ -25,12 +26,11 @@ export {
   MD3Color,
 };
 
-import { Variables } from './theming/variables';
-import { GenerateTheme, ThemeMode, GenerateCSS } from './parser';
-
+const SOURCE = '#6750A4';
 
 export const md3Theme = plugin.withOptions<MD3ThemeConfig | undefined>((options = {}) => {
   return function ({ addComponents, addBase, matchUtilities, theme }) {
+    const tokens = tokensFromSource(options?.source || SOURCE);
 
     const getColor = (color: MD3Color): string => {
       const c = (theme(`colors.${color}`) || '') as string;
@@ -38,27 +38,26 @@ export const md3Theme = plugin.withOptions<MD3ThemeConfig | undefined>((options 
     };
 
     addComponents({
-      ...FontClasses,
+      ...MD3Fonts,
       '[data-theme="dark"]': {
         ...MD3Fonts['body-medium'],
         background: getColor('background'),
         color: getColor('on-background'),
-        ...GenerateTheme(ThemeMode.Dark),
+        ...tokens.dark,
       },
       '[data-theme="light"]': {
         ...MD3Fonts['body-medium'],
         background: getColor('background'),
         color: getColor('on-background'),
-        ...GenerateTheme(ThemeMode.Light),
+        ...tokens.light,
       },
     });
 
     addBase({
       ':root': {
-        ...GenerateCSS(options?.tokens || undefined),
-      },
-      '[data-theme="light"]': Variables.Light,
-      '[data-theme="dark"]': Variables.Dark,
+        ...MD3FontTokens,
+        ...tokens.palettes,
+      }
     });
 
     matchUtilities({

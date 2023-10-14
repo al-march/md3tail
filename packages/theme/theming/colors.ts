@@ -8,8 +8,6 @@ import {
   PALETTES,
   StatefullColors,
   MD3Color,
-  MD3NeutralPalette,
-  NEUTRAL_PALLETE
 } from './base';
 import { MD3ThemeConfig } from '../config';
 
@@ -24,13 +22,11 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
   const baseColors = generateBaseColors();
   const palettes = generatePalettes();
   const states = generateStateLayers(config.stateLayers);
-  const neutrals = generateNeutralPalettes();
 
   return {
     ...baseColors,
     ...palettes,
     ...states,
-    ...neutrals,
   };
 
   function generateBaseColors(): Record<MD3BaseColor, string> {
@@ -48,13 +44,6 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
       });
       return acc;
     }, {} as Record<MD3PalleteColor, string>);
-  }
-
-  function generateNeutralPalettes(): Record<MD3NeutralPalette, string> {
-    return NEUTRAL_PALLETE.reduce((acc, palette) => {
-      acc[`neutral${palette}`] = `rgb(var(--md-ref-palette-neutral${palette}) / ${alphaValue})`;
-      return acc;
-    }, {} as Record<MD3NeutralPalette, string>);
   }
 
   function generateStateLayers(
