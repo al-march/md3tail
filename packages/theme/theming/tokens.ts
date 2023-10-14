@@ -65,7 +65,7 @@ function genModTokens(theme: Theme, mode: ThemeMode) {
     const token = toKebabCase(key);
     const { r, g, b } = rgbaFromArgb(value);
 
-    variables[`--md-sys-color-${token}`] = `${r} ${g} ${b}`;
+    variables[`--md-sys-color-${token}-${mode}`] = `${r} ${g} ${b}`;
   });
   return variables;
 }
@@ -117,7 +117,7 @@ function genSurfaces(theme: Theme, mode: ThemeMode) {
   return Object
     .entries(surfaceTones[mode])
     .reduce((acc, [key, tone]) => {
-      const variable = `--md-sys-color-${toKebabCase(key)}`;
+      const variable = `--md-sys-color-${toKebabCase(key)}-${mode}`;
       const value = toRGBString(theme.palettes.neutral.tone(tone));
       acc[variable] = value;
       return acc;

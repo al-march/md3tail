@@ -2,7 +2,7 @@
   "name": "@md3-ui/theme",
   "version": "0.0.1",
   "description": "",
-  "main": "index.ts",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc",
