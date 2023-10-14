@@ -1,113 +1,156 @@
-import Image from 'next/image'
+import clsx from "clsx";
+import { HTMLAttributes } from "react";
+
+const Surface = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
+  const classes = clsx(
+    "flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4 overflow-hidden overflow-x-auto",
+    className
+  );
+  return <section className={classes} {...props} />;
+};
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex min-h-screen flex-col items-center justify-stretch p-24">
+      <Surface className="w-full">
+        <h2 className="title-large">Surfaces</h2>
+        <div className="flex gap-2">
+          <div className="h-40 w-40 rounded bg-surface"></div>
+          <div className="h-40 w-40 rounded bg-surface-container"></div>
+          <div className="h-40 w-40 rounded bg-surface-container-lowest"></div>
+          <div className="h-40 w-40 rounded bg-surface-container-low"></div>
+          <div className="h-40 w-40 rounded bg-surface-container-high"></div>
+          <div className="h-40 w-40 rounded bg-surface-container-highest"></div>
         </div>
-      </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        <h2 className="title-large">Elevations</h2>
+        <div className="flex gap-4">
+          <div className="h-40 w-40 bg-surface rounded elevation-0"></div>
+          <div className="h-40 w-40 bg-surface rounded elevation-1"></div>
+          <div className="h-40 w-40 bg-surface rounded elevation-2"></div>
+          <div className="h-40 w-40 bg-surface rounded elevation-3"></div>
+          <div className="h-40 w-40 bg-surface rounded elevation-4"></div>
+          <div className="h-40 w-40 bg-surface rounded elevation-5"></div>
+        </div>
+      </Surface>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+      <Surface className="w-full">
+        <h2 className="title-large">States</h2>
+        <div className="flex gap-2">
+          <div className="h-40 w-40 rounded bg-primary"></div>
+          <div className="h-40 w-40 rounded bg-primary-hover"></div>
+          <div className="h-40 w-40 rounded bg-primary-focus"></div>
+          <div className="h-40 w-40 rounded bg-primary-drag"></div>
+        </div>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <div className="flex gap-2">
+          <div className="h-40 w-40 rounded bg-secondary"></div>
+          <div className="h-40 w-40 rounded bg-secondary-hover"></div>
+          <div className="h-40 w-40 rounded bg-secondary-focus"></div>
+          <div className="h-40 w-40 rounded bg-secondary-drag"></div>
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
+        <div className="flex gap-2">
+          <div className="h-40 w-40 rounded bg-error"></div>
+          <div className="h-40 w-40 rounded bg-error-hover"></div>
+          <div className="h-40 w-40 rounded bg-error-focus"></div>
+          <div className="h-40 w-40 rounded bg-error-drag"></div>
+        </div>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        <div className="flex gap-2">
+          <div className="h-40 w-40 rounded bg-surface"></div>
+          <div className="h-40 w-40 rounded bg-surface-hover"></div>
+          <div className="h-40 w-40 rounded bg-surface-focus"></div>
+          <div className="h-40 w-40 rounded bg-surface-drag"></div>
+        </div>
+      </Surface>
+
+      <Surface className="w-full gap-1">
+        <h2 className="title-medium">Primary palette</h2>
+        <div className="flex gap-2">
+          <div className="h-20 w-20 rounded bg-primary0"></div>
+          <div className="h-20 w-20 rounded bg-primary10"></div>
+          <div className="h-20 w-20 rounded bg-primary20"></div>
+          <div className="h-20 w-20 rounded bg-primary30"></div>
+          <div className="h-20 w-20 rounded bg-primary40"></div>
+          <div className="h-20 w-20 rounded bg-primary50"></div>
+          <div className="h-20 w-20 rounded bg-primary60"></div>
+          <div className="h-20 w-20 rounded bg-primary70"></div>
+          <div className="h-20 w-20 rounded bg-primary80"></div>
+          <div className="h-20 w-20 rounded bg-primary90"></div>
+          <div className="h-20 w-20 rounded bg-primary95"></div>
+          <div className="h-20 w-20 rounded bg-primary99"></div>
+          <div className="h-20 w-20 rounded bg-primary100"></div>
+        </div>
+
+        <h2 className="title-medium">Secondary palette</h2>
+        <div className="flex gap-2">
+          <div className="h-20 w-20 rounded bg-secondary0"></div>
+          <div className="h-20 w-20 rounded bg-secondary10"></div>
+          <div className="h-20 w-20 rounded bg-secondary20"></div>
+          <div className="h-20 w-20 rounded bg-secondary30"></div>
+          <div className="h-20 w-20 rounded bg-secondary40"></div>
+          <div className="h-20 w-20 rounded bg-secondary50"></div>
+          <div className="h-20 w-20 rounded bg-secondary60"></div>
+          <div className="h-20 w-20 rounded bg-secondary70"></div>
+          <div className="h-20 w-20 rounded bg-secondary80"></div>
+          <div className="h-20 w-20 rounded bg-secondary90"></div>
+          <div className="h-20 w-20 rounded bg-secondary95"></div>
+          <div className="h-20 w-20 rounded bg-secondary99"></div>
+          <div className="h-20 w-20 rounded bg-secondary100"></div>
+        </div>
+
+        <h2 className="title-medium">Tertiary palette</h2>
+        <div className="flex gap-2">
+          <div className="h-20 w-20 rounded bg-tertiary0"></div>
+          <div className="h-20 w-20 rounded bg-tertiary10"></div>
+          <div className="h-20 w-20 rounded bg-tertiary20"></div>
+          <div className="h-20 w-20 rounded bg-tertiary30"></div>
+          <div className="h-20 w-20 rounded bg-tertiary40"></div>
+          <div className="h-20 w-20 rounded bg-tertiary50"></div>
+          <div className="h-20 w-20 rounded bg-tertiary60"></div>
+          <div className="h-20 w-20 rounded bg-tertiary70"></div>
+          <div className="h-20 w-20 rounded bg-tertiary80"></div>
+          <div className="h-20 w-20 rounded bg-tertiary90"></div>
+          <div className="h-20 w-20 rounded bg-tertiary95"></div>
+          <div className="h-20 w-20 rounded bg-tertiary99"></div>
+          <div className="h-20 w-20 rounded bg-tertiary100"></div>
+        </div>
+
+        <h2 className="title-medium">Error palette</h2>
+        <div className="flex gap-2">
+          <div className="h-20 w-20 rounded bg-error0"></div>
+          <div className="h-20 w-20 rounded bg-error10"></div>
+          <div className="h-20 w-20 rounded bg-error20"></div>
+          <div className="h-20 w-20 rounded bg-error30"></div>
+          <div className="h-20 w-20 rounded bg-error40"></div>
+          <div className="h-20 w-20 rounded bg-error50"></div>
+          <div className="h-20 w-20 rounded bg-error60"></div>
+          <div className="h-20 w-20 rounded bg-error70"></div>
+          <div className="h-20 w-20 rounded bg-error80"></div>
+          <div className="h-20 w-20 rounded bg-error90"></div>
+          <div className="h-20 w-20 rounded bg-error95"></div>
+          <div className="h-20 w-20 rounded bg-error99"></div>
+          <div className="h-20 w-20 rounded bg-error100"></div>
+        </div>
+
+        <h2 className="title-medium">Neutral palette</h2>
+        <div className="flex gap-2">
+          <div className="h-20 w-20 rounded bg-neutral0"></div>
+          <div className="h-20 w-20 rounded bg-neutral10"></div>
+          <div className="h-20 w-20 rounded bg-neutral20"></div>
+          <div className="h-20 w-20 rounded bg-neutral30"></div>
+          <div className="h-20 w-20 rounded bg-neutral40"></div>
+          <div className="h-20 w-20 rounded bg-neutral50"></div>
+          <div className="h-20 w-20 rounded bg-neutral60"></div>
+          <div className="h-20 w-20 rounded bg-neutral70"></div>
+          <div className="h-20 w-20 rounded bg-neutral80"></div>
+          <div className="h-20 w-20 rounded bg-neutral90"></div>
+          <div className="h-20 w-20 rounded bg-neutral95"></div>
+          <div className="h-20 w-20 rounded bg-neutral99"></div>
+          <div className="h-20 w-20 rounded bg-neutral100"></div>
+        </div>
+      </Surface>
     </main>
-  )
+  );
 }

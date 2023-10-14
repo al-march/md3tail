@@ -10,9 +10,11 @@ import {
   MD3StateColor,
   MD3PalleteColor,
   MD3Color,
+  MD3FontTokens,
   alphaValue,
   tokensFromSource,
-  MD3FontTokens,
+  FontClasses,
+  PALETTES
 } from './theming';
 
 export {
@@ -24,6 +26,7 @@ export {
   MD3StateColor,
   MD3PalleteColor,
   MD3Color,
+  PALETTES
 };
 
 const SOURCE = '#6750A4';
@@ -57,7 +60,8 @@ export const md3Theme = plugin.withOptions<MD3ThemeConfig | undefined>((options 
       ':root': {
         ...MD3FontTokens,
         ...tokens.palettes,
-      }
+      },
+      ...FontClasses
     });
 
     matchUtilities({

@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+import {md3Theme} from '@md3-ui/theme';
 
 const config: Config = {
   content: [
@@ -6,6 +7,6 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  plugins: [],
+  plugins: [md3Theme({})],
 }
 export default config
