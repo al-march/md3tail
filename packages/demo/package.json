@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@md3-ui/theme": "^0.0.1",
+    "@md3-ui/components": "^0.0.1",
     "clsx": "^2.0.0",
     "next": "13.5.4",
     "react": "^18",
