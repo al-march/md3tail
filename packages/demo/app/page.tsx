@@ -1,156 +1,460 @@
 import clsx from "clsx";
-import { HTMLAttributes } from "react";
-
-const Surface = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => {
-  const classes = clsx(
-    "flex flex-col gap-4 rounded-[16px] border border-outline-variant bg-surface p-4 my-4 overflow-hidden overflow-x-auto",
-    className
-  );
-  return <section className={classes} {...props} />;
-};
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-stretch p-24">
-      <Surface className="w-full">
-        <h2 className="title-large">Surfaces</h2>
-        <div className="flex gap-2">
-          <div className="h-40 w-40 rounded bg-surface"></div>
-          <div className="h-40 w-40 rounded bg-surface-container"></div>
-          <div className="h-40 w-40 rounded bg-surface-container-lowest"></div>
-          <div className="h-40 w-40 rounded bg-surface-container-low"></div>
-          <div className="h-40 w-40 rounded bg-surface-container-high"></div>
-          <div className="h-40 w-40 rounded bg-surface-container-highest"></div>
+    <main className="flex min-h-screen flex-col items-start gap-2 p-2">
+      <div className="max-w-[740px] w-full mx-auto">
+        <p className="title-large">Light Scheme</p>
+
+        <div
+          data-theme="light"
+          className="w-full flex flex-col gap-2 rounded-[16px] overflow-hidden bg-inherit"
+        >
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[110px] p-4 bg-primary">
+              <span className="text-on-primary label-medium">primary</span>
+            </div>
+            <div className="w-full h-[110px] p-4 bg-on-primary">
+              <span className="text-primary label-medium">on primary</span>
+            </div>
+            <div className="w-full h-[110px] p-4 bg-primary-container">
+              <span className="text-on-primary-container label-medium">
+                primary container
+              </span>
+            </div>
+            <div className="w-full h-[110px] p-4 bg-on-primary-container">
+              <span className="text-on-primary label-medium">
+                on primary container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-secondary">
+              <span className="text-on-secondary label-medium">secondary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-secondary">
+              <span className="text-secondary label-medium">on secondary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-secondary-container">
+              <span className="text-on-secondary-container label-medium">
+                secondary container
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-secondary-container">
+              <span className="text-secondary-container label-medium">
+                on Secondary container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-tertiary">
+              <span className="text-on-tertiary label-medium">tertiary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-tertiary">
+              <span className="text-tertiary label-medium">On tertiary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-tertiary-container">
+              <span className="text-on-tertiary-container label-medium">
+                tertiary container
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-tertiary-container">
+              <span className="text-tertiary-container label-medium">
+                On tertiary container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-error">
+              <span className="text-on-error label-medium">error</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-error">
+              <span className="text-error label-medium">On error</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-error-container">
+              <span className="text-on-error-container label-medium">
+                error container
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-error-container">
+              <span className="text-error-container label-medium">
+                On error container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-background">
+              <span className="text-on-background label-medium">
+                background
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-background">
+              <span className="text-background label-medium">
+                On background
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-surface">
+              <span className="text-on-surface label-medium">surface</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-surface">
+              <span className="text-surface label-medium">on surface</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-outline col-start-1 col-end-3">
+              <span className="text-surface label-medium">outline</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-surface-variant">
+              <span className="text-on-surface-variant label-medium">
+                surface variant
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-surface-variant">
+              <span className="text-surface-variant label-medium">
+                on surface variant
+              </span>
+            </div>
+          </div>
         </div>
 
-        <h2 className="title-large">Elevations</h2>
-        <div className="flex gap-4">
-          <div className="h-40 w-40 bg-surface rounded elevation-0"></div>
-          <div className="h-40 w-40 bg-surface rounded elevation-1"></div>
-          <div className="h-40 w-40 bg-surface rounded elevation-2"></div>
-          <div className="h-40 w-40 bg-surface rounded elevation-3"></div>
-          <div className="h-40 w-40 bg-surface rounded elevation-4"></div>
-          <div className="h-40 w-40 bg-surface rounded elevation-5"></div>
-        </div>
-      </Surface>
+        <p className="title-large">Dark Scheme</p>
 
-      <Surface className="w-full">
-        <h2 className="title-large">States</h2>
-        <div className="flex gap-2">
-          <div className="h-40 w-40 rounded bg-primary"></div>
-          <div className="h-40 w-40 rounded bg-primary-hover"></div>
-          <div className="h-40 w-40 rounded bg-primary-focus"></div>
-          <div className="h-40 w-40 rounded bg-primary-drag"></div>
+        <div
+          data-theme="dark"
+          className="w-full flex flex-col gap-2 rounded-[16px] overflow-hidden bg-inherit"
+        >
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[110px] p-4 bg-primary">
+              <span className="text-on-primary label-medium">primary</span>
+            </div>
+            <div className="w-full h-[110px] p-4 bg-on-primary">
+              <span className="text-primary label-medium">on primary</span>
+            </div>
+            <div className="w-full h-[110px] p-4 bg-primary-container">
+              <span className="text-on-primary-container label-medium">
+                primary container
+              </span>
+            </div>
+            <div className="w-full h-[110px] p-4 bg-on-primary-container">
+              <span className="text-on-primary label-medium">
+                on primary container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-secondary">
+              <span className="text-on-secondary label-medium">secondary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-secondary">
+              <span className="text-secondary label-medium">on secondary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-secondary-container">
+              <span className="text-on-secondary-container label-medium">
+                secondary container
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-secondary-container">
+              <span className="text-secondary-container label-medium">
+                on Secondary container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-tertiary">
+              <span className="text-on-tertiary label-medium">tertiary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-tertiary">
+              <span className="text-tertiary label-medium">On tertiary</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-tertiary-container">
+              <span className="text-on-tertiary-container label-medium">
+                tertiary container
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-tertiary-container">
+              <span className="text-tertiary-container label-medium">
+                On tertiary container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-error">
+              <span className="text-on-error label-medium">error</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-error">
+              <span className="text-error label-medium">On error</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-error-container">
+              <span className="text-on-error-container label-medium">
+                error container
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-error-container">
+              <span className="text-error-container label-medium">
+                On error container
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-background">
+              <span className="text-on-background label-medium">
+                background
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-background">
+              <span className="text-background label-medium">
+                On background
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-surface">
+              <span className="text-on-surface label-medium">surface</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-surface">
+              <span className="text-surface label-medium">on surface</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 justify-around">
+            <div className="w-full h-[80px] p-4 bg-outline col-start-1 col-end-3">
+              <span className="text-surface label-medium">outline</span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-surface-variant">
+              <span className="text-on-surface-variant label-medium">
+                surface variant
+              </span>
+            </div>
+            <div className="w-full h-[80px] p-4 bg-on-surface-variant">
+              <span className="text-surface-variant label-medium">
+                on surface variant
+              </span>
+            </div>
+          </div>
         </div>
 
-        <div className="flex gap-2">
-          <div className="h-40 w-40 rounded bg-secondary"></div>
-          <div className="h-40 w-40 rounded bg-secondary-hover"></div>
-          <div className="h-40 w-40 rounded bg-secondary-focus"></div>
-          <div className="h-40 w-40 rounded bg-secondary-drag"></div>
+        <p className="title-large">Tonal Palettes</p>
+
+        <p className="title-small">Primary</p>
+        <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
+          {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
+            <div
+              className={clsx(
+                "flex items-center justify-center",
+                `h-20 w-full bg-primary${tone}`
+              )}
+            >
+              <span
+                className={clsx({
+                  "text-white": tone <= 50,
+                  "text-black": tone > 50,
+                })}
+              >
+                {tone}
+              </span>
+            </div>
+          ))}
         </div>
 
-        <div className="flex gap-2">
-          <div className="h-40 w-40 rounded bg-error"></div>
-          <div className="h-40 w-40 rounded bg-error-hover"></div>
-          <div className="h-40 w-40 rounded bg-error-focus"></div>
-          <div className="h-40 w-40 rounded bg-error-drag"></div>
+        <p className="title-small">Secondary</p>
+        <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
+          {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
+            <div
+              className={clsx(
+                "flex items-center justify-center",
+                `h-20 w-full bg-secondary${tone}`
+              )}
+            >
+              <span
+                className={clsx({
+                  "text-white": tone <= 50,
+                  "text-black": tone > 50,
+                })}
+              >
+                {tone}
+              </span>
+            </div>
+          ))}
         </div>
 
-        <div className="flex gap-2">
-          <div className="h-40 w-40 rounded bg-surface"></div>
-          <div className="h-40 w-40 rounded bg-surface-hover"></div>
-          <div className="h-40 w-40 rounded bg-surface-focus"></div>
-          <div className="h-40 w-40 rounded bg-surface-drag"></div>
-        </div>
-      </Surface>
-
-      <Surface className="w-full gap-1">
-        <h2 className="title-medium">Primary palette</h2>
-        <div className="flex gap-2">
-          <div className="h-20 w-20 rounded bg-primary0"></div>
-          <div className="h-20 w-20 rounded bg-primary10"></div>
-          <div className="h-20 w-20 rounded bg-primary20"></div>
-          <div className="h-20 w-20 rounded bg-primary30"></div>
-          <div className="h-20 w-20 rounded bg-primary40"></div>
-          <div className="h-20 w-20 rounded bg-primary50"></div>
-          <div className="h-20 w-20 rounded bg-primary60"></div>
-          <div className="h-20 w-20 rounded bg-primary70"></div>
-          <div className="h-20 w-20 rounded bg-primary80"></div>
-          <div className="h-20 w-20 rounded bg-primary90"></div>
-          <div className="h-20 w-20 rounded bg-primary95"></div>
-          <div className="h-20 w-20 rounded bg-primary99"></div>
-          <div className="h-20 w-20 rounded bg-primary100"></div>
+        <p className="title-small">Tertiary</p>
+        <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
+          {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
+            <div
+              className={clsx(
+                "flex items-center justify-center",
+                `h-20 w-full bg-tertiary${tone}`
+              )}
+            >
+              <span
+                className={clsx({
+                  "text-white": tone <= 50,
+                  "text-black": tone > 50,
+                })}
+              >
+                {tone}
+              </span>
+            </div>
+          ))}
         </div>
 
-        <h2 className="title-medium">Secondary palette</h2>
-        <div className="flex gap-2">
-          <div className="h-20 w-20 rounded bg-secondary0"></div>
-          <div className="h-20 w-20 rounded bg-secondary10"></div>
-          <div className="h-20 w-20 rounded bg-secondary20"></div>
-          <div className="h-20 w-20 rounded bg-secondary30"></div>
-          <div className="h-20 w-20 rounded bg-secondary40"></div>
-          <div className="h-20 w-20 rounded bg-secondary50"></div>
-          <div className="h-20 w-20 rounded bg-secondary60"></div>
-          <div className="h-20 w-20 rounded bg-secondary70"></div>
-          <div className="h-20 w-20 rounded bg-secondary80"></div>
-          <div className="h-20 w-20 rounded bg-secondary90"></div>
-          <div className="h-20 w-20 rounded bg-secondary95"></div>
-          <div className="h-20 w-20 rounded bg-secondary99"></div>
-          <div className="h-20 w-20 rounded bg-secondary100"></div>
+        <p className="title-small">Error</p>
+        <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
+          {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
+            <div
+              className={clsx(
+                "flex items-center justify-center",
+                `h-20 w-full bg-error${tone}`
+              )}
+            >
+              <span
+                className={clsx({
+                  "text-white": tone <= 50,
+                  "text-black": tone > 50,
+                })}
+              >
+                {tone}
+              </span>
+            </div>
+          ))}
         </div>
 
-        <h2 className="title-medium">Tertiary palette</h2>
-        <div className="flex gap-2">
-          <div className="h-20 w-20 rounded bg-tertiary0"></div>
-          <div className="h-20 w-20 rounded bg-tertiary10"></div>
-          <div className="h-20 w-20 rounded bg-tertiary20"></div>
-          <div className="h-20 w-20 rounded bg-tertiary30"></div>
-          <div className="h-20 w-20 rounded bg-tertiary40"></div>
-          <div className="h-20 w-20 rounded bg-tertiary50"></div>
-          <div className="h-20 w-20 rounded bg-tertiary60"></div>
-          <div className="h-20 w-20 rounded bg-tertiary70"></div>
-          <div className="h-20 w-20 rounded bg-tertiary80"></div>
-          <div className="h-20 w-20 rounded bg-tertiary90"></div>
-          <div className="h-20 w-20 rounded bg-tertiary95"></div>
-          <div className="h-20 w-20 rounded bg-tertiary99"></div>
-          <div className="h-20 w-20 rounded bg-tertiary100"></div>
+        <p className="title-small">Neutral</p>
+        <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
+          {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
+            <div
+              className={clsx(
+                "flex items-center justify-center",
+                `h-20 w-full bg-neutral${tone}`
+              )}
+            >
+              <span
+                className={clsx({
+                  "text-white": tone <= 50,
+                  "text-black": tone > 50,
+                })}
+              >
+                {tone}
+              </span>
+            </div>
+          ))}
         </div>
 
-        <h2 className="title-medium">Error palette</h2>
-        <div className="flex gap-2">
-          <div className="h-20 w-20 rounded bg-error0"></div>
-          <div className="h-20 w-20 rounded bg-error10"></div>
-          <div className="h-20 w-20 rounded bg-error20"></div>
-          <div className="h-20 w-20 rounded bg-error30"></div>
-          <div className="h-20 w-20 rounded bg-error40"></div>
-          <div className="h-20 w-20 rounded bg-error50"></div>
-          <div className="h-20 w-20 rounded bg-error60"></div>
-          <div className="h-20 w-20 rounded bg-error70"></div>
-          <div className="h-20 w-20 rounded bg-error80"></div>
-          <div className="h-20 w-20 rounded bg-error90"></div>
-          <div className="h-20 w-20 rounded bg-error95"></div>
-          <div className="h-20 w-20 rounded bg-error99"></div>
-          <div className="h-20 w-20 rounded bg-error100"></div>
+        <p className="title-small">Neutral variant</p>
+        <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
+          {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
+            <div
+              className={clsx(
+                "flex items-center justify-center",
+                `h-20 w-full bg-neutral-variant${tone}`
+              )}
+            >
+              <span
+                className={clsx({
+                  "text-white": tone <= 50,
+                  "text-black": tone > 50,
+                })}
+              >
+                {tone}
+              </span>
+            </div>
+          ))}
         </div>
-
-        <h2 className="title-medium">Neutral palette</h2>
-        <div className="flex gap-2">
-          <div className="h-20 w-20 rounded bg-neutral0"></div>
-          <div className="h-20 w-20 rounded bg-neutral10"></div>
-          <div className="h-20 w-20 rounded bg-neutral20"></div>
-          <div className="h-20 w-20 rounded bg-neutral30"></div>
-          <div className="h-20 w-20 rounded bg-neutral40"></div>
-          <div className="h-20 w-20 rounded bg-neutral50"></div>
-          <div className="h-20 w-20 rounded bg-neutral60"></div>
-          <div className="h-20 w-20 rounded bg-neutral70"></div>
-          <div className="h-20 w-20 rounded bg-neutral80"></div>
-          <div className="h-20 w-20 rounded bg-neutral90"></div>
-          <div className="h-20 w-20 rounded bg-neutral95"></div>
-          <div className="h-20 w-20 rounded bg-neutral99"></div>
-          <div className="h-20 w-20 rounded bg-neutral100"></div>
-        </div>
-      </Surface>
+      </div>
     </main>
   );
 }
+
+/** classes for tailwind palettes */
+const classes = [
+  "bg-primary0",
+  "bg-primary10",
+  "bg-primary20",
+  "bg-primary30",
+  "bg-primary40",
+  "bg-primary50",
+  "bg-primary60",
+  "bg-primary70",
+  "bg-primary80",
+  "bg-primary90",
+  "bg-primary95",
+  "bg-primary99",
+  "bg-primary100",
+
+  "bg-secondary0",
+  "bg-secondary10",
+  "bg-secondary20",
+  "bg-secondary30",
+  "bg-secondary40",
+  "bg-secondary50",
+  "bg-secondary60",
+  "bg-secondary70",
+  "bg-secondary80",
+  "bg-secondary90",
+  "bg-secondary95",
+  "bg-secondary99",
+  "bg-secondary100",
+
+  "bg-tertiary0",
+  "bg-tertiary10",
+  "bg-tertiary20",
+  "bg-tertiary30",
+  "bg-tertiary40",
+  "bg-tertiary50",
+  "bg-tertiary60",
+  "bg-tertiary70",
+  "bg-tertiary80",
+  "bg-tertiary90",
+  "bg-tertiary95",
+  "bg-tertiary99",
+  "bg-tertiary100",
+
+  "bg-error0",
+  "bg-error10",
+  "bg-error20",
+  "bg-error30",
+  "bg-error40",
+  "bg-error50",
+  "bg-error60",
+  "bg-error70",
+  "bg-error80",
+  "bg-error90",
+  "bg-error95",
+  "bg-error99",
+  "bg-error100",
+
+  "bg-neutral0",
+  "bg-neutral10",
+  "bg-neutral20",
+  "bg-neutral30",
+  "bg-neutral40",
+  "bg-neutral50",
+  "bg-neutral60",
+  "bg-neutral70",
+  "bg-neutral80",
+  "bg-neutral90",
+  "bg-neutral95",
+  "bg-neutral99",
+  "bg-neutral100",
+
+  "bg-neutral-variant0",
+  "bg-neutral-variant10",
+  "bg-neutral-variant20",
+  "bg-neutral-variant30",
+  "bg-neutral-variant40",
+  "bg-neutral-variant50",
+  "bg-neutral-variant60",
+  "bg-neutral-variant70",
+  "bg-neutral-variant80",
+  "bg-neutral-variant90",
+  "bg-neutral-variant95",
+  "bg-neutral-variant99",
+  "bg-neutral-variant100",
+];
