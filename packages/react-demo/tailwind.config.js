@@ -17,7 +17,6 @@ module.exports = {
   },
   plugins: [
     md3Theme({
-      source: '#ffb68e',
       stateLayers: {
         hover: 0.08,
         focus: 0.1,
