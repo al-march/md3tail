@@ -1,6 +1,8 @@
 "use client";
 
 import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 enum ThemesMode {
@@ -9,6 +11,7 @@ enum ThemesMode {
 }
 
 export function Sidebar() {
+  const pathname = usePathname();
   const [state, setState] = useState({
     themeMode: ThemesMode.Light,
   });
@@ -39,9 +42,33 @@ export function Sidebar() {
   return (
     <aside className="h-full flex flex-col p-1 py-12">
       <div className="flex flex-col gap-6">
-        <NavigateLink label="Colors" icon="format_paint" />
-        <NavigateLink active label="Typography" icon="custom_typography" />
-        <NavigateLink label="Elevation" icon="invert_colors" />
+        <NavigateLink
+          href="/"
+          active={pathname === "/"}
+          label="Home"
+          icon="home"
+        />
+
+        <br />
+
+        <NavigateLink
+          href="/pages/colors"
+          active={pathname === "/pages/colors"}
+          label="Colors"
+          icon="format_paint"
+        />
+        <NavigateLink
+          href="/pages/typography"
+          active={pathname === "/pages/typography"}
+          label="Typography"
+          icon="custom_typography"
+        />
+        <NavigateLink
+          href="/pages/elevation"
+          active={pathname === "/pages/elevation"}
+          label="Elevation"
+          icon="invert_colors"
+        />
       </div>
 
       <div className="flex-1" />
@@ -58,18 +85,21 @@ export function Sidebar() {
 type NavigateLinkProps = {
   icon: string;
   label: string;
+  href: string;
   active?: boolean;
 };
 
-function NavigateLink({ icon, label, active }: NavigateLinkProps) {
+function NavigateLink({ icon, label, href, active }: NavigateLinkProps) {
   return (
-    <label className="flex flex-col gap-1 items-center cursor-pointer">
-      <button
-        className={clsx("icon-btn py-1 px-4", { "icon-btn-filled": active })}
-      >
-        <span className="material-symbols-outlined">{icon}</span>
-      </button>
-      <span className="label-medium">{label}</span>
-    </label>
+    <Link href={href}>
+      <label className="flex flex-col gap-1 items-center cursor-pointer">
+        <button
+          className={clsx("icon-btn py-1 px-4", { "icon-btn-filled": active })}
+        >
+          <span className="material-symbols-outlined">{icon}</span>
+        </button>
+        <span className="label-medium">{label}</span>
+      </label>
+    </Link>
   );
 }

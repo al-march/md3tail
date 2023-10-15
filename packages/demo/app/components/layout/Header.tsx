@@ -1,4 +1,4 @@
-import { ThemeGenerator } from "../components/buisness";
+import { ThemeGenerator } from "../ui/buisness";
 
 export function Header() {
   return (

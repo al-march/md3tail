@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Sidebar } from "./layout/Sidebar";
-import { Header } from "./layout/Header";
+import { Sidebar } from "./components/layout/Sidebar";
+import { Header } from "./components/layout/Header";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +17,7 @@ export default function RootLayout({
     <>
       <Head />
       <html lang="en" data-theme="light">
-        <body className="flex flex-col bg-surface-container-highest">
+        <body className="flex flex-col bg-surface-container-highest text-on-surface">
           <div className="flex gap-1">
             <div className="overflow-y-auto h-screen sticky top-0">
               <Sidebar />
