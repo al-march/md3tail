@@ -17,7 +17,7 @@ export const getConfig = (api: PluginAPI): MD3ThemeConfig => {
 
   return {
     stateLayers: {
-      hover: config.hover || 'hover',
+      hover: config.hover || '8%',
       press: config.press || '10%',
       focus: config.focus || '10%',
       drag: config.drag || '16%',
