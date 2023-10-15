@@ -1,4 +1,10 @@
 import clsx from "clsx";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "MD3 ui | Colors",
+  description: "Colors documentation for npm package @md3/ui",
+};
 
 export default function Page() {
   return (

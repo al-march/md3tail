@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "MD3 ui | Elevation",
+  description: "Elevation documentation for npm package @md3/ui",
+};
+
 export default function Page() {
   return (
     <div className="flex items-start gap-2 h-full">
