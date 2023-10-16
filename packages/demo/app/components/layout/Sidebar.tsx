@@ -15,7 +15,7 @@ export function Sidebar() {
   };
 
   return (
-    <aside className="h-full flex flex-col p-1 py-12">
+    <aside className="h-full flex flex-col p-1  sm:py-12">
       <div className="flex flex-col gap-6">
         <NavigateLink
           href="/"

@@ -14,14 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="dark">
       <Head />
       <body className="flex flex-col bg-surface-container-highest text-on-surface">
         <div className="flex gap-1">
           <div className="overflow-y-auto h-screen sticky top-0">
             <Sidebar />
           </div>
-          <div className="flex-1 flex flex-col px-8 bg-surface-container rounded-[30px]">
+          <div className="flex-1 flex flex-col p-0 bg-surface-container sm:px-8 sm:rounded-[30px]">
             <div className="bg-surface-container z-10 sticky top-0">
               <Header />
             </div>

@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="flex items-start gap-2 h-full">
-      <aside className="py-4 p-2 sticky top-[80px]">
+    <div className="flex flex-col sm:flex-row items-start gap-2 h-full">
+      <aside className="py-4 p-2 block sm:sticky top-[80px]">
         <ul className="list">
           <li className="list-item">
             <button className="btn btn-text text-on-surface p-2 leading-4">
@@ -38,18 +38,18 @@ export default function Page() {
             className="w-full flex flex-col gap-2 rounded-[16px] overflow-hidden bg-inherit"
           >
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[110px] p-4 bg-primary">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-primary">
                 <span className="text-on-primary label-medium">primary</span>
               </div>
-              <div className="w-full h-[110px] p-4 bg-on-primary">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-on-primary">
                 <span className="text-primary label-medium">on primary</span>
               </div>
-              <div className="w-full h-[110px] p-4 bg-primary-container">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-primary-container">
                 <span className="text-on-primary-container label-medium">
                   primary container
                 </span>
               </div>
-              <div className="w-full h-[110px] p-4 bg-on-primary-container">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-on-primary-container">
                 <span className="text-on-primary label-medium">
                   on primary container
                 </span>
@@ -57,22 +57,22 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-secondary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-secondary">
                 <span className="text-on-secondary label-medium">
                   secondary
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-secondary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-secondary">
                 <span className="text-secondary label-medium">
                   on secondary
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-secondary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-secondary-container">
                 <span className="text-on-secondary-container label-medium">
                   secondary container
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-secondary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-secondary-container">
                 <span className="text-secondary-container label-medium">
                   on Secondary container
                 </span>
@@ -80,18 +80,18 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-tertiary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-tertiary">
                 <span className="text-on-tertiary label-medium">tertiary</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-tertiary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-tertiary">
                 <span className="text-tertiary label-medium">On tertiary</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-tertiary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-tertiary-container">
                 <span className="text-on-tertiary-container label-medium">
                   tertiary container
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-tertiary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-tertiary-container">
                 <span className="text-tertiary-container label-medium">
                   On tertiary container
                 </span>
@@ -99,18 +99,18 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-error">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-error">
                 <span className="text-on-error label-medium">error</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-error">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-error">
                 <span className="text-error label-medium">On error</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-error-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-error-container">
                 <span className="text-on-error-container label-medium">
                   error container
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-error-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-error-container">
                 <span className="text-error-container label-medium">
                   On error container
                 </span>
@@ -118,34 +118,34 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-background">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-background">
                 <span className="text-on-background label-medium">
                   background
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-background">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-background">
                 <span className="text-background label-medium">
                   On background
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-surface">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-surface">
                 <span className="text-on-surface label-medium">surface</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-surface">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-surface">
                 <span className="text-surface label-medium">on surface</span>
               </div>
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-outline col-start-1 col-end-3">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-outline col-start-1 col-end-3">
                 <span className="text-surface label-medium">outline</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-surface-variant">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-surface-variant">
                 <span className="text-on-surface-variant label-medium">
                   surface variant
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-surface-variant">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-surface-variant">
                 <span className="text-surface-variant label-medium">
                   on surface variant
                 </span>
@@ -160,18 +160,18 @@ export default function Page() {
             className="w-full flex flex-col gap-2 rounded-[16px] overflow-hidden bg-inherit"
           >
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[110px] p-4 bg-primary">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-primary">
                 <span className="text-on-primary label-medium">primary</span>
               </div>
-              <div className="w-full h-[110px] p-4 bg-on-primary">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-on-primary">
                 <span className="text-primary label-medium">on primary</span>
               </div>
-              <div className="w-full h-[110px] p-4 bg-primary-container">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-primary-container">
                 <span className="text-on-primary-container label-medium">
                   primary container
                 </span>
               </div>
-              <div className="w-full h-[110px] p-4 bg-on-primary-container">
+              <div className="w-full h-[110px] p-1 sm:p-4 bg-on-primary-container">
                 <span className="text-on-primary label-medium">
                   on primary container
                 </span>
@@ -179,22 +179,22 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-secondary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-secondary">
                 <span className="text-on-secondary label-medium">
                   secondary
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-secondary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-secondary">
                 <span className="text-secondary label-medium">
                   on secondary
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-secondary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-secondary-container">
                 <span className="text-on-secondary-container label-medium">
                   secondary container
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-secondary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-secondary-container">
                 <span className="text-secondary-container label-medium">
                   on Secondary container
                 </span>
@@ -202,18 +202,18 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-tertiary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-tertiary">
                 <span className="text-on-tertiary label-medium">tertiary</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-tertiary">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-tertiary">
                 <span className="text-tertiary label-medium">On tertiary</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-tertiary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-tertiary-container">
                 <span className="text-on-tertiary-container label-medium">
                   tertiary container
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-tertiary-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-tertiary-container">
                 <span className="text-tertiary-container label-medium">
                   On tertiary container
                 </span>
@@ -221,18 +221,18 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-error">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-error">
                 <span className="text-on-error label-medium">error</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-error">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-error">
                 <span className="text-error label-medium">On error</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-error-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-error-container">
                 <span className="text-on-error-container label-medium">
                   error container
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-error-container">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-error-container">
                 <span className="text-error-container label-medium">
                   On error container
                 </span>
@@ -240,34 +240,34 @@ export default function Page() {
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-background">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-background">
                 <span className="text-on-background label-medium">
                   background
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-background">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-background">
                 <span className="text-background label-medium">
                   On background
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-surface">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-surface">
                 <span className="text-on-surface label-medium">surface</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-surface">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-surface">
                 <span className="text-surface label-medium">on surface</span>
               </div>
             </div>
 
             <div className="grid grid-cols-4 justify-around">
-              <div className="w-full h-[80px] p-4 bg-outline col-start-1 col-end-3">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-outline col-start-1 col-end-3">
                 <span className="text-surface label-medium">outline</span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-surface-variant">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-surface-variant">
                 <span className="text-on-surface-variant label-medium">
                   surface variant
                 </span>
               </div>
-              <div className="w-full h-[80px] p-4 bg-on-surface-variant">
+              <div className="w-full h-[80px] p-1 sm:p-4 bg-on-surface-variant">
                 <span className="text-surface-variant label-medium">
                   on surface variant
                 </span>
