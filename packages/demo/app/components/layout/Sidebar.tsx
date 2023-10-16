@@ -1,42 +1,17 @@
 "use client";
 
+import { useThemeMode, ThemeMode } from "@/app/hooks/ThemeModePrefers";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-
-enum ThemesMode {
-  Dark = "dark",
-  Light = "light",
-}
 
 export function Sidebar() {
+  const [mode, setMode] = useThemeMode();
   const pathname = usePathname();
-  const [state, setState] = useState({
-    themeMode: ThemesMode.Light,
-  });
-
-  useEffect(() => {
-    const themeMode = (document.documentElement.dataset.theme ||
-      "light") as ThemesMode;
-    setState((state) => ({ ...state, themeMode }));
-  }, []);
-
-  useEffect(() => {
-    const html = document.documentElement;
-    if (html && state.themeMode) {
-      html.dataset.theme = state.themeMode;
-    }
-  }, [state.themeMode]);
 
   const toggleTheme = () => {
-    setState((state) => {
-      const themeMode =
-        state.themeMode === ThemesMode.Light
-          ? ThemesMode.Dark
-          : ThemesMode.Light;
-      return { ...state, themeMode };
-    });
+    const toggled = mode === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark;
+    setMode(toggled);
   };
 
   return (
@@ -75,7 +50,7 @@ export function Sidebar() {
 
       <button className="icon-btn" onClick={toggleTheme}>
         <span className="material-symbols-outlined">
-          {state.themeMode === ThemesMode.Light ? "light_mode" : "dark_mode"}
+          {mode === ThemeMode.Light ? "light_mode" : "dark_mode"}
         </span>
       </button>
     </aside>
