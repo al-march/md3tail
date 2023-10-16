@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Header } from "./components/layout/Header";
+import { MobNavigation } from "./components/layout/MobNavigation";
 
 export const metadata: Metadata = {
   title: "MD3 ui | Documentation",
@@ -16,17 +17,21 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <Head />
-      <body className="flex flex-col bg-surface-container-highest text-on-surface">
-        <div className="flex gap-1">
-          <div className="overflow-y-auto h-screen sticky top-0">
+      <body className="flex min-h-screen flex-col bg-surface-container-highest text-on-surface">
+        <div className="flex flex-1 gap-1">
+          <div className="overflow-y-auto hidden md:block h-screen sticky top-0">
             <Sidebar />
           </div>
-          <div className="flex-1 flex flex-col p-0 bg-surface-container sm:px-8 sm:rounded-[30px]">
+          <div className="flex-1 flex flex-col p-0 bg-surface-container sm:px-8 md:rounded-[30px]">
             <div className="bg-surface-container z-10 sticky top-0">
               <Header />
             </div>
-            <div className="flex-1 pb-2 w-full">{children}</div>
+            <div className="pb-2 w-full">{children}</div>
           </div>
+        </div>
+
+        <div className="block md:hidden sticky bottom-0">
+          <MobNavigation />
         </div>
       </body>
     </html>

@@ -28,7 +28,6 @@ export const NavigationBarStyles = (api: PluginAPI) => {
       transition: '0.15s ease all',
 
       '&-button': {
-        minWidth: '104px',
         display: 'inline-flex',
         flexDirection: 'column',
         justifyContent: 'center',

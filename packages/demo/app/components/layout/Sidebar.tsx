@@ -1,5 +1,6 @@
 "use client";
 
+import { ROUTES } from "@/app/constants/routing";
 import { useThemeMode, ThemeMode } from "@/app/hooks/useThemeMode";
 import clsx from "clsx";
 import Link from "next/link";
@@ -17,33 +18,17 @@ export function Sidebar() {
   return (
     <aside className="h-full flex flex-col p-1  sm:py-12">
       <div className="flex flex-col gap-6">
-        <NavigateLink
-          href="/"
-          active={pathname === "/"}
-          label="Home"
-          icon="home"
-        />
-
-        <br />
-
-        <NavigateLink
-          href="/pages/colors"
-          active={pathname === "/pages/colors"}
-          label="Colors"
-          icon="format_paint"
-        />
-        <NavigateLink
-          href="/pages/typography"
-          active={pathname === "/pages/typography"}
-          label="Typography"
-          icon="custom_typography"
-        />
-        <NavigateLink
-          href="/pages/elevation"
-          active={pathname === "/pages/elevation"}
-          label="Elevation"
-          icon="invert_colors"
-        />
+        {ROUTES.map((route) => (
+          <div key={route.path}>
+            <NavigateLink
+              href={route.path}
+              active={pathname === route.path}
+              label={route.label}
+              icon={route.icon}
+            />
+            {route.path === "/" && <br />}
+          </div>
+        ))}
       </div>
 
       <div className="flex-1" />
