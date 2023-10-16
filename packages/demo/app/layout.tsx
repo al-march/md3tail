@@ -15,8 +15,8 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <Head />
       <html lang="en" data-theme="light">
+        <Head />
         <body className="flex flex-col bg-surface-container-highest text-on-surface">
           <div className="flex gap-1">
             <div className="overflow-y-auto h-screen sticky top-0">
