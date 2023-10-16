@@ -9,13 +9,13 @@ export enum ThemeMode {
   Light = "light",
 };
 
-export function useThemeMode(): [ThemeMode, Dispatch<SetStateAction<ThemeMode>>] {
-  const [mode, setMode] = useState<ThemeMode>(getLocalMode() || getSystemMode());
+export function useThemeMode(): [ThemeMode | undefined, Dispatch<SetStateAction<ThemeMode | undefined>>] {
+  const [mode, setMode] = useState<ThemeMode>();
 
   useEffect(() => {
-    const savedMode = localStorage.getItem(THEME_PREFERS_MODE);
+    const savedMode = getLocalMode();
 
-    if (savedMode && isThemeMode(savedMode)) {
+    if (savedMode) {
       setMode(savedMode);
       return;
     }
@@ -32,7 +32,10 @@ export function useThemeMode(): [ThemeMode, Dispatch<SetStateAction<ThemeMode>>]
   }, [mode]);
 
   function getSystemMode() {
-    const matchMode = (mode: ThemeMode) => window.matchMedia(`(prefers-color-scheme: ${mode})`).matches;
+    const matchMode = (mode: ThemeMode) => {
+      return window.matchMedia(`(prefers-color-scheme: ${mode})`).matches;
+    };
+
     if (!!window?.matchMedia) {
       if (matchMode(ThemeMode.Dark)) {
         return ThemeMode.Dark;
@@ -48,13 +51,11 @@ export function useThemeMode(): [ThemeMode, Dispatch<SetStateAction<ThemeMode>>]
     const localMode = localStorage.getItem(THEME_PREFERS_MODE);
     if (localMode && isThemeMode(localMode)) {
       return localMode;
-    } else {
-      return;
     }
   }
 
   function setLocalMode() {
-    localStorage.setItem(THEME_PREFERS_MODE, mode);
+    localStorage.setItem(THEME_PREFERS_MODE, mode || '');
   }
 
   function applyMode(mode: ThemeMode) {
@@ -64,7 +65,7 @@ export function useThemeMode(): [ThemeMode, Dispatch<SetStateAction<ThemeMode>>]
     }
   }
 
-  function isThemeMode(mode: string): mode is ThemeMode {
+  function isThemeMode(mode = ''): mode is ThemeMode {
     return mode === ThemeMode.Dark || mode === ThemeMode.Light;
   }
 

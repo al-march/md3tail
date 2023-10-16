@@ -1,6 +1,6 @@
 "use client";
 
-import { useThemeMode, ThemeMode } from "@/app/hooks/ThemeModePrefers";
+import { useThemeMode, ThemeMode } from "@/app/hooks/useThemeMode";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

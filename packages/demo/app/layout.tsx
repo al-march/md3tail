@@ -14,24 +14,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <html lang="en" data-theme="light">
-        <Head />
-        <body className="flex flex-col bg-surface-container-highest text-on-surface">
-          <div className="flex gap-1">
-            <div className="overflow-y-auto h-screen sticky top-0">
-              <Sidebar />
-            </div>
-            <div className="flex-1 flex flex-col px-8 bg-surface-container rounded-[30px]">
-              <div className="bg-surface-container z-10 sticky top-0">
-                <Header />
-              </div>
-              <div className="flex-1 pb-2 w-full">{children}</div>
-            </div>
+    <html lang="en" data-theme="light">
+      <Head />
+      <body className="flex flex-col bg-surface-container-highest text-on-surface">
+        <div className="flex gap-1">
+          <div className="overflow-y-auto h-screen sticky top-0">
+            <Sidebar />
           </div>
-        </body>
-      </html>
-    </>
+          <div className="flex-1 flex flex-col px-8 bg-surface-container rounded-[30px]">
+            <div className="bg-surface-container z-10 sticky top-0">
+              <Header />
+            </div>
+            <div className="flex-1 pb-2 w-full">{children}</div>
+          </div>
+        </div>
+      </body>
+    </html>
   );
 }
 
