@@ -5,7 +5,7 @@ type AnchorMenuProps = {
 };
 
 export function AnchorMenu({ children }: AnchorMenuProps) {
-  return <ul className="list w-full md:min-w-[150px]">{children}</ul>;
+  return <ul className="list w-full hidden md:block md:min-w-[150px]">{children}</ul>;
 }
 
 AnchorMenu.Item = Item;

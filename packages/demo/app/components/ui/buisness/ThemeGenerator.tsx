@@ -1,6 +1,6 @@
 "use client";
 import { THEME_SOURCE } from "@/app/constants/theme";
-import { useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import { genTokens } from "@/app/theme/tokens";
 
 const THEME_TOKENS_SOURCE = "theme-tokens";
@@ -8,8 +8,27 @@ type Tokens = ReturnType<typeof genTokens>;
 
 export function ThemeGenerator() {
   const colorPicker = useRef<HTMLInputElement>(null);
+
+  return (
+    <div className="fixed z-10 right-4 bottom-[100px]">
+      <button
+        className="fab fab-primary"
+        onClick={() => {
+          colorPicker.current?.focus();
+          colorPicker.current?.click();
+        }}
+      >
+        <span className="material-symbols-outlined">palette</span>
+
+        <ColorPicker ref={colorPicker} />
+      </button>
+    </div>
+  );
+}
+
+export const ColorPicker = forwardRef<HTMLInputElement>(({}, ref) => {
   const [state, setState] = useState({
-    source: '',
+    source: "",
   });
 
   useEffect(() => {
@@ -47,28 +66,18 @@ export function ThemeGenerator() {
   }
 
   return (
-    <div>
-      <button
-        type="submit"
-        className="icon-btn icon-btn-outlined relative"
-        onClick={() => colorPicker.current?.click()}
-      >
-        <span className="material-symbols-outlined">palette</span>
+    <input
+      ref={ref}
+      type="color"
+      className="absolute bottom-0 left-0 right-0 -z-10 block opacity-0"
+      value={state.source}
+      onInput={(e) => {
+        const source = e.currentTarget?.value;
 
-        <input
-          ref={colorPicker}
-          type="color"
-          className="absolute bottom-0 left-0 right-0 block opacity-0"
-          value={state.source}
-          onInput={(e) => {
-            const source = e.currentTarget?.value;
-
-            if (source !== undefined) {
-              setState((state) => ({ ...state, source }));
-            }
-          }}
-        />
-      </button>
-    </div>
+        if (source !== undefined) {
+          setState((state) => ({ ...state, source }));
+        }
+      }}
+    />
   );
-}
+});

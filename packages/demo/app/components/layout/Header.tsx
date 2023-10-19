@@ -1,6 +1,16 @@
+"use client";
+
+import { ThemeMode, useThemeMode } from "@/app/hooks/useThemeMode";
 import { ThemeGenerator } from "../ui/buisness";
 
 export function Header() {
+  const [mode, setMode] = useThemeMode();
+
+  const toggleTheme = () => {
+    const toggled = mode === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark;
+    setMode(toggled);
+  };
+
   return (
     <header className="bg-inheritz-10 p-4">
       <section className="flex justify-between items-center">
@@ -9,7 +19,13 @@ export function Header() {
         <div className="flex gap-4 items-center">
           <ThemeGenerator />
 
-          <button className="btn btn-filled btn-with-icon elevation-0">
+          <button className="icon-btn" onClick={toggleTheme}>
+            <span className="material-symbols-outlined">
+              {mode === ThemeMode.Light ? "light_mode" : "dark_mode"}
+            </span>
+          </button>
+
+          <button className="icon-btn elevation-0">
             <span className="w-[20px]">
               <svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -20,7 +36,6 @@ export function Header() {
                 />
               </svg>
             </span>
-            <span className="label-medium py-2">Al march</span>
           </button>
         </div>
       </section>

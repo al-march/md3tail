@@ -1,22 +1,15 @@
 "use client";
 
 import { ROUTES } from "@/app/constants/routing";
-import { useThemeMode, ThemeMode } from "@/app/hooks/useThemeMode";
 import clsx from "clsx";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export function Sidebar() {
-  const [mode, setMode] = useThemeMode();
   const pathname = usePathname();
 
-  const toggleTheme = () => {
-    const toggled = mode === ThemeMode.Dark ? ThemeMode.Light : ThemeMode.Dark;
-    setMode(toggled);
-  };
-
   return (
-    <aside className="h-full flex flex-col p-1  sm:py-12">
+    <aside className="h-full flex flex-col p-1 sm:py-12">
       <div className="flex flex-col gap-6">
         {ROUTES.map((route) => (
           <div key={route.path}>
@@ -30,14 +23,6 @@ export function Sidebar() {
           </div>
         ))}
       </div>
-
-      <div className="flex-1" />
-
-      <button className="icon-btn" onClick={toggleTheme}>
-        <span className="material-symbols-outlined">
-          {mode === ThemeMode.Light ? "light_mode" : "dark_mode"}
-        </span>
-      </button>
     </aside>
   );
 }
