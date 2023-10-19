@@ -23,7 +23,7 @@ export default function RootLayout({
             <Sidebar />
           </div>
           <div className="flex-1 flex flex-col p-0 bg-surface-container sm:px-8 md:rounded-[30px]">
-            <div className="bg-surface-container z-10 sticky top-0">
+            <div className="bg-surface-container z-10">
               <Header />
             </div>
             <div className="pb-2 w-full">{children}</div>
