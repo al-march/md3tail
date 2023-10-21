@@ -12,12 +12,14 @@ import {
   MD3Color,
   MD3FontTokens,
   alphaValue,
+  TokensFromSource,
   tokensFromSource,
   FontClasses,
   PALETTES
 } from './theming';
 
 export {
+  TokensFromSource,
   tokensFromSource,
   MD3ThemeConfig,
   MD3Fonts,

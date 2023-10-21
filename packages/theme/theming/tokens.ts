@@ -27,12 +27,18 @@ export enum SurfacesLight {
   SurfaceDim = 87,
 }
 
+export type TokensFromSource = {
+  [ThemeMode.Light]: Record<string, string>;
+  [ThemeMode.Dark]: Record<string, string>;
+  palettes: Record<string, string>;
+};
+
 /**
  * 
  * @param source hex color
  * @returns css tokens with dark and light modes
  */
-export const tokensFromSource = (source: string) => {
+export const tokensFromSource = (source: string): TokensFromSource => {
   const theme = themeFromSourceColor(argbFromHex(source));
 
   return {
