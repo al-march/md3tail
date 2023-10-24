@@ -253,6 +253,7 @@ export default function Page() {
       <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
         {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
           <div
+            key={tone}
             className={clsx(
               "flex items-center justify-center",
               `h-20 w-full bg-primary${tone}`
@@ -274,6 +275,7 @@ export default function Page() {
       <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
         {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
           <div
+            key={tone}
             className={clsx(
               "flex items-center justify-center",
               `h-20 w-full bg-secondary${tone}`
@@ -295,6 +297,7 @@ export default function Page() {
       <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
         {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
           <div
+            key={tone}
             className={clsx(
               "flex items-center justify-center",
               `h-20 w-full bg-tertiary${tone}`
@@ -316,6 +319,7 @@ export default function Page() {
       <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
         {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
           <div
+            key={tone}
             className={clsx(
               "flex items-center justify-center",
               `h-20 w-full bg-error${tone}`
@@ -337,6 +341,7 @@ export default function Page() {
       <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
         {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
           <div
+            key={tone}
             className={clsx(
               "flex items-center justify-center",
               `h-20 w-full bg-neutral${tone}`
@@ -358,6 +363,7 @@ export default function Page() {
       <div className="flex w-full flex-row-reverse rounded justify-around overflow-hidden">
         {[0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 99, 100].map((tone) => (
           <div
+            key={tone}
             className={clsx(
               "flex items-center justify-center",
               `h-20 w-full bg-neutral-variant${tone}`
