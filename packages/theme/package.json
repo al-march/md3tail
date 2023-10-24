@@ -1,14 +1,25 @@
 {
   "name": "@md3-ui/theme",
   "version": "0.0.1",
-  "description": "",
+  "description": "An open source plugin based on tailwindcss built with Material Desing 3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/al-march/md3tail.git",
+    "directory": "packages/theme"
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
   },
-  "author": "",
+  "author": "al-march",
   "license": "MIT",
   "dependencies": {
     "@material/material-color-utilities": "^0.2.7",
