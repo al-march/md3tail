@@ -1,4 +1,4 @@
-# Material Design 3 tailwind
+# Material Design 3 plugin tailwindcss
 
 <img src="preview.jpg" alt="Tailmater UI">
 

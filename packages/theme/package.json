@@ -9,7 +9,7 @@
     "dev": "tsc --watch"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@material/material-color-utilities": "^0.2.7",
     "tailwindcss": "^3.3.3"
