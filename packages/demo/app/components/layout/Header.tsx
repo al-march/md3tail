@@ -14,7 +14,7 @@ export function Header() {
   return (
     <header className="bg-inheritz-10 p-4">
       <section className="flex justify-between items-center">
-        <p className="label-large text-xl">MD3 ui</p>
+        <p className="label-large text-xl">md3tail</p>
 
         <div className="flex gap-4 items-center">
           <ThemeGenerator />
@@ -25,7 +25,7 @@ export function Header() {
             </span>
           </button>
 
-          <button className="icon-btn elevation-0">
+          <a href="https://github.com/al-march/md3tail" target="_blank" className="icon-btn elevation-0">
             <span className="w-[20px]">
               <svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -36,7 +36,7 @@ export function Header() {
                 />
               </svg>
             </span>
-          </button>
+          </a>
         </div>
       </section>
     </header>
