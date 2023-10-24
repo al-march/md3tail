@@ -12,9 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/al-march/md3tail.git",
+    "url": "git+https://github.com/al-march/md3tail.git",
     "directory": "packages/theme"
   },
+  "keywords": [
+    "Tailwindcss",
+    "Tailwind plugin",
+    "Material Design 3",
+    "CSS library"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"

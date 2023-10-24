@@ -1,8 +1,8 @@
 # Material Design 3 plugin tailwindcss
 
-<img src="preview.jpg" alt="Tailmater UI">
+<img src="https://raw.githubusercontent.com/al-march/md3tail/main/packages/theme/preview.jpg" alt="md3tail theme">
 
-It is an open source plugin based on [tailwindcss](https://tailwindcss.com/). It's built with [Material Design 3](https://m3.material.io/) and has the MIT license so you can use it included in a commercial project.
+md3tail theme is an open source plugin based on [tailwindcss](https://tailwindcss.com/). It's built with [Material Design 3](https://m3.material.io/) and has the MIT license so you can use it included in a commercial project.
 
 The plugin generates schema tokens by primary color, creates CSS classes for colors, surfaces, states, elevations and others staff according Material Design 3 
 
