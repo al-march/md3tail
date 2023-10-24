@@ -8,7 +8,7 @@ export type PageLayoutProps = {
 export function PageLayout({ anchorMenu, children }: PageLayoutProps) {
   return (
     <div className="flex flex-col md:flex-row items-start gap-2 h-full">
-      {anchorMenu && (
+      {false && (
         <aside className="py-4 p-2 block md:sticky top-[10px]">
           {anchorMenu}
         </aside>
