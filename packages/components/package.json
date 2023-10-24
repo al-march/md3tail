@@ -1,8 +1,26 @@
 {
   "name": "@md3tail/components",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.ts",
+  "version": "0.0.2",
+  "description": "An open source plugin based on tailwindcss built with Material Desing 3",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/al-march/md3tail.git",
+    "directory": "packages/components"
+  },
+  "keywords": [
+    "Tailwindcss",
+    "Tailwind plugin",
+    "Material Design 3",
+    "CSS library"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
@@ -10,7 +28,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@md3tail/theme": "^0.0.1",
+    "@md3tail/theme": "^0.0.2",
     "tailwindcss": "^3.3.3"
   }
 }
