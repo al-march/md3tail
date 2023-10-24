@@ -14,14 +14,14 @@ Demo is comming...
 
 Install the package:
 
-```npm i @md3-ui/theme```
+```npm i @md3tail/theme```
 
 ## Usage
 Add plugin to plugin's list
 
 ```
 import type { Config } from 'tailwindcss';
-import { md3Theme } from '@md3-ui/theme';
+import { md3Theme } from '@md3tail/theme';
 
 const config: Config = { 
   content: [],

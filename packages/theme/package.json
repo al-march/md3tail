@@ -1,5 +1,5 @@
 {
-  "name": "@md3-ui/theme",
+  "name": "@md3tail/theme",
   "version": "0.0.1",
   "description": "An open source plugin based on tailwindcss built with Material Desing 3",
   "main": "./dist/index.js",

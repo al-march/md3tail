@@ -1,5 +1,5 @@
 import { PluginAPI } from "tailwindcss/types/config";
-import { MD3Color, MD3ThemeConfig } from "@md3-ui/theme";
+import { MD3Color, MD3ThemeConfig } from "@md3tail/theme";
 
 export const Var = <T>(variable: T) => `var(${variable})`;
 

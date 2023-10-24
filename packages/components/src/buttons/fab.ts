@@ -1,4 +1,4 @@
-import { MD3Elevation, MD3Fonts } from "@md3-ui/theme";
+import { MD3Elevation, MD3Fonts } from "@md3tail/theme";
 import { Var, getColor, getState } from "../utils";
 import { PluginAPI } from "tailwindcss/types/config";
 

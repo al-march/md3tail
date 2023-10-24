@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
-import { md3Theme } from '@md3-ui/theme';
-import { md3Components } from '@md3-ui/components';
+import { md3Theme } from '@md3tail/theme';
+import { md3Components } from '@md3tail/components';
 import { THEME_SOURCE } from './app/constants/theme';
 
 const config: Config = { 
