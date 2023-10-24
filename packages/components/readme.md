@@ -6,7 +6,7 @@ md3tail components is an open source plugin based on [tailwindcss](https://tailw
 
 ## Demo
 
-Demo is comming...
+Link to demo: [https://md3tail-demo.vercel.app](https://md3tail-demo.vercel.app/pages/colors)
 
 ## Usage
 Add plugin to plugin's list with @md3tail/theme

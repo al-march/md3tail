@@ -1,6 +1,6 @@
 {
   "name": "@md3tail/components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An open source plugin based on tailwindcss built with Material Desing 3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -28,7 +28,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@md3tail/theme": "^0.0.2",
+    "@md3tail/theme": "^0.0.3",
     "tailwindcss": "^3.3.3"
   }
 }
