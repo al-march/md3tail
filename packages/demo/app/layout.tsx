@@ -5,8 +5,8 @@ import { Header } from "./components/layout/Header";
 import { MobNavigation } from "./components/layout/MobNavigation";
 
 export const metadata: Metadata = {
-  title: "MD3 ui | Documentation",
-  description: "Documentation for npm package @md3/ui",
+  title: "md3tail | Demo",
+  description: "Demo for npm package @md3tail",
 };
 
 export default function RootLayout({

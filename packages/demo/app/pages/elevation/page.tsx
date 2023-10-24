@@ -3,8 +3,8 @@ import { PageLayout } from "../PageLayout";
 import { Surface } from "@/app/components/ui/surface/Surface";
 
 export const metadata: Metadata = {
-  title: "MD3 ui | Elevation",
-  description: "Elevation documentation for npm package @md3/ui",
+  title: "md3tail | Elevation",
+  description: "Elevation Demo for npm package @md3tail",
 };
 
 export default function Page() {

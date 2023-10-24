@@ -4,8 +4,8 @@ import { AnchorMenu } from "../AnchorMenu";
 import { Surface } from "@/app/components/ui/surface/Surface";
 
 export const metadata: Metadata = {
-  title: "MD3 ui | Typography",
-  description: "Typography documentation for npm package @md3/ui",
+  title: "md3tail | Typography",
+  description: "Typography Demo for npm package @md3tail",
 };
 
 export default function Page() {

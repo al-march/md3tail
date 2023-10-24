@@ -4,8 +4,8 @@ import { PageLayout } from "../PageLayout";
 import { AnchorMenu } from "../AnchorMenu";
 
 export const metadata: Metadata = {
-  title: "MD3 ui | Colors",
-  description: "Colors documentation for npm package @md3/ui",
+  title: "md3tail | Colors",
+  description: "Colors Demo for npm package @md3tail/ui",
 };
 
 export default function Page() {
