@@ -8,7 +8,7 @@ The plugin generates schema tokens by primary color, creates CSS classes for col
 
 ## Demo
 
-Link to demo: [https://md3tail-demo.vercel.app](https://md3tail-demo.vercel.app/pages/colors)
+Link to demo: [https://md3tail.vercel.app](https://md3tail.vercel.app/)
 
 ## Installation
 
