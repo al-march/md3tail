@@ -15,7 +15,7 @@ import { MD3ThemeConfig } from '../config';
 export const alphaValue = '<alpha-value>';
 
 const getColor = <T extends Color>(color: T) => (
-  `rgb(var(--md-sys-color-${color}) / ${alphaValue})`
+  `var(--md-sys-color-${color})`
 );
 
 const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
@@ -40,7 +40,7 @@ const getColors = (config: MD3ThemeConfig): Record<MD3Color, string> => {
     return CORE_COLORS.reduce((acc, coreColor) => {
       PALETTES.forEach(palette => {
         const key: MD3PalleteColor = `${coreColor}${palette}`;
-        acc[key] = `rgb(var(--md-ref-palette-${coreColor}${palette}) / ${alphaValue})`;
+        acc[key] = `var(--md-ref-palette-${coreColor}${palette})`;
       });
       return acc;
     }, {} as Record<MD3PalleteColor, string>);

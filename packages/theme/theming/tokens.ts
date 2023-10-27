@@ -1,4 +1,4 @@
-import { argbFromHex, rgbaFromArgb, themeFromSourceColor, Theme } from "@material/material-color-utilities";
+import { argbFromHex, rgbaFromArgb, themeFromSourceColor, Theme, hexFromArgb } from "@material/material-color-utilities";
 import { PALETTES } from './base';
 import { Elevations } from './elevations';
 
@@ -69,9 +69,9 @@ function genModTokens(theme: Theme, mode: ThemeMode) {
 
   Object.entries(scheme.toJSON()).forEach(([key, value]) => {
     const token = toKebabCase(key);
-    const { r, g, b } = rgbaFromArgb(value);
+    const rgb = toRGBString(value);
 
-    variables[`--md-sys-color-${token}-${mode}`] = `${r} ${g} ${b}`;
+    variables[`--md-sys-color-${token}-${mode}`] = rgb;
   });
   return variables;
 }
@@ -132,7 +132,7 @@ function genSurfaces(theme: Theme, mode: ThemeMode) {
 
 function toRGBString(color: number) {
   const { r, g, b } = rgbaFromArgb(color);
-  return `${r} ${g} ${b}`;
+  return `rgb(${r}, ${g}, ${b})`;
 }
 
 function toKebabCase(key: string) {
