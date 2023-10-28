@@ -11,6 +11,11 @@ export const ROUTES: RouteParams[] = [
     icon: "home",
   },
   {
+    label: "Components",
+    path: "/pages/components",
+    icon: "cards",
+  }, 
+  {
     label: "Colors",
     path: "/pages/colors",
     icon: "format_paint",

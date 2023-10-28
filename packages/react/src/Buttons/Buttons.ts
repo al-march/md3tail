@@ -1,3 +1,4 @@
+'use client';
 import React from "react";
 import { createComponent } from "@lit-labs/react";
 import { MdFilledButton } from "@material/web/button/filled-button";

@@ -48,7 +48,7 @@ export const NavigationBar = ({
   ...others
 }: NavigationBarProps) => {
   const classes = clsx(
-    "inline-flex w-full items-center justify-between justify-evenly p-1 gap-4",
+    "inline-flex w-full items-center justify-between justify-evenly p-1 gap-1",
     className
   );
   const [state, setState] = useState<NavigationBarCtx["state"]>({
