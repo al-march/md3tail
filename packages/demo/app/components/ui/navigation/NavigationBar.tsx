@@ -1,5 +1,6 @@
 "use client";
 
+import { Icon, Ripple } from "@md3tail/react";
 import clsx from "clsx";
 import {
   ButtonHTMLAttributes,
@@ -46,7 +47,10 @@ export const NavigationBar = ({
   onValueChange = () => {},
   ...others
 }: NavigationBarProps) => {
-  const classes = clsx("md-navigation-bar", className);
+  const classes = clsx(
+    "inline-flex w-full items-center justify-between justify-evenly p-1 gap-4",
+    className
+  );
   const [state, setState] = useState<NavigationBarCtx["state"]>({
     active,
     buttons: [],
@@ -124,24 +128,30 @@ const NavigationBarButton = ({
     }
   }
 
-  const classes = clsx(
-    "md-navigation-bar-button",
-    {
-      "md-navigation-bar-button-active": active,
-    },
-    className
-  );
-
   return (
     <button
       onClick={setActive}
+      className={clsx(
+        "flex flex-col p-2 items-center relative flex-1 w-full rounded",
+        className
+      )}
       ref={button}
-      className={classes}
       value={value}
       {...others}
     >
-      <span className="md-navigation-bar-button-icon">{icon}</span>
-      <label className="md-navigation-bar-button-label">{label}</label>
+      <div
+        className={clsx(
+          "px-6 rounded-2xl transition-colors duration-200 relative",
+          {
+            "bg-primary": active,
+            "text-on-primary": active,
+          }
+        )}
+      >
+        <Icon>{icon}</Icon>
+        <Ripple />
+      </div>
+      <label className="label-medium">{label}</label>
     </button>
   );
 };

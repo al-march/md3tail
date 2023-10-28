@@ -20,7 +20,7 @@ export function MobNavigation() {
   return (
     <NavigationBar active={active} className="w-full bg-surface-container-low">
       {ROUTES.map((route) => (
-        <Link tabIndex={-1} href={route.path} key={route.path}>
+        <Link tabIndex={-1} href={route.path} key={route.path} className="flex-1">
           <NavigationBar.Button
             label={route.label}
             icon={<Icon icon={route.icon} />}
