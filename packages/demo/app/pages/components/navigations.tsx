@@ -8,12 +8,12 @@ import {
   Menu,
   MenuItem,
   PrimaryTab,
-  Row,
   SecondaryTab,
   SubMenu,
   Tabs,
 } from "@md3tail/react";
 import { IconLink, Label } from "./shared/typography";
+import { Row } from "@/app/components/layout/Row";
 
 export const Navigations = () => {
   return (

@@ -11,9 +11,9 @@ import {
   IconButton,
   OutlinedButton,
   OutlinedIconButton,
-  Row,
   TextButton,
 } from "@md3tail/react";
+import { Row } from "@/app/components/layout/Row";
 
 export const Actions = () => {
   return (

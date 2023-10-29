@@ -20,7 +20,7 @@ export const HydrationStop: FC = () => {
   return (
     <div
       id="globalLoader"
-      className="bg-surface-dim transition-colors duration-300 fixed top-0 left-0 bottom-0 right-0 z-50 flex items-center justify-center"
+      className="bg-surface-dim transition-colors duration-300 fixed top-0 left-0 bottom-0 w-full z-50 flex items-center justify-center"
     >
       <span className="loader" />
     </div>

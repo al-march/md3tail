@@ -6,12 +6,12 @@ import {
   OutlinedSelect,
   OutlinedTextField,
   Radio,
-  Row,
   SelectOption,
   Slider,
   Switch,
 } from "@md3tail/react";
 import { IconLink, Label } from "./shared/typography";
+import { Row } from "@/app/components/layout/Row";
 
 const options = [
   {

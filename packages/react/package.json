@@ -1,6 +1,6 @@
 {
   "name": "@md3tail/react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An open ui library for React based on Material Design 3 web components",
   "type": "module",
   "files": [

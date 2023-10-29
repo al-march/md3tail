@@ -18,5 +18,3 @@ export * from './Slider/Slider';
 export * from './Switch/Switch';
 export * from './Tabs/Tabs';
 export * from './TextField/TextField';
-
-export * from './Utils';

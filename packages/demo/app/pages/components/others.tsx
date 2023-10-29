@@ -13,11 +13,11 @@ import {
   List,
   ListItem,
   MdDialog,
-  Row,
   SuggestionChip,
   TextButton,
 } from "@md3tail/react";
 import { IconLink, Label } from "./shared/typography";
+import { Row } from "@/app/components/layout/Row";
 
 export const Others = () => {
   return (
@@ -60,7 +60,7 @@ export const Others = () => {
               <Label>Progress</Label>
             </Row>
 
-            <Row>
+            <Row className="overflow-hidden w-full" wrap>
               <CircularProgress indeterminate></CircularProgress>
               <CircularProgress fourColor indeterminate></CircularProgress>
               <CircularProgress value={0.25}></CircularProgress>
