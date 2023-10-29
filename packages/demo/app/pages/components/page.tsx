@@ -2,6 +2,7 @@ import { PageLayout } from "../PageLayout";
 import { Title } from "./shared/typography";
 import { Actions } from "./actions";
 import { Inputs } from "./inputs";
+import { Navigations } from "./navigations";
 
 export default function Page() {
   return (
@@ -11,6 +12,9 @@ export default function Page() {
 
       <Title>Form</Title>
       <Inputs />
+
+      <Title>Navigation</Title>
+      <Navigations />
     </PageLayout>
   );
 }

@@ -9,5 +9,7 @@ export * from './Slider/Slider';
 export * from './Switch/Switch';
 export * from './Radio/Radio';
 export * from './Checkbox/Checkbox';
+export * from './Tabs/Tabs';
+export * from './Menu/Menu';
 
 export * from './Utils';
