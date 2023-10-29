@@ -19,11 +19,11 @@ export default function RootLayout({
     <html lang="en" data-theme="dark">
       <Head />
       <body className="flex min-h-screen flex-col bg-surface-container-highest text-on-surface">
-        <div className="flex flex-1 gap-1 max-w-[100vw] overflow-x-hidden">
+        <div className="flex flex-1 gap-1">
           <div className="overflow-y-auto hidden md:block h-screen sticky top-0">
             <Sidebar />
           </div>
-          <div className="flex-1 flex flex-col p-0 bg-surface-container sm:px-8 md:rounded-[30px]">
+          <div className="flex-1 flex flex-col overflow-x-hidden w-full p-0 bg-surface-container sm:px-8 md:rounded-[30px]">
             <div className="bg-surface-container z-10">
               <Header />
             </div>
