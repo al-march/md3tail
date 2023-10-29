@@ -5,6 +5,12 @@ import { MdFilledSelect } from "@material/web/select/filled-select";
 import { MdOutlinedSelect } from "@material/web/select/outlined-select";
 import { MdSelectOption } from "@material/web/select/select-option";
 
+export {
+  MdFilledSelect,
+  MdOutlinedSelect,
+  MdSelectOption,
+};
+
 export const FilledSelect = createComponent({
   react: React,
   tagName: "md-filled-select",

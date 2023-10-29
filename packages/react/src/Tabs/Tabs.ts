@@ -6,6 +6,12 @@ import { MdTabs } from "@material/web/tabs/tabs";
 import { MdPrimaryTab } from "@material/web/tabs/primary-tab";
 import { MdSecondaryTab } from "@material/web/tabs/secondary-tab";
 
+export {
+  MdTabs,
+  MdPrimaryTab,
+  MdSecondaryTab,
+};
+
 
 export const Tabs = createComponent({
   react: React,

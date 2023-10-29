@@ -3,7 +3,6 @@ import {
   Checkbox,
   FilledSelect,
   FilledTextField,
-  Icon,
   OutlinedSelect,
   OutlinedTextField,
   Radio,

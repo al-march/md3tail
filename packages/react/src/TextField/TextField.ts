@@ -4,6 +4,10 @@ import { createComponent } from "@lit-labs/react";
 import { MdFilledTextField } from "@material/web/textfield/filled-text-field";
 import { MdOutlinedTextField } from "@material/web/textfield/outlined-text-field";
 
+export {
+  MdFilledTextField,
+  MdOutlinedTextField,
+};
 
 export const FilledTextField = createComponent({
   react: React,

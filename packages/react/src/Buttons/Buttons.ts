@@ -7,6 +7,14 @@ import { MdFilledTonalButton } from "@material/web/button/filled-tonal-button";
 import { MdOutlinedButton } from "@material/web/button/outlined-button";
 import { MdTextButton } from "@material/web/button/text-button";
 
+export {
+  MdFilledButton,
+  MdElevatedButton,
+  MdFilledTonalButton,
+  MdOutlinedButton,
+  MdTextButton,
+};
+
 export const ElevatedButton = createComponent({
   react: React,
   tagName: "md-elevated-button",

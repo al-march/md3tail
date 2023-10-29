@@ -5,6 +5,11 @@ import { createComponent } from "@lit-labs/react";
 import { MdFab } from "@material/web/fab/fab";
 import { MdBrandedFab } from "@material/web/fab/branded-fab";
 
+export {
+  MdFab,
+  MdBrandedFab,
+};
+
 
 export const Fab = createComponent({
   react: React,

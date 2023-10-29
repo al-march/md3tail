@@ -4,6 +4,7 @@ import { Actions } from "./actions";
 import { Inputs } from "./inputs";
 import { Navigations } from "./navigations";
 import { Metadata } from "next";
+import { Others } from "./others";
 
 export const metadata: Metadata = {
   title: "md3tail | Components",
@@ -21,6 +22,9 @@ export default function Page() {
 
       <Title>Navigation</Title>
       <Navigations />
+
+      <Title>Others</Title>
+      <Others />
     </PageLayout>
   );
 }

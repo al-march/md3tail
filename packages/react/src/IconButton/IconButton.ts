@@ -7,6 +7,13 @@ import { MdOutlinedIconButton } from "@material/web/iconbutton/outlined-icon-but
 import { MdFilledIconButton } from "@material/web/iconbutton/filled-icon-button";
 import { MdFilledTonalIconButton } from "@material/web/iconbutton/filled-tonal-icon-button";
 
+export {
+  MdIconButton,
+  MdOutlinedIconButton,
+  MdFilledIconButton,
+  MdFilledTonalIconButton,
+};
+
 export const IconButton = createComponent({
   react: React,
   tagName: "md-icon-button",
