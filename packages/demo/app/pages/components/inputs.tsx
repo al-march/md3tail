@@ -46,7 +46,7 @@ export const Inputs = () => {
     <div className="flex flex-col w-full gap-6 py-2">
       <Surface className="flex flex-col gap-4">
         <Row className="gap-4" justify="around" wrap>
-          <section className="flex-1 min-w-[200px]">
+          <Row direction="column" className="flex-1 gap-2 min-w-[200px]">
             <Row items="center">
               <IconLink href="https://github.com/material-components/material-web/blob/main/docs/components/select.md" />
               <Label>Select</Label>
@@ -113,9 +113,9 @@ export const Inputs = () => {
                 ))}
               </OutlinedSelect>
             </Row>
-          </section>
+          </Row>
 
-          <section className="flex-1 min-w-[200px]">
+          <Row direction="column" className="flex-1 gap-2 min-w-[200px]">
             <Row items="center">
               <IconLink href="https://github.com/material-components/material-web/blob/main/docs/components/text-field.md" />
               <Label>Text field</Label>
@@ -142,9 +142,7 @@ export const Inputs = () => {
                 supportingText="error text"
                 placeholder="placeholder"
                 label="Label"
-              >
-                <Icon slot="suffix">favorite</Icon>
-              </FilledTextField>
+              />
               <OutlinedTextField
                 error
                 supportingText="error text"
@@ -152,7 +150,7 @@ export const Inputs = () => {
                 label="Label"
               />
             </Row>
-          </section>
+          </Row>
         </Row>
 
         <Row className="gap-4" justify="around" wrap>
