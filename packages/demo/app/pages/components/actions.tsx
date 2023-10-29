@@ -20,7 +20,7 @@ export const Actions = () => {
     <div className="flex flex-col w-full gap-6 py-2">
       <Surface>
         <Row className="gap-4" items="start" justify="around" wrap>
-          <Row direction="column" className="gap-4">
+          <Row direction="column" className="gap-4 flex-1">
             <Row items="center">
               <IconLink href="https://github.com/material-components/material-web/blob/main/docs/components/button.md" />
               <Label>Buttons</Label>
@@ -72,7 +72,7 @@ export const Actions = () => {
             </Row>
           </Row>
 
-          <Row direction="column" className="gap-4">
+          <Row direction="column" className="gap-4 flex-1">
             <Row items="center">
               <IconLink href="https://github.com/material-components/material-web/blob/main/docs/components/fab.md" />
               <Label>Fabs </Label>

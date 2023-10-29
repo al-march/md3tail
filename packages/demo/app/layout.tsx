@@ -31,7 +31,7 @@ export default function RootLayout({
           </div>
         </div>
 
-        <div className="block md:hidden sticky bottom-0">
+        <div className="block md:hidden sticky z-10 bottom-0">
           <MobNavigation />
         </div>
 
