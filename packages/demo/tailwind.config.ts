@@ -1,6 +1,5 @@
 import type { Config } from 'tailwindcss';
 import { md3Theme } from '@md3tail/theme';
-import { md3Components } from '@md3tail/components';
 import { THEME_SOURCE } from './app/constants/theme';
 
 const config: Config = { 
@@ -9,6 +8,6 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
-  plugins: [md3Theme({ source: THEME_SOURCE }), md3Components],
+  plugins: [md3Theme({ source: THEME_SOURCE })],
 };
 export default config;

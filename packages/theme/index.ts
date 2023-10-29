@@ -38,6 +38,9 @@ export const md3Theme = plugin.withOptions<MD3ThemeConfig | undefined>((options 
   return function ({ addComponents, addBase, matchUtilities, theme }) {
     const tokens = tokensFromSource(options?.source || SOURCE);
 
+    console.log('tokens', tokens);
+    
+
     const getColor = (color: MD3Color): string => {
       const c = (theme(`colors.${color}`) || '') as string;
       return c.replace(alphaValue, '1');
@@ -159,6 +162,6 @@ export const md3Theme = plugin.withOptions<MD3ThemeConfig | undefined>((options 
         },
       }
     },
-    md3Options: options
+    md3Options: options,
   };
 });

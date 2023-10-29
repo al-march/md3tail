@@ -2,6 +2,7 @@
 import { THEME_SOURCE } from "@/app/constants/theme";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { genTokens } from "@/app/theme/tokens";
+import { Fab, Icon } from "@md3tail/react";
 
 const THEME_TOKENS_SOURCE = "theme-tokens";
 type Tokens = ReturnType<typeof genTokens>;
@@ -11,17 +12,19 @@ export function ThemeGenerator() {
 
   return (
     <div className="fixed z-10 right-4 bottom-[100px]">
-      <button
-        className="fab fab-primary"
-        onClick={() => {
-          colorPicker.current?.focus();
-          colorPicker.current?.click();
-        }}
-      >
-        <span className="material-symbols-outlined">palette</span>
-
+      <div className="relative">
+        <Fab
+          className="relative"
+          variant="primary"
+          onClick={() => {
+            colorPicker.current?.focus();
+            colorPicker.current?.click();
+          }}
+        >
+          <Icon slot="icon">palette</Icon>
+        </Fab>
         <ColorPicker ref={colorPicker} />
-      </button>
+      </div>
     </div>
   );
 }

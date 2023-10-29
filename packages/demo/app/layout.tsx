@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Sidebar } from "./components/layout/Sidebar";
 import { Header } from "./components/layout/Header";
 import { MobNavigation } from "./components/layout/MobNavigation";
+import { HydrationStop } from "./components/layout/GlobalLoader";
 
 export const metadata: Metadata = {
   title: "md3tail | Demo",
@@ -30,9 +31,11 @@ export default function RootLayout({
           </div>
         </div>
 
-        <div className="block md:hidden sticky bottom-0">
+        <div className="block md:hidden sticky z-10 bottom-0">
           <MobNavigation />
         </div>
+
+        <HydrationStop />
       </body>
     </html>
   );

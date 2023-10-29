@@ -14,7 +14,7 @@ export function PageLayout({ anchorMenu, children }: PageLayoutProps) {
         </aside>
       )}
 
-      <main className="flex-1 w-full flex flex-col items-start gap-2 px-4 overflow-hidden rounded-[24px]">
+      <main className="flex-1 w-full flex flex-col items-start gap-2 px-4 rounded-[24px]">
         {children}
       </main>
     </div>
