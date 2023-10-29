@@ -9,9 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@md3tail/components": "^0.0.4",
     "@md3tail/react": "^0.0.1",
-    "@md3tail/theme": "^0.0.4",
+    "@md3tail/theme": "^0.0.6",
     "clsx": "^2.0.0",
     "next": "^14.0.0",
     "react": "^18",
