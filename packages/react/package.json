@@ -1,8 +1,27 @@
 {
   "name": "@md3tail/react",
-  "private": false,
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "description": "An open ui library for React based on Material Design 3 web components",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/al-march/md3tail.git",
+    "directory": "packages/theme"
+  },
+  "keywords": [
+    "React",
+    "React ui library",
+    "Material Design 3",
+    "Material Design React"
+  ],
+  "author": "al-march",
+  "license": "MIT",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
@@ -11,7 +30,9 @@
   "main": "dist/index.js",
   "dependencies": {
     "@lit-labs/react": "^2.1.1",
-    "@material/web": "^1.0.1",
+    "@material/web": "^1.0.1"
+  },
+  "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -19,8 +40,6 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
-    "microbundle": "^0.15.1",
-    "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "typescript": "^5.0.2"
   }
 }
