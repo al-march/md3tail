@@ -4,6 +4,7 @@
   "description": "An open source plugin based on tailwindcss built with Material Desing 3",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "private": true,
   "files": [
     "dist"
   ],
